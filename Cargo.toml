@@ -1,0 +1,7 @@
+[package]
+name = "ws-rs-ex"
+version = "0.1.0"
+authors = ["Joe Howarth <josephehowarth@gmail.com>"]
+
+[dependencies]
+ws = "0.7.8"
