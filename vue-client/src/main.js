@@ -5,8 +5,9 @@ import App from './App.vue'
 import router from './router'
 import websocket from './websocket'
 import store from './store'
+import mapGen from './map_gen/map_gen'
 
-
+document.addEventListener('DOMContentLoaded', mapGen, false)
 
 Vue.config.productionTip = false
 
