@@ -9,6 +9,8 @@
         </v-list-tile>
       </v-list>
     </v-toolbar>
+
+
     <v-list class="pt-0">
       <v-list-tile
           v-for="c in components"

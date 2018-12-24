@@ -4,7 +4,6 @@ import { heightToColor, heightToColorArr } from './render-map'
 
 
 function createScene(mesh, h) {
-  console.log('create scene, mesh h', mesh, h)
 
   // Create a basic BJS Scene object
   var scene = new BABYLON.Scene(engine);
@@ -13,7 +12,7 @@ function createScene(mesh, h) {
   // Create a built-in "sphere" shape; its constructor takes 6 params: name, segment, diameter, scene, updatable, sideOrientation
 
   let camera = initCamera(scene, mesh.Dkm[0]/ mesh.Dkm[1]);
-  console.log(camera)
+  // console.log(camera)
   setPositionScale(camera, [mesh.Dkm[0] / 2, mesh.Dkm[1] / 2], mesh.Dkm[0] * 0.5 )
   camera.attachControl(canvas, false);
 
@@ -95,6 +94,7 @@ function createScene(mesh, h) {
   //   updateColors(colors, mesh, mapMesh, h)
   // })
 
+  updateColorsFun = (h) => updateColors(colors, mesh, mapMesh, h)
 
   let red_wire = new BABYLON.StandardMaterial('wire', scene)
   red_wire.wireframe = true
@@ -112,6 +112,8 @@ function createScene(mesh, h) {
   return scene;
 }
 
+export let updateColorsFun;
+
 
 
 var canvas,
@@ -119,7 +121,6 @@ var canvas,
   scene
 
 export async function init_babylon(mesh, h) {
-  console.log('initBab', mesh)
   // Get the canvas DOM element
   canvas = document.getElementById('map_canvas');
   // Load the 3D engine
@@ -133,6 +134,7 @@ export async function init_babylon(mesh, h) {
   scene = createScene(mesh, h);
 
   window.scene = scene
+  scene.preventDefaultOnPointerDown = false;
 
   // run the render loop
   engine.runRenderLoop(function () {
@@ -150,7 +152,6 @@ export async function init_babylon(mesh, h) {
 
 
 function updateColors (colors, mesh, mapMesh, h) {
-  console.log('hi')
   // let colors = mapMesh.getVerticesData(BABYLON.VertexBuffer.ColorKind);
   for (let i = 0; i < h.length; i++) {
 
@@ -183,7 +184,7 @@ function updateColors (colors, mesh, mapMesh, h) {
 
 
 function indecesFromMesh(mesh) {
-  console.log(mesh.triangles);
+  // console.log(mesh.triangles);
   const { triangles } = mesh;
   let inds = []
   for (let i = 0; i < triangles.length - 2; i += 3) {

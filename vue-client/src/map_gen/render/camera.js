@@ -94,7 +94,6 @@ export function initCamera(scene, ratio) {
           evt.preventDefault();
 
           _this.sensibility = _this._sensibility * camera.orthoRight
-          console.log(_this.sensibility, _this._sensibility, camera.orthoRight)
 
         }
 
@@ -138,7 +137,6 @@ export function initCamera(scene, ratio) {
 
   FreeCameraKeyboardTranslateInput.prototype = { ...orthoInputProto, ...FreeCameraKeyboardTranslateInput.prototype }
 
-  console.log(FreeCameraKeyboardTranslateInput.prototype)
 
   // Connect to camera:
   camera.inputs.add(new FreeCameraKeyboardTranslateInput());
@@ -160,7 +158,5 @@ export function setPositionScale(camera, loc, scale) {
   let orth = camera.inputs.attached.keyboardTranslate
 
   orth.sensibility = orth._sensibility * camera.orthoRight
-  console.log("cam,  ", camera.__proto__.sensibility, camera.__proto__._sensibility, camera.orthoRight)
-  console.log("proto?? ", camera)
   camera.position = new BABYLON.Vector3(loc[0], loc[1], CAMERA_LEVEL)
 }

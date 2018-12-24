@@ -1,6 +1,8 @@
 /*eslint no-unused-vars: "off"*/
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {updateColorsFun} from "./map_gen/render/webgl";
+import {getHeight} from "./map_gen/map_gen";
 
 Vue.use(Vuex);
 
@@ -10,10 +12,16 @@ export default new Vuex.Store({
       isConnected: false,
       message: '',
       reconnectError: false,
+      bufferedMessages: []
     },
-    positions: []
+    mapColorData: [],
+    mesh: {},
   },
   mutations:{
+    setMapData(state, h) {
+      state.mapColorData = h
+      updateColorsFun(h)
+    },
     SOCKET_ONOPEN (state, event)  {
       Vue.prototype.$socket = event.currentTarget
       state.socket.isConnected = true
@@ -24,14 +32,6 @@ export default new Vuex.Store({
     SOCKET_ONERROR (state, event)  {
       console.error(state, event)
     },
-    // default handler called for all methods
-    SOCKET_ONMESSAGE (state, message)  {
-      console.log(message)
-      const d = message.data
-      const json = JSON.parse(d);
-      state.positions = json.inner;
-      state.socket.message = message
-    },
     // mutations for reconnect methods
     SOCKET_RECONNECT(state, count) {
       console.info(state, count)
@@ -39,10 +39,23 @@ export default new Vuex.Store({
     SOCKET_RECONNECT_ERROR(state) {
       state.socket.reconnectError = true;
     },
+    SOCKET_BUFFER_MSG(state, msg) {
+      state.socket.bufferedMessages.push(msg)
+    }
   },
   actions: {
     sendMessage: function(context, message) {
-      Vue.prototype.$socket.send(message)
+      const socket = Vue.prototype.$socket
+      console.log(socket)
+      if (socket.readyState !== 1) {
+        context.commit('SOCKET_BUFFER_MSG', message)
+        if (socket.onopen) {
+          socket.onopen = (e) => context.state.socket.bufferedMessages.forEach(msg => socket.send(msg))
+        }
+      }
+      else {
+        socket.send(message)
+      }
     }
   }
 })

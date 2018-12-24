@@ -1,6 +1,6 @@
-import { add, rand, randDir, rnorm } from './map-utils'
+import {add, rand, randDir, rnorm} from './map-utils'
 import * as d3 from 'd3'
-import { mergeSegments } from './render/render-map'
+import {mergeSegments} from './render/render-map'
 
 
 async function genHM(mesh) {
@@ -17,16 +17,15 @@ async function genHM(mesh) {
   const mtNum = Math.ceil(mountainDensity * area)
 
   console.log('hill nums ', shNum, rhNum, mtNum)
-  console.log('area', mesh.Dkm, area)
 
 
   let h = add(
-    // slope(mesh, randDir(), 1.5),
+    slope(mesh, randDir(), 0.5),
     // cone(mesh, rand(-1.0, -0.5) * 0.0005, [rnorm(W/2, W/6), rnorm(H/2, H/6) ]),
     // cone(mesh, 0.01, [rnorm(W/2, W/6), rnorm(H/2, H/6) ]),
     // cone(mesh, 0.010, [rnorm(W/2, W/8), rnorm(H/2, H/8) ]),
     // cone(mesh, 0.005, [rnorm(W/2, W/6), rnorm(H/2, H/6) ]),
-    cone(mesh, 0.002, [rnorm(W / 2, W / 3), rnorm(H / 2, H / 3)]),
+    cone(mesh, 0.0015, [rnorm(W / 2, W / 3), rnorm(H / 2, H / 3)]),
     mountains(mesh, shNum, 5, 0.7),
     mountains(mesh, shNum, 5, 0.7),
     mountains(mesh, rhNum, 8, 0.4),
@@ -49,6 +48,14 @@ async function genHM(mesh) {
 
   h = fillSinks(mesh, h);
   h = cleanCoast(mesh, h, 3);
+
+  mesh.slope = getSlope(mesh, h);
+  mesh.flux = getFlux(mesh, h);
+  mesh.downhill = downhill(mesh, h);
+  mesh.ER = erosionRate(mesh, h);
+  quick_stats(mesh.flux, "flux");
+  quick_stats(mesh.slope, "slope");
+
   return h;
 
 }
@@ -170,8 +177,9 @@ function getFlux(mesh, h) {
   // console.log("h in getflux", h)
   const dh = downhill(mesh, h);
   let idxs = mesh.triIDs.map((v, i) => i)
-  let flux = h.map((_, i) => 1 / h.length)
-  // console.log('flux', flux)
+  const amt = (mesh.Dkm[0] * mesh.Dkm[1]) / h.length * 0.01 * 0.01
+  // const amt = 1 / h.length
+  let flux = h.map((_, i) => amt)
   idxs.sort((a, b) => h[b] - h[a])
 
   idxs.forEach((j, i) => {
@@ -179,33 +187,37 @@ function getFlux(mesh, h) {
       flux[dh[j]] += flux[j]
     }
   })
+  // quick_stats(flux, "flux")
+  console.log("95th", quantile(flux, 0.95))
   return flux
 }
 
 // redefining slope to use with tri-vertices not triangles
 function getSlope(mesh, h) {
   let dh = downhill(mesh, h);
+  const delta = quantile(h, 0.35);
   return mesh.zero()
     .map((v, i) => {
       let s = mesh.trislope(h, i);
       // console.log(s)
       let slope = Math.sqrt(s[0] * s[0] + s[1] * s[1]);
+      if (h[i] < delta) {
+        slope *= 0.5
+      }
 
       if (slope > 3) {
-        if (mesh.isNearEdge(i)) {
-          return 1.0
-        }
-        return 3.0
+        return Math.min(Math.max(Math.sqrt(0.7 * slope), 3), 7)
       }
       return slope;
-      if (dh[i] < 0) {
-        return 0;
-      } else {
-        // console.log(h[i] - h[dh[i]], i, dh[i], mesh.distance(i, dh[i]))
-        return (h[i] - h[dh[i]]) / mesh.distance(i, dh[i]);
-      }
+      // if (dh[i] < 0) {
+      //   return 0;
+      // } else {
+      //   // console.log(h[i] - h[dh[i]], i, dh[i], mesh.distance(i, dh[i]))
+      //   return (h[i] - h[dh[i]]) / mesh.distance(i, dh[i]);
+      // }
     });
 }
+
 
 function erosionRate(mesh, h) {
   let flux = getFlux(mesh, h);
@@ -334,7 +346,7 @@ function getRivers(mesh, h, limit) {
 
 function cityScore(mesh, h, cities) {
   let coastal = isCoastal(mesh, h);
-  let score = getFlux(mesh, h).map(Math.sqrt).map((s,i, flux) => {
+  let score = mesh.flux.map(Math.sqrt).map((s,i, flux) => {
     let nbs = mesh.adj[i].map(j => flux[j])
     if (coastal[i]) {
       return  0.7 * d3.max(nbs) + 0.3 * s
@@ -431,6 +443,11 @@ function quantile(h, q) {
   let sortedh = h.slice()
   sortedh.sort(d3.ascending);
   return d3.quantile(sortedh, q);
+}
+
+export function quick_stats(h, name) {
+  console.log(name, d3.min(h), d3.max(h), d3.mean(h))
+  console.log(name + " quantiles", quantile(h, 0.25), d3.median(h), quantile(h, 0.75))
 }
 
 export {

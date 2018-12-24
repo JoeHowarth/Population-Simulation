@@ -2,6 +2,7 @@ import * as d3 from 'd3'
 import { drawPoly } from './map-utils'
 import { genRenderFns, heightToColor } from './render/render-map'
 import { normalize } from './heightmap'
+import {init_grid} from "./planar-point-by-vec";
 
 const defaultExtent = [[0, 0], [800, 500]]
 
@@ -13,6 +14,7 @@ const angCutoff = 3.14 * 0.7
  * edge -> tri vertex: triangles[e] -> mesh.point( <> )
  * edge -> other edge: halfedge[e]
  */
+
 
 async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
 
@@ -56,6 +58,11 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   // get i-th triangle vertex
   // associated with mesh.triangles[] NOT new triIDs
   mesh.point_km = i => {
+    return [points[i * 2], points[i * 2 + 1]]
+  }
+
+  mesh.point_km_triIDs = i => {
+    i = mesh.triIDs[i]
     return [points[i * 2], points[i * 2 + 1]]
   }
 
@@ -108,17 +115,30 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   mesh.trislope = triSlope(mesh)
 
 
-  const triPathsPx = mesh.triPaths.map(mesh.pt_km2px)
   mesh = genRenderFns(mesh, ctx)
 
+  calcArea(mesh);
+  init_grid(mesh)
 
   console.timeEnd('everything else in makeMesh')
   console.timeEnd('makeMesh')
-  console.log(mesh)
   return mesh;
 
 }
 
+function calcArea(mesh) {
+  let area = []
+  for (let i = 0; i < mesh.centroids.length; i++) {
+    let points = mesh.triPaths[i]
+    area.push(areaTriangle(points));
+  }
+  mesh.area = area;
+  return area
+}
+
+function areaTriangle([[x1,y1], [x2,y2], [x3,y3]]) {
+  return 0.5 * (x2 - x1)*(y3 - y1) - 0.5 * (x3 - x1)*(y2 - y1)
+}
 
 /// re-index based off triIDs instead of original
 function calcTriIDs(mesh) {
@@ -183,6 +203,54 @@ function calcAdj(mesh) {
   return adj
 }
 
+export function calcAdjVerts(mesh) {
+  const { halfedges, invTriIDs } = mesh
+  let adj = []
+  for (let i = 0; i < halfedges.length; i++) {
+    let e0 = i;
+    let t0_ = invTriIDs.get(edge2tri(i)) // make sure 'good' triangle (necessary?)
+    if (t0_ === undefined) continue
+
+    let e1 = halfedges[e0]
+    if (e1 === -1) continue
+
+    let t1_ = invTriIDs.get(edge2tri(e1))
+    if (t1_ === undefined) continue
+
+    // store point ids
+
+    let p0 = mesh.triangles[e0]
+    let p1 = mesh.triangles[e1]
+
+    adj[p0] = adj[p0] || [];
+    if (!adj[p0].includes(p1)) {
+      adj[p0].push(p1);
+    }
+    adj[p1] = adj[p1] || [];
+    if (!adj[p1].includes(p0)) {
+      adj[p1].push(p0);
+    }
+
+    // store edge ids
+    // adj[e0] = adj[e0] || [];
+    // if (!adj[e0].includes(e1)) {
+    //   adj[e0].push(e1);
+    // }
+    // adj[e1] = adj[e1] || [];
+    // if (!adj[e1].includes(e0)) {
+    //   adj[e1].push(e0);
+    // }
+  }
+
+  for (let i = 0; i < mesh.points.length / 2; i++ ) {
+    if (!adj[i]) {
+      adj[i] = []
+    }
+  }
+  return adj
+
+}
+
 function triSlope(mesh) {
   return (h, i) => {
     let nbs = mesh.adj[i]
@@ -224,7 +292,7 @@ function calcNormPts(mesh) {
   return normPts.map(v => [v[0] * 2.0 - 1.0, v[1] * 2 - 1])
 }
 
-function lengthSquared([ax, ay], [bx, by]) {
+export function lengthSquared([ax, ay], [bx, by]) {
   let dx = ax - bx
   let dy = ay - by
   return dx * dx + dy * dy

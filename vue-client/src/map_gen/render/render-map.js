@@ -6,6 +6,7 @@ import {downhill, getFlux, getRivers} from '../heightmap'
 import * as color from './color'
 import {drawText} from './glText'
 import line2D from './glLine2D'
+import * as BABYLON from 'babylonjs'
 
 const land = d3.interpolateRgbBasis([
   '#A4D475', //
@@ -80,11 +81,37 @@ export async function renderRiversGL(mesh, h, limit, scene) {
 
   lineSystem.color = BABYLON.Color3.Blue()
 
+
+  /*
+  let major_lines = major_paths.map(path => {
+    return path.map(([x, y]) => new BABYLON.Vector3(x, y, -1))
+  })
+  // let lineSystemMajor = BABYLON.MeshBuilder.CreateLineSystem('rivers', {lines: major_lines}, scene)
+  //
+  let color = water_num(0.9)
+  color = new BABYLON.Color3(color.r / 255, color.g / 255, color.b / 255,)
+
+  console.log(water(0.3))
+
+  let line2DSystem = []
+  for (let i = 0; i < major_paths.length; i++) {
+    let line = line2D("", {
+      path: major_lines[i],
+      color: color,
+      width: 0.15
+    }, window.scene)
+
+    line2DSystem.push(line)
+  }
+  */
+
+
   return lineSystem
+
 }
 
 
-export async function renderCitiesGL(mesh, cities) {
+export async function renderCitiesGL(mesh, cities, res) {
   let sites = cities.map(i => mesh.centroids[i])
 
 
@@ -93,36 +120,39 @@ export async function renderCitiesGL(mesh, cities) {
     height: Math.min(mesh.Dkm[1], 512),
   }
 
-  const write = drawText(dim, "white")
+  const write = drawText(dim, {color: "white", res: res})
 
 
   let num_cities = Math.min(sites.length, 5)
-  console.log('num_cities', num_cities)
+  // console.log('num_cities', num_cities)
   for (let i = 0; i < num_cities; i++) {
     let [x, y] = sites[i]
 
-    // console.log(y * 20)
-    // console.log(dim)
-    // textText.drawText("city", x * 20, (dim.height - y) * 20, "100px sans-serif", "white", null, true)
-    write("city", x, y, 100)
-    // ctx.font = ctx.font.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) - 1) + "px");
-    // ctx.fillText(i + 1, x - 8, y - 15)
+    write("City", x, y, 200)
     let box = BABYLON.MeshBuilder.CreatePlane("city box", {width: 2, height: 2,}, window.scene);
-    box.position.x = x
-    box.position.y = y
-    box.position.z = -3
-    // ctx.fillRect(x - 5, y - 5, 10, 10)
+    box.position = new BABYLON.Vector3(x, y, -3);
   }
 
   for (let i = num_cities; i < cities.length - num_cities; i++) {
     let [x, y] = sites[i]
-    // ctx.font = ctx.font.replace(/\d+px/, (parseInt(ctx.font.match(/\d+px/)) - 1) + "px");
-    // ctx.fillText(i + 1, x - 10, y - 10)
-    // ctx.fillRect(x - 3, y - 3, 6, 6)
-    let box = BABYLON.MeshBuilder.CreatePlane("city box", {width: 1.3, height: 1.3,}, window.scene);
-    box.position.x = x
-    box.position.y = y
-    box.position.z = -3
+    write("Town", x, y, 100)
+    let box = BABYLON.MeshBuilder.CreatePlane("town box", {width: 1.3, height: 1.3,}, window.scene);
+    box.position = new BABYLON.Vector3(x, y, -3);
+  }
+
+
+}
+
+export function displayIDs(mesh) {
+  const dim = {
+    width: Math.min(mesh.Dkm[0], 512),
+    height: Math.min(mesh.Dkm[1], 512),
+  }
+
+  const write = drawText(dim, {color: "red", res: 20});
+
+  for (let i = 0; i < mesh.triIDs.length; i++) {
+    write(i, mesh.centroids[i][0] - 0.2, mesh.centroids[i][1] - 0.2, 20)
   }
 }
 
@@ -164,7 +194,7 @@ function _renderCitiesGL(mesh, cities) {
 
 
   let num_cities = Math.min(sites.length, 5)
-  console.log('num_cities', num_cities)
+  // console.log('num_cities', num_cities)
   for (let i = 0; i < num_cities; i++) {
     let [x, y] = sites[i]
 
@@ -208,7 +238,7 @@ function renderCities(mesh, cities) {
   ctx.font = ctx.font.replace(/\d+px/, parseInt(30) + 'px');
 
   let num_cities = Math.min(sites.length, 5)
-  console.log('num_cities', num_cities)
+  // console.log('num_cities', num_cities)
   for (let i = 0; i < num_cities; i++) {
     let [x, y] = sites[i]
 
@@ -290,29 +320,30 @@ function contour(mesh, h, level) {
   return e
 }
 
-export function renderCoastLine(mesh, h, level = 0, thin, smooth) {
+export function renderCoastLine(mesh, h, level = 0, thin, color, smooth) {
   let paths = contour(mesh, h, level)
-  paths = smooth?
-    paths.map(p => (p.map(i => mesh.point_km(i))))
-    : paths.map(p => relaxPathAmt(p.map(i => mesh.point_km(i)), 0.5))
+  paths = smooth ?
+    paths.map(p => relaxPathAmt(p.map(i => mesh.point_km(i)), 0.1))
+    : paths.map(p => (p.map(i => mesh.point_km(i))))
 
 
   let lines = paths.map(path => {
-    return path.map(([x, y]) => new BABYLON.Vector3(x, y, -1))
+    return path.map(([x, y]) => new BABYLON.Vector3(x, y, -3))
   });
 
   let lineSystems = []
   if (thin) {
     lineSystems = BABYLON.MeshBuilder.CreateLineSystem('contour', {lines}, scene)
-    lineSystems.color = new BABYLON.Color3(0.67, 0.67, 0.67)
-    console.log("thin, ", lineSystems)
+    lineSystems.color = color ? color : new BABYLON.Color3(0.67, 0.67, 0.67)
+    // console.log("thin, ", lineSystems)
   }
 
   else {
+    color = color ? color : BABYLON.Color3.Black()
     for (let i = 0; i < lines.length; i++) {
       let lineSystem = line2D("", {
         path: lines[i],
-        color: BABYLON.Color3.Black(),
+        color,
         width: 0.15
       }, window.scene)
       lineSystems.push(lineSystem)

@@ -1,4 +1,5 @@
-mod subscription_system;
+pub mod subscription_system;
+pub mod population;
 
 use std::fmt::Debug;
 use std::marker::PhantomData;
@@ -7,8 +8,8 @@ use serde::Serialize;
 use serde_json::Value;
 use specs::prelude::*;
 
-use ::components::*;
-use ::ws_server::ClientSender;
+use crate::components::*;
+use crate::ws_server::ClientSender;
 
 
 pub struct PrintPosSys;
@@ -20,7 +21,7 @@ impl<'a> System<'a> for PrintPosSys {
         use specs::Join;
 
         for pos in (&position).join() {
-            println!("Current {:?}", &pos);
+//            println!("Current {:?}", &pos);
         }
     }
 }
@@ -59,9 +60,9 @@ impl<T: Serialize + Component + Debug>  SendSys<T> {
 }
 
 #[derive(Serialize, Debug)]
-struct MutationMsg<T: Serialize + Debug> {
-    mutation: String,
-    inner: Vec<T>
+pub struct MutationMsg<T: Serialize + Debug> {
+    pub mutation: String,
+    pub inner: Vec<T>
 }
 
 impl<'a, T: Serialize + Component + Debug> System<'a> for SendSys<T> {

@@ -10,10 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/src/map/mesh.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/map/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/systems/population.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/OpenSans-Regular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/vue.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tiles.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tiles.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/mesh.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/mesh.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systems/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systems/subscription_system.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/subscription_system.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ws_server.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/ws_server.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/components/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/old.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/glText.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/glText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/websocket.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/websocket.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,57 +51,72 @@
     <session id="-932005397">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="5" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="browserslistrc" value="1" />
           <entry key="gitignore" value="1" />
+          <entry key="glsl" value="2" />
           <entry key="html" value="4" />
-          <entry key="js" value="41" />
-          <entry key="json" value="3" />
-          <entry key="rs" value="29" />
+          <entry key="js" value="90" />
+          <entry key="json" value="6" />
+          <entry key="md" value="1" />
+          <entry key="rs" value="73" />
+          <entry key="toml" value="4" />
           <entry key="ts" value="6" />
-          <entry key="vue" value="18" />
+          <entry key="vmoptions" value="1" />
+          <entry key="vue" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="GLSL shader file" value="2" />
           <entry key="HTML" value="4" />
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="41" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Rust" value="29" />
+          <entry key="JSON" value="6" />
+          <entry key="JavaScript" value="90" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Rust" value="73" />
+          <entry key="TOML file" value="4" />
           <entry key="TypeScript" value="6" />
-          <entry key="Vue.js" value="18" />
+          <entry key="Vue.js" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="glsl" value="98" />
           <entry key="html" value="272" />
-          <entry key="js" value="6177" />
-          <entry key="json" value="119" />
-          <entry key="rs" value="32679" />
+          <entry key="js" value="18667" />
+          <entry key="json" value="224" />
+          <entry key="rs" value="62434" />
+          <entry key="toml" value="424" />
           <entry key="txt" value="13" />
-          <entry key="vue" value="4783" />
+          <entry key="vmoptions" value="56" />
+          <entry key="vue" value="5477" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="GLSL shader file" value="98" />
           <entry key="HTML" value="272" />
-          <entry key="JSON" value="119" />
-          <entry key="JavaScript" value="6177" />
-          <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Rust" value="32679" />
-          <entry key="Vue.js" value="4783" />
+          <entry key="JSON" value="224" />
+          <entry key="JavaScript" value="18667" />
+          <entry key="PLAIN_TEXT" value="69" />
+          <entry key="Rust" value="62434" />
+          <entry key="TOML file" value="424" />
+          <entry key="Vue.js" value="5477" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -86,63 +127,161 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.34760705">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/App.vue">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+                <state relative-caret-position="390">
+                  <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
                   <folding>
-                    <element signature="e#863#903#0" expanded="true" />
+                    <element signature="e#0#48#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/main.js">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+                <state relative-caret-position="340">
+                  <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
-                    <element signature="e#33#54#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="692">
-                  <caret line="145" selection-start-line="145" selection-end-line="145" />
-                  <folding>
-                    <element signature="e#0#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="263">
-                  <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#0#65#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/map/mod.rs">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+                <state relative-caret-position="420">
+                  <caret line="219" selection-start-line="219" selection-end-line="219" />
+                  <folding>
+                    <element signature="n#!!block;n#genHM#0" />
+                    <element signature="e#626#704#0" />
+                    <element signature="e#1274#1303#0" />
+                    <element signature="e#1322#1347#0" />
+                    <element signature="n#!!block;n#relax#0" />
+                    <element signature="e#1865#2170#0" />
+                    <element signature="e#1938#2056#0" />
+                    <element signature="e#2082#2124#0" />
+                    <element signature="n#!!block;n#mountains#0" />
+                    <element signature="e#2363#2447#0" />
+                    <element signature="e#2490#2801#0" />
+                    <element signature="e#2571#2778#0" />
+                    <element signature="n#!!block;n#slope#0" />
+                    <element signature="e#2993#3068#0" />
+                    <element signature="n#!!block;n#cone#0" />
+                    <element signature="e#3262#3390#0" />
+                    <element signature="n#!!block;n#normalize#0" />
+                    <element signature="e#3451#3475#0" />
+                    <element signature="n#!!block;n#scale#0" />
+                    <element signature="n#!!block;n#peaky#0" />
+                    <element signature="n#!!block;n#downhill#0" />
+                    <element signature="e#3696#3733#0" />
+                    <element signature="n#!!block;n#downFrom#0;n#!!block;n#downhill#0" />
+                    <element signature="e#3937#4038#0" />
+                    <element signature="e#3985#4032#0" />
+                    <element signature="n#!!block;n#getFlux#0" />
+                    <element signature="e#4472#4534#0" />
+                    <element signature="e#4494#4530#0" />
+                    <element signature="n#!!block;n#getSlope#0" />
+                    <element signature="e#4818#5328#0" />
+                    <element signature="e#4959#4989#0" />
+                    <element signature="e#5012#5085#0" />
+                    <element signature="e#5112#5131#0" />
+                    <element signature="n#!!block;n#erosionRate#0" />
+                    <element signature="e#5496#5683#0" />
+                    <element signature="n#!!block;n#erode#0" />
+                    <element signature="n#!!block;n#doErosion#0" />
+                    <element signature="e#5982#6047#0" />
+                    <element signature="n#!!block;n#findSinks#0" />
+                    <element signature="e#6157#6382#0" />
+                    <element signature="e#6194#6378#0" />
+                    <element signature="e#6225#6272#0" />
+                    <element signature="e#6300#6349#0" />
+                    <element signature="n#!!block;n#fillSinks#0" />
+                    <element signature="e#6540#6648#0" />
+                    <element signature="e#6572#6602#0" />
+                    <element signature="e#6608#6642#0" />
+                    <element signature="e#6652#6696#0" />
+                    <element signature="e#6790#7291#0" />
+                    <element signature="e#6859#7256#0" />
+                    <element signature="e#6970#7250#0" />
+                    <element signature="e#7016#7096#0" />
+                    <element signature="e#7181#7242#0" />
+                    <element signature="n#!!block;n#setSeaLevel#0" />
+                    <element signature="e#7503#7536#0" />
+                    <element signature="n#!!block;n#getRivers#0" />
+                    <element signature="e#7779#7811#0" />
+                    <element signature="e#7879#8213#0" />
+                    <element signature="e#7970#8209#0" />
+                    <element signature="e#8038#8079#0" />
+                    <element signature="e#8085#8203#0" />
+                    <element signature="n#!!block;n#cityScore#0" />
+                    <element signature="e#8401#8561#0" />
+                    <element signature="e#8467#8516#0" />
+                    <element signature="e#8602#9078#0" />
+                    <element signature="e#8665#8714#0" />
+                    <element signature="e#8719#8747#0" />
+                    <element signature="e#8969#9074#0" />
+                    <element signature="n#!!block;n#isCoastal#0" />
+                    <element signature="e#9153#9217#0" />
+                    <element signature="n#!!block;n#placeCity#0" />
+                    <element signature="n#!!block;n#placeCities#0" />
+                    <element signature="e#9585#9622#0" />
+                    <element signature="n#!!block;n#cleanCoast#0" />
+                    <element signature="e#9723#10721#0" />
+                    <element signature="e#9813#10220#0" />
+                    <element signature="e#10006#10140#0" />
+                    <element signature="e#10035#10065#0" />
+                    <element signature="e#10093#10132#0" />
+                    <element signature="e#10297#10703#0" />
+                    <element signature="e#10488#10623#0" />
+                    <element signature="e#10518#10548#0" />
+                    <element signature="e#10576#10615#0" />
+                    <element signature="n#!!block;n#quantile#0" />
+                    <element signature="n#!!block;n#quick_stats#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/App.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="464">
+                  <caret line="141" column="43" selection-start-line="141" selection-start-column="43" selection-end-line="141" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="373">
+                  <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ws_server.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="124">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/tiles.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -150,51 +289,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/map/mesh.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
-                  <folding>
-                    <element signature="e#3892#3893#0" expanded="true" />
-                    <element signature="e#3912#3913#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="574">
-                  <caret line="306" column="57" selection-start-line="306" selection-start-column="57" selection-end-line="306" selection-end-column="57" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="371" column="18" selection-start-line="371" selection-start-column="18" selection-end-line="371" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#55#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/router.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="10" selection-start-line="10" selection-end-line="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vue-client/src/components/Drawer.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+                <state relative-caret-position="863">
+                  <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -203,11 +299,53 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main.rs">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/map/mod.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+                <state relative-caret-position="1980">
+                  <caret line="132" selection-start-line="132" selection-end-line="132" />
+                  <folding>
+                    <element signature="e#5623#5624#0" expanded="true" />
+                    <element signature="e#5687#5688#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/systems/mod.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="89" selection-start-line="89" selection-end-line="89" />
+                  <folding>
+                    <element signature="n#subscription_system#0" />
+                    <element signature="e#50#70#0" />
+                    <element signature="e#296#529#0" />
+                    <element signature="e#358#397#0" />
+                    <element signature="e#398#527#0" />
+                    <element signature="e#464#521#0" />
+                    <element signature="e#800#996#0" />
+                    <element signature="e#907#990#0" />
+                    <element signature="n#!!block;n#SendSys#0" />
+                    <element signature="e#1179#1344#0" />
+                    <element signature="e#1212#1225#0" />
+                    <element signature="e#1234#1342#0" />
+                    <element signature="e#1252#1336#0" />
+                    <element signature="n#!!block;n#MutationMsg#0" />
+                    <element signature="e#1541#1915#0" />
+                    <element signature="e#1651#1690#0" />
+                    <element signature="e#1691#1913#0" />
+                    <element signature="e#1799#1879#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/systems/population.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
                 </state>
               </provider>
             </entry>
@@ -220,8 +358,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
+        <option value="GLSL Shader" />
         <option value="Rust File" />
       </list>
     </option>
@@ -243,26 +382,43 @@
         <option value="$PROJECT_DIR$/src/subscription_system.rs" />
         <option value="$PROJECT_DIR$/src/systems/old_sub_system.rs" />
         <option value="$PROJECT_DIR$/src/systems/dynamic_system_experiments.rs" />
-        <option value="$PROJECT_DIR$/src/systems/subscription_system.rs" />
         <option value="$PROJECT_DIR$/src/components/mod.rs" />
-        <option value="$PROJECT_DIR$/src/components/tiles.rs" />
-        <option value="$PROJECT_DIR$/src/ws_server.rs" />
-        <option value="$PROJECT_DIR$/src/systems/mod.rs" />
-        <option value="$PROJECT_DIR$/src/main.rs" />
         <option value="$PROJECT_DIR$/vue-client/src/connection.js" />
         <option value="$PROJECT_DIR$/vue-client/src/components/Position.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/components/HelloWorld.vue" />
-        <option value="$PROJECT_DIR$/vue-client/src/websocket.js" />
         <option value="$PROJECT_DIR$/vue-client/src/router.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/store.js" />
         <option value="$PROJECT_DIR$/vue-client/src/components/Drawer.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/main.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/App.vue" />
+        <option value="$APPLICATION_CONFIG_DIR$/webstorm.vmoptions" />
+        <option value="$PROJECT_DIR$/vue-client/.eslintrc.js" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
+        <option value="$PROJECT_DIR$/vue-client/networking.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/networking.js" />
+        <option value="$PROJECT_DIR$/vue-client/vue.config..js" />
+        <option value="$PROJECT_DIR$/vue-client/vue.config.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/shaders/text.fs.glsl" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/shaders/text.vs.glsl" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/font.json" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/OpenSans-Regular.json" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/glText.js" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.js" />
+        <option value="$PROJECT_DIR$/src/ws_server.rs" />
+        <option value="$PROJECT_DIR$/src/systems/subscription_system.rs" />
+        <option value="$PROJECT_DIR$/src/systems/population.rs" />
+        <option value="$PROJECT_DIR$/src/map/mesh.rs" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" />
-        <option value="$PROJECT_DIR$/src/map/mesh.rs" />
+        <option value="$PROJECT_DIR$/src/systems/mod.rs" />
+        <option value="$PROJECT_DIR$/vue-client/src/websocket.js" />
+        <option value="$PROJECT_DIR$/src/components/tiles.rs" />
+        <option value="$PROJECT_DIR$/Cargo.toml" />
+        <option value="$PROJECT_DIR$/src/main.rs" />
+        <option value="$PROJECT_DIR$/vue-client/src/store.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/App.vue" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" />
         <option value="$PROJECT_DIR$/src/map/mod.rs" />
       </list>
     </option>
@@ -288,7 +444,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-199" />
+    <option name="x" value="-281" />
     <option name="y" value="-1080" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
@@ -374,13 +530,6 @@
               <item name="ws-rs-ex" type="462c0819:PsiDirectoryNode" />
               <item name="vue-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ws-rs-ex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ws-rs-ex" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="map_gen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -391,13 +540,6 @@
               <item name="map_gen" type="462c0819:PsiDirectoryNode" />
               <item name="render" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ws-rs-ex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ws-rs-ex" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -406,6 +548,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="relax&#9;null&#9;null&#10;tiles&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/components/tiles.rs&#10;flux&#9;null&#9;null&#10;quick_stats&#9;null&#9;null&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;normalize&#9;null&#9;null&#10;toml&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;coast&#9;null&#9;null&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;hei&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/heightmap.js&#10;mapgen&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;mesh.js&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;map&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/store.js&#10;rivers&#9;null&#9;null&#10;font&#9;ACTION&#9;EditorDecreaseFontSize" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -413,13 +556,14 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/vue-client/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/vue-client/src/map_gen/render" />
       <recent name="$PROJECT_DIR$/vue-client/src" />
+      <recent name="$PROJECT_DIR$/vue-client/src/map_gen/render" />
       <recent name="$PROJECT_DIR$/vue-client" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/systems" />
@@ -487,14 +631,13 @@
     <option name="totallyTimeSpent" value="1114000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-199" y="-1080" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <frame x="-281" y="-1080" width="1920" height="1080" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.6039604" visible="true" weight="0.1682641" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4554217" visible="true" weight="0.11022364" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info id="Terminal" order="3" sideWeight="0.5089109" side_tool="true" weight="0.2657082" />
-      <window_info id="Run" order="4" sideWeight="0.3960396" side_tool="true" visible="true" weight="0.1682641" />
+      <window_info id="Terminal" order="3" sideWeight="0.45397225" side_tool="true" weight="0.19222577" />
+      <window_info anchor="bottom" id="Inspection Results" sideWeight="0.49946752" weight="0.32970297" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Bucklescript" order="2" />
@@ -502,11 +645,12 @@
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32970297" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info active="true" anchor="bottom" id="Run" order="12" sideWeight="0.5005325" side_tool="true" visible="true" weight="0.13861386" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -526,25 +670,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/package.json" />
-    <entry file="file://$PROJECT_DIR$/client/webpack.config.js" />
-    <entry file="file://$PROJECT_DIR$/src/ws.rs" />
-    <entry file="file://$PROJECT_DIR$/vue-client/src/shims-vue.d.ts" />
-    <entry file="file://$PROJECT_DIR$/vue-client/src/shims-tsx.d.ts" />
-    <entry file="file://$PROJECT_DIR$/vue-client/src/router.ts" />
-    <entry file="file://$PROJECT_DIR$/vue-client/src/main.ts" />
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store.ts" />
-    <entry file="file://$PROJECT_DIR$/vue-client/.browserslistrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/babel.config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/.postcssrc.js" />
     <entry file="file://$PROJECT_DIR$/vue-client/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/.eslintrc.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html" />
@@ -556,49 +682,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ws_server.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/connection.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/tiles.rs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/systems/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/systems/subscription_system.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/systems/dynamic_system_experiments.rs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/components/Position.vue" />
     <entry file="file://$PROJECT_DIR$/vue-client/src/views/About.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/views/Home.vue" />
-    <entry file="file://$PROJECT_DIR$/vue-client/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/node_modules/vuetify/src/directives/click-outside.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -616,31 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/components/Drawer.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -654,81 +722,454 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/webstorm.vmoptions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/.eslintrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/networking.js" />
+    <entry file="file://$PROJECT_DIR$/vue-client/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/shaders/text.vs.glsl" />
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/shaders/text.fs.glsl" />
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/font.json" />
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/glText.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/OpenSans-Regular.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/vue.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/old.js" />
+    <entry file="file://$PROJECT_DIR$/src/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/glLine2D.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/mesh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#33#54#0" expanded="true" />
+            <element signature="e#350#433#0" />
+            <element signature="e#472#556#0" />
+            <element signature="e#590#674#0" />
+            <element signature="n#!!block;n#heightToColorArr#0" />
+            <element signature="e#833#861#0" />
+            <element signature="n#!!block;n#heightToColor#0" />
+            <element signature="n#!!block;n#renderRivers#0" />
+            <element signature="e#1256#1447#0" />
+            <element signature="e#1369#1426#0" />
+            <element signature="n#!!block;n#renderRiversGL#0" />
+            <element signature="e#1672#1740#0" />
+            <element signature="e#1873#2455#0" />
+            <element signature="n#!!block;n#renderCitiesGL#0" />
+            <element signature="e#2606#2690#0" />
+            <element signature="e#2879#3087#0" />
+            <element signature="e#3153#3364#0" />
+            <element signature="n#!!block;n#displayIDs#0" />
+            <element signature="e#3419#3503#0" />
+            <element signature="e#3609#3687#0" />
+            <element signature="n#!!block;n#_renderCitiesGL#0" />
+            <element signature="e#3797#3881#0" />
+            <element signature="e#4156#4216#0" />
+            <element signature="e#4299#4349#0" />
+            <element signature="e#5021#5574#0" />
+            <element signature="e#5054#5076#0" />
+            <element signature="e#5207#5295#0" />
+            <element signature="e#5509#5528#0" />
+            <element signature="e#5640#6018#0" />
+            <element signature="e#5672#5760#0" />
+            <element signature="n#!!block;n#renderCities#0" />
+            <element signature="e#6495#6698#0" />
+            <element signature="e#6825#7027#0" />
+            <element signature="n#!!block;n#relaxPathAmt#0" />
+            <element signature="e#7217#7397#0" />
+            <element signature="e#7235#7367#0" />
+            <element signature="n#!!block;n#relaxPath#0" />
+            <element signature="e#7556#7742#0" />
+            <element signature="e#7574#7712#0" />
+            <element signature="n#!!block;n#contour#0" />
+            <element signature="e#8008#8497#0" />
+            <element signature="e#8381#8492#0" />
+            <element signature="e#8501#8531#0" />
+            <element signature="e#8606#8646#0" />
+            <element signature="n#!!block;n#renderCoastLine#0" />
+            <element signature="e#8983#9051#0" />
+            <element signature="e#9090#9296#0" />
+            <element signature="e#9305#9565#0" />
+            <element signature="e#9401#9561#0" />
+            <element signature="e#9437#9505#0" />
+            <element signature="n#!!block;n#renderCoastLine2d#0" />
+            <element signature="e#9763#9811#0" />
+            <element signature="e#9882#9911#0" />
+            <element signature="e#9999#10224#0" />
+            <element signature="e#10129#10201#0" />
+            <element signature="n#!!block;n#showNeighbors#0" />
+            <element signature="e#10425#10550#0" />
+            <element signature="n#!!block;n#renderCentroid#0" />
+            <element signature="e#10670#10788#0" />
+            <element signature="n#!!block;n#genRenderFns#0" />
+            <element signature="e#10934#11237#0" />
+            <element signature="e#10949#11233#0" />
+            <element signature="e#11138#11205#0" />
+            <element signature="e#11283#11729#0" />
+            <element signature="e#11477#11683#0" />
+            <element signature="e#11780#12060#0" />
+            <element signature="n#!!block;n#mergeSegments#0" />
+            <element signature="e#12196#12362#0" />
+            <element signature="e#12506#14159#0" />
+            <element signature="e#12531#12911#0" />
+            <element signature="e#12601#12789#0" />
+            <element signature="e#12815#12905#0" />
+            <element signature="e#13007#14087#0" />
+            <element signature="e#13203#13580#0" />
+            <element signature="e#13316#13430#0" />
+            <element signature="e#13478#13572#0" />
+            <element signature="e#13617#13923#0" />
+            <element signature="e#13681#13781#0" />
+            <element signature="e#13815#13915#0" />
+            <element signature="e#13955#14027#0" />
+            <element signature="e#14034#14047#0" />
+            <element signature="e#14106#14154#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js">
+    <entry file="file://$PROJECT_DIR$/src/systems/dynamic_system_experiments.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/systems/subscription_system.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="371" column="18" selection-start-line="371" selection-start-column="18" selection-end-line="371" selection-end-column="18" />
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/systems/population.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/map/mesh.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="n#!!block;n#getHeight#0" />
+            <element signature="n#!!block;n#getMesh#0" />
+            <element signature="n#!!block;n#getER#0" />
+            <element signature="e#1294#1971#0" />
+            <element signature="e#1433#1948#0" />
+            <element signature="e#1572#1641#0" />
+            <element signature="n#!!block;n#setup#0" />
+            <element signature="n#!!block;n#exportMesh#0" />
+            <element signature="n#!!block;n#exportToJsonFile#0" />
+            <element signature="n#!!block;n#getMousePos#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/specs-0.12.3/src/world/entity.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="222" selection-start-line="222" selection-end-line="222" />
+          <folding>
+            <element signature="e#6402#6403#0" expanded="true" />
+            <element signature="e#6423#6424#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ws_server.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cargo.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="464">
+          <caret line="141" column="43" selection-start-line="141" selection-start-column="43" selection-end-line="141" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding>
-            <element signature="e#863#903#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js">
+    <entry file="file://$PROJECT_DIR$/src/components/tiles.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="306" column="57" selection-start-line="306" selection-start-column="57" selection-end-line="306" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/map/mesh.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#3892#3893#0" expanded="true" />
-            <element signature="e#3912#3913#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/map/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="1980">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
+          <folding>
+            <element signature="e#5623#5624#0" expanded="true" />
+            <element signature="e#5687#5688#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="219" selection-start-line="219" selection-end-line="219" />
+          <folding>
+            <element signature="n#!!block;n#genHM#0" />
+            <element signature="e#626#704#0" />
+            <element signature="e#1274#1303#0" />
+            <element signature="e#1322#1347#0" />
+            <element signature="n#!!block;n#relax#0" />
+            <element signature="e#1865#2170#0" />
+            <element signature="e#1938#2056#0" />
+            <element signature="e#2082#2124#0" />
+            <element signature="n#!!block;n#mountains#0" />
+            <element signature="e#2363#2447#0" />
+            <element signature="e#2490#2801#0" />
+            <element signature="e#2571#2778#0" />
+            <element signature="n#!!block;n#slope#0" />
+            <element signature="e#2993#3068#0" />
+            <element signature="n#!!block;n#cone#0" />
+            <element signature="e#3262#3390#0" />
+            <element signature="n#!!block;n#normalize#0" />
+            <element signature="e#3451#3475#0" />
+            <element signature="n#!!block;n#scale#0" />
+            <element signature="n#!!block;n#peaky#0" />
+            <element signature="n#!!block;n#downhill#0" />
+            <element signature="e#3696#3733#0" />
+            <element signature="n#!!block;n#downFrom#0;n#!!block;n#downhill#0" />
+            <element signature="e#3937#4038#0" />
+            <element signature="e#3985#4032#0" />
+            <element signature="n#!!block;n#getFlux#0" />
+            <element signature="e#4472#4534#0" />
+            <element signature="e#4494#4530#0" />
+            <element signature="n#!!block;n#getSlope#0" />
+            <element signature="e#4818#5328#0" />
+            <element signature="e#4959#4989#0" />
+            <element signature="e#5012#5085#0" />
+            <element signature="e#5112#5131#0" />
+            <element signature="n#!!block;n#erosionRate#0" />
+            <element signature="e#5496#5683#0" />
+            <element signature="n#!!block;n#erode#0" />
+            <element signature="n#!!block;n#doErosion#0" />
+            <element signature="e#5982#6047#0" />
+            <element signature="n#!!block;n#findSinks#0" />
+            <element signature="e#6157#6382#0" />
+            <element signature="e#6194#6378#0" />
+            <element signature="e#6225#6272#0" />
+            <element signature="e#6300#6349#0" />
+            <element signature="n#!!block;n#fillSinks#0" />
+            <element signature="e#6540#6648#0" />
+            <element signature="e#6572#6602#0" />
+            <element signature="e#6608#6642#0" />
+            <element signature="e#6652#6696#0" />
+            <element signature="e#6790#7291#0" />
+            <element signature="e#6859#7256#0" />
+            <element signature="e#6970#7250#0" />
+            <element signature="e#7016#7096#0" />
+            <element signature="e#7181#7242#0" />
+            <element signature="n#!!block;n#setSeaLevel#0" />
+            <element signature="e#7503#7536#0" />
+            <element signature="n#!!block;n#getRivers#0" />
+            <element signature="e#7779#7811#0" />
+            <element signature="e#7879#8213#0" />
+            <element signature="e#7970#8209#0" />
+            <element signature="e#8038#8079#0" />
+            <element signature="e#8085#8203#0" />
+            <element signature="n#!!block;n#cityScore#0" />
+            <element signature="e#8401#8561#0" />
+            <element signature="e#8467#8516#0" />
+            <element signature="e#8602#9078#0" />
+            <element signature="e#8665#8714#0" />
+            <element signature="e#8719#8747#0" />
+            <element signature="e#8969#9074#0" />
+            <element signature="n#!!block;n#isCoastal#0" />
+            <element signature="e#9153#9217#0" />
+            <element signature="n#!!block;n#placeCity#0" />
+            <element signature="n#!!block;n#placeCities#0" />
+            <element signature="e#9585#9622#0" />
+            <element signature="n#!!block;n#cleanCoast#0" />
+            <element signature="e#9723#10721#0" />
+            <element signature="e#9813#10220#0" />
+            <element signature="e#10006#10140#0" />
+            <element signature="e#10035#10065#0" />
+            <element signature="e#10093#10132#0" />
+            <element signature="e#10297#10703#0" />
+            <element signature="e#10488#10623#0" />
+            <element signature="e#10518#10548#0" />
+            <element signature="e#10576#10615#0" />
+            <element signature="n#!!block;n#quantile#0" />
+            <element signature="n#!!block;n#quick_stats#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/systems/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="n#subscription_system#0" />
+            <element signature="e#50#70#0" />
+            <element signature="e#296#529#0" />
+            <element signature="e#358#397#0" />
+            <element signature="e#398#527#0" />
+            <element signature="e#464#521#0" />
+            <element signature="e#800#996#0" />
+            <element signature="e#907#990#0" />
+            <element signature="n#!!block;n#SendSys#0" />
+            <element signature="e#1179#1344#0" />
+            <element signature="e#1212#1225#0" />
+            <element signature="e#1234#1342#0" />
+            <element signature="e#1252#1336#0" />
+            <element signature="n#!!block;n#MutationMsg#0" />
+            <element signature="e#1541#1915#0" />
+            <element signature="e#1651#1690#0" />
+            <element signature="e#1691#1913#0" />
+            <element signature="e#1799#1879#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
