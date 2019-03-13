@@ -106,6 +106,17 @@ let last_tri_no_grid_anim = 0
 let last_tri_anim = 0
 
 
+function distanceSquared(mesh, [x, y], t) {
+  let [x2, y2] = mesh.centroids[t]
+  return lengthSquared([x, y], [x2, y2])
+}
+
+let last_query = [0,0]
+export function dist_from_last_query(pt) {
+  const ret = Math.sqrt(lengthSquared(last_query, pt))
+  last_query = pt
+  return ret
+}
 
 /*
 export function pt2triangle_no_grid(mesh, pt) {
@@ -241,16 +252,6 @@ export function pt2triangle_naive(mesh, pt) {
   return tri
 }
 
-function distanceSquared(mesh, [x, y], t) {
-  let [x2, y2] = mesh.centroids[t]
-  return lengthSquared([x, y], [x2, y2])
-}
 
-let last_query = [0,0]
-export function dist_from_last_query(pt) {
-  const ret = Math.sqrt(lengthSquared(last_query, pt))
-  last_query = pt
-  return ret
-}
 
 */

@@ -14,6 +14,16 @@ pub struct TileID {
 }
 
 #[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+pub struct River {
+    pub id: usize
+}
+
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+pub struct LandMass {
+    pub id: usize
+}
+
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
 pub struct TileTopography {
     pub height: f32,
     pub position: Vec2,

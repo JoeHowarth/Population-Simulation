@@ -14,11 +14,18 @@ extern crate serde_json;
 extern crate failure;
 extern crate fnv;
 extern crate anymap;
-
-
-pub mod ws_server;
 #[macro_use]
-pub mod type_string;
+extern crate lazy_static;
+//extern crate config;
+#[macro_use(o, slog_log, slog_trace, slog_debug, slog_info, slog_warn, slog_error)]
+extern crate slog;
+extern crate slog_async;
+extern crate slog_term;
+#[macro_use]
+extern crate slog_scope;
+extern crate chrono;
+
+pub mod networking;
 pub mod systems;
 pub mod components;
 pub mod map;
@@ -37,8 +44,7 @@ use ws::Sender as WsSender;
 use serde::Serialize;
 use specs::prelude::*;
 
-use crate::ws_server::*;
-use crate::type_string::*;
+use crate::networking::*;
 use crate::components::*;
 use crate::systems::*;
 use specs::world::Generation;
@@ -46,6 +52,38 @@ use crate::components::tiles::Tile2Entity;
 use specs::ReadStorage;
 use specs::shred::DynamicSystemData;
 use anymap::AnyMap;
+//use std::sync::RwLock;
 
 
+//lazy_static! {
+//    pub static ref SETTINGS : RwLock<config::Config> = RwLock::new(config::Config::default());
+//}
 
+const TIMESTAMP_FORMAT: &'static str = "%m-%d %H:%M:%S";
+
+/* Log levels
+critical
+error
+warning
+info
+debug
+trace
+*/
+
+pub fn setup_logger() -> slog::Logger {
+    use slog::*;
+
+    let decorator = slog_term::TermDecorator::new()
+        .force_color()
+        .build();
+    let drain = slog_async::Async::new(
+        slog_term::CompactFormat::new(decorator)
+            .use_custom_timestamp(|io: &mut std::io::Write| {
+                write!(io, "{}", chrono::Local::now().format(TIMESTAMP_FORMAT))
+            })
+            .build().fuse()
+    )
+        .build() .fuse();
+
+    slog::Logger::root(drain, o![])
+}

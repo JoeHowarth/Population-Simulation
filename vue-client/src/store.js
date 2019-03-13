@@ -2,7 +2,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {updateColorsFun} from "./map_gen/render/webgl";
-import {getHeight} from "./map_gen/map_gen";
+import {setMesh} from 'map_gen/map_gen';
+import {main} from "./main";
 
 Vue.use(Vuex);
 
@@ -14,14 +15,42 @@ export default new Vuex.Store({
       reconnectError: false,
       bufferedMessages: []
     },
+    sidePanel: {
+      show: false,
+      component: null,
+    },
+    triClicked: false,
     mapColorData: [],
-    mesh: {},
   },
   mutations:{
+    // --------------
+    setHMesh(state, _mesh) {
+      console.log("store", _mesh)
+      setMesh(_mesh)
+      main(_mesh)
+    },
     setMapData(state, h) {
       state.mapColorData = h
       updateColorsFun(h)
     },
+    // ----------------
+
+    toggleSidePanel(state, bool) {
+      if (bool === null) {
+        state.sidePanel.show = !state.sidePanel.show
+      } else {
+        state.sidePanel.show = bool
+      }
+    },
+    setActiveSideComponent(state, comp) {
+      state.sidePanel.component = comp
+      state.sidePanel.show = true
+    },
+
+    triClicked(state, tri) {
+      state.triClicked = tri
+    },
+    // ----------------
     SOCKET_ONOPEN (state, event)  {
       Vue.prototype.$socket = event.currentTarget
       state.socket.isConnected = true

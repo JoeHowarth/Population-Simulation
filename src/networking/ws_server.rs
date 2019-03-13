@@ -8,64 +8,52 @@ use std::time::Duration;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use std::fmt::Debug;
-use crate::type_string::print_type_of;
-use crate::type_string::type_name_of;
 use crate::map::mesh::{Mesh, MeshJson};
 
-static CONNECTION_COUNT: AtomicUsize = ATOMIC_USIZE_INIT;
-const ADDRESS: &str = "127.0.0.1:8090";
+use crate::networking::SubMsg;
+use crate::networking::types::{ReceiveTypeWrapper, MapCompTag};
+use std::collections::VecDeque;
+use crate::networking::CONNECTION_COUNT;
 
-
-use crate::systems::subscription_system::SubMsg;
-
-#[derive(Debug, Serialize, Deserialize)]
-pub enum ReceiveTypeWrapper {
-    Mesh(MeshJson),
-    SubMsg(SubMsg),
-}
 
 pub struct Server {
     pub out: ws::Sender,
     pub ws_in: ThreadOut<WS_sender>,
-    pub mesh_send: ThreadOut<Mesh>,
     pub sub_send: ThreadOut<SubMsg>,
+    pub rec_type_send: ThreadOut<ReceiveTypeWrapper>,
 }
 
 impl Handler for Server {
     fn on_open(&mut self, _: Handshake) -> ws::Result<()> {
-        println!("Connection Establish");
+        info!("Connection Establish");
         let old_connection_count = CONNECTION_COUNT.fetch_add(1, Ordering::SeqCst);
-        println!("live connections: {}", old_connection_count + 1);
+        info!("live connections: {}", CONNECTION_COUNT.load(Ordering::SeqCst));
         Ok(())
     }
     fn on_message(&mut self, msg: Message) -> ws::Result<()> {
-
-        if msg.len() < 100 {println!("Server got message '{}'. ", msg);}
+        if msg.len() < 100 { debug!("Server got message '{}'. ", msg); }
 
         match msg {
             Message::Text(string) => {
-                if string.len() < 200 {println!("Received string: {}", string);}
+                if string.len() < 200 { debug!("Received string: {}", string); }
                 if let Ok(msg) = serde_json::from_str(&string) {
-                    if string.len() < 200 {println!("Received type: {:?}", msg);}
+                    if string.len() < 200 { debug!("Received type: {:?}", msg); }
                     match msg {
-                        ReceiveTypeWrapper::Mesh(meshjson) => {
-                            let mesh: Mesh = meshjson.into();
-                            println!("Mesh Received");
-                            self.mesh_send.send(mesh).expect("Couldn't send mesh");
-                        },
-
                         ReceiveTypeWrapper::SubMsg(sub) => {
-                            println!("Subscription Message Received");
+                            debug!("Subscription Message Received");
                             self.sub_send.send(sub).expect("Couldn't send SubMsg");
+                        }
+
+                        ReceiveTypeWrapper::MapComponentTag(data) => {
+//                            self.rec_type_send.send(msg).expect("sending whole recv type falied");
                         }
                     }
                 } else {
-                    println!("[WS ERROR] Unrecognized message: {}", string);
+                    error!("[WS ERROR] Unrecognized message: {}", string);
                 }
-
             }
             Message::Binary(_) => {
-                println!("[WS ERROR]:Can't receive binary messages yet");
+                error!("[WS ERROR]:Can't receive binary messages yet");
             }
         }
 
@@ -73,53 +61,20 @@ impl Handler for Server {
     }
 
     fn on_close(&mut self, code: CloseCode, reason: &str) {
-        println!("WebSocket closing for ({:?}) {}", code, reason);
-//        println!("Shutting down server after first connection closes.");
-//        self.out.shutdown().unwrap();
+        info!("WebSocket closing for ({:?}) {}", code, reason);
     }
-}
-
-struct SubscribeMsg {
-    mutation: String
 }
 
 pub struct WsReturn {
-    pub server: JoinHandle<Result<(), Error>>,
+    pub server_thread: JoinHandle<Result<(), Error>>,
     pub out: ClientSender,
-    pub mesh_recv: ThreadIn<Mesh>,
     pub sub_recv: ThreadIn<SubMsg>,
+    pub rec_type_recv: ThreadIn<ReceiveTypeWrapper>,
 }
 
-pub fn create_ws_server() -> Result<WsReturn, Error> {
-    let (ws_in, ws_out) = channel();
-    let (mesh_send, mesh_recv) = channel();
-    let (sub_send, sub_recv) = channel();
-
-
-    let server: JoinHandle<Result<(), Error>> = thread::spawn(move || {
-        let ws = WebSocket::new(|out: WS_sender| {
-            Server {
-                out,
-                ws_in: ws_in.clone(),
-                mesh_send: mesh_send.clone(),
-                sub_send: sub_send.clone(),
-            }
-        })?;
-        ws_in.send(ws.broadcaster())?;
-        ws.listen(ADDRESS)?;
-        Ok(())
-    });
-
-    let out = ws_out.recv()?;
-    while CONNECTION_COUNT.load(Ordering::Relaxed) < 1 {
-        wait(10);
-    }
-
-    Ok(WsReturn { server, out: ClientSender(out), mesh_recv, sub_recv })
-}
 
 #[derive(Clone)]
-pub struct ClientSender(WS_sender);
+pub struct ClientSender(pub WS_sender);
 
 impl ClientSender {
     pub fn send_json(&self, json: &str) {
@@ -134,12 +89,12 @@ impl ClientSender {
             .expect(&format!("failed to send {:?}", x));
     }
 
-    pub fn send_with_wrapper<T: Debug + Serialize>(&self, x: &T) {
+    /* pub fn send_with_wrapper<T: Debug + Serialize>(&self, x: &T) {
         let json = TypeWrapper::wrap_and_json(x)
             .expect(&format!("failed to serialize {:?}", x));
         self.0.send(json)
             .expect(&format!("failed to send {:?}", x));
-    }
+    } */
 
     pub fn send_str(&self, s: &str) {
         let json = format!("{{ \"msg\": \"{}\" }}", s);
@@ -149,6 +104,7 @@ impl ClientSender {
 }
 
 
+/*
 #[derive(Serialize, Clone, Debug)]
 struct TypeWrapper<'a, T: Debug + Serialize> {
     inner: &'a T,
@@ -164,17 +120,10 @@ impl<'a, T: Debug + Serialize> TypeWrapper<'a, T> {
         Ok(serde_json::to_string(&wrapper)?)
     }
 }
+*/
 
 
 pub fn wait(millis: u64) {
     thread::sleep(Duration::from_millis(millis));
 }
 
-fn counter(out: WS_sender) {
-    thread::spawn(move || {
-        for i in 0..100000 {
-            wait(100);
-            out.send(i.to_string()).unwrap_or(());
-        }
-    });
-}

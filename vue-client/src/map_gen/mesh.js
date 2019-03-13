@@ -1,7 +1,5 @@
 import * as d3 from 'd3'
-import { drawPoly } from './map-utils'
-import { genRenderFns, heightToColor } from './render/render-map'
-import { normalize } from './heightmap'
+import {normalize} from './heightmap'
 import {init_grid} from "./planar-point-by-vec";
 
 const defaultExtent = [[0, 0], [800, 500]]
@@ -23,16 +21,13 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   let mesh = Object.create(vor.__proto__);
   Object.assign(mesh, vor);
   Object.assign(mesh, vor.delaunay)
-  const { halfedges, points, triangles } = mesh
+  const {halfedges, points, triangles} = mesh
 
   mesh.Dkm = [Wkm, Hkm]
   mesh.Dpx = [Wpx, Hpx]
-  mesh.km2px = Wpx / Wkm
-  mesh.px2km = Wkm / Wpx
   mesh.extent = [+vor.xmax - +vor.xmin, +vor.ymax - +vor.ymin]
   mesh.ctx = ctx
 
-  mesh.pt_km2px = ([x, y]) => [x * mesh.km2px, y * mesh.km2px]
 
 
   // calculate valid triangle ids (ie not slivers)
@@ -47,8 +42,25 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   let adj = calcAdj(mesh)
   mesh.adj = adj
 
+  mesh.triPaths = Array.from(mesh.triIDs)
+    .map(v => mesh.delaunay.trianglePolygon(v))
+  mesh.hullPoly = mesh.delaunay.hullPolygon()
+
+  mesh.vorCentroids = Array.from(mesh.cellPolygons())
+    .map(centroid)
 
   console.time('everything else in makeMesh')
+
+  return mesh_from_data(mesh)
+}
+
+export function mesh_from_data(mesh) {
+  const {points, adj} = mesh
+
+  mesh.km2px = window.innerWidth / mesh.Dkm[0]
+  mesh.px2km = 1 / mesh.km2px
+  mesh.pt_km2px = ([x, y]) => [x * mesh.km2px, y * mesh.km2px]
+
   mesh.zero = () => {
     let arr = new Array(mesh.triIDs.length)
     arr.fill(0.0)
@@ -71,15 +83,12 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
     return [mesh.points_px[i * 2], mesh.points_px[i * 2 + 1]]
   }
 
-  mesh.triPaths = Array.from(mesh.triIDs)
-    .map(v => mesh.delaunay.trianglePolygon(v))
-  mesh.hullPoly = mesh.delaunay.hullPolygon()
+  // get triangle path without computing delaunay
+
 
   let centroids = mesh.triPaths.map(centroid)
   let centroids_px = centroids.map(mesh.pt_km2px)
 
-  mesh.vorCentroids = Array.from(mesh.cellPolygons())
-    .map(centroid)
 
   mesh.centroids = centroids
   mesh.centroids_px = centroids_px
@@ -99,7 +108,7 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   mesh.isNearEdge = (i, thresh = 0.05) => {
     let c = mesh.centroids[i]
     if (!c) return
-    let [x,y] = c
+    let [x, y] = c
     let [w, h] = mesh.Dkm;
     return mesh.isEdge(i) || x < thresh * w || x > (1.0 - thresh) * w || y < thresh * h || y > (1.0 - thresh) * h;
   }
@@ -111,11 +120,11 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
     return Math.sqrt((ix - jx) * (ix - jx) + (iy - jy) * (iy - jy))
   }
 
-  // TODO use km not norm
+// TODO use km not norm
   mesh.trislope = triSlope(mesh)
 
 
-  mesh = genRenderFns(mesh, ctx)
+// mesh = genRenderFns(mesh, ctx)
 
   calcArea(mesh);
   init_grid(mesh)
@@ -123,7 +132,6 @@ async function makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx]) {
   console.timeEnd('everything else in makeMesh')
   console.timeEnd('makeMesh')
   return mesh;
-
 }
 
 function calcArea(mesh) {
@@ -136,8 +144,8 @@ function calcArea(mesh) {
   return area
 }
 
-function areaTriangle([[x1,y1], [x2,y2], [x3,y3]]) {
-  return 0.5 * (x2 - x1)*(y3 - y1) - 0.5 * (x3 - x1)*(y2 - y1)
+function areaTriangle([[x1, y1], [x2, y2], [x3, y3]]) {
+  return 0.5 * (x2 - x1) * (y3 - y1) - 0.5 * (x3 - x1) * (y2 - y1)
 }
 
 /// re-index based off triIDs instead of original
@@ -176,7 +184,7 @@ function calcTriIDs(mesh) {
 }
 
 function calcAdj(mesh) {
-  const { halfedges, invTriIDs } = mesh
+  const {halfedges, invTriIDs} = mesh
   let adj = []
   console.time('adj')
   for (let i = 0; i < halfedges.length; i++) {
@@ -204,7 +212,7 @@ function calcAdj(mesh) {
 }
 
 export function calcAdjVerts(mesh) {
-  const { halfedges, invTriIDs } = mesh
+  const {halfedges, invTriIDs} = mesh
   let adj = []
   for (let i = 0; i < halfedges.length; i++) {
     let e0 = i;
@@ -242,7 +250,7 @@ export function calcAdjVerts(mesh) {
     // }
   }
 
-  for (let i = 0; i < mesh.points.length / 2; i++ ) {
+  for (let i = 0; i < mesh.points.length / 2; i++) {
     if (!adj[i]) {
       adj[i] = []
     }
@@ -327,6 +335,6 @@ function centroid(pts) {
   return [x / pts.length, y / pts.length];
 }
 
-export { nextEdge, prevEdge, tri2edge, edge2tri, makeMesh };
+export {nextEdge, prevEdge, tri2edge, edge2tri, makeMesh};
 
 

@@ -1,40 +1,27 @@
 import {Delaunay} from 'd3-delaunay';
 import poissonDiscSampler from './poissonDiscSampler'
-import {
-  displayIDs,
-  renderCities, renderCitiesGL, renderCoastLine,
-  renderRiversGL
-} from './render/render-map'
-import {} from './heightmap'
-import {
-  genHM, peaky, erosionRate,
-  placeCities,
-  downhill, getFlux, getSlope, getRivers,
-} from './heightmap'
-import {init_babylon, updateColorsFun} from './render/webgl'
-import {makeMesh} from "./mesh";
+import {genHM, peaky} from './heightmap'
+import {setup_canvas} from './render/webgl'
+import {makeMesh, mesh_from_data} from "./mesh";
 import store from '../store'
 import {
-  dist_from_last_query,
   pt2triangle,
   pt2triangle_animated,
   pt2triangle_grid_animated,
   pt2triangle_naive,
   pt2triangle_no_grid
 } from "./planar-point-by-vec";
-import {} from "./heightmap";
-import * as d3 from 'd3'
-import {quick_stats} from "./heightmap";
 
-const WEBGL = true;
+export const WEBGL = true;
+export const RIVER_THRESH = 0.006; //flux
 
 var canvas, ctx,
   sampler,
-  vor, mesh,
+  vor,
   Wpx, Hpx,
   Wkm, Hkm;
 
-var h
+export var mesh = {}, h = [];
 
 export function getHeight() {
   return h.slice()
@@ -44,15 +31,21 @@ export function getMesh() {
   return mesh
 }
 
+export function setMesh(_mesh) {
+  _mesh.invTriIDs = new Map(_mesh.invTriIDs)
+  mesh = mesh_from_data(_mesh)
+}
+
 export function getER() {
   return peaky(mesh.ER)
 }
 
-export var showCities
-export var cities
 
-
-export default async function (event) {
+/*
+ * NOTE: km scale probably wrong given geography, rivers, cities etc.
+ *       will double (?)
+ */
+export default async function () {
 
   mesh = await setup(100, 100, 0.7)
   // const {points, triangles, halfedges} = mesh
@@ -62,59 +55,65 @@ export default async function (event) {
 
   exportMesh(mesh)
 
-  setTimeout(() => renderMapGL(mesh, h), 0)
-
-
-  setTimeout(() => {
-    let box = BABYLON.MeshBuilder.CreatePlane("", {width: 0.9, height: 0.9}, window.scene);
-
-    canvas.addEventListener("click", (e) => {
-      const scene = window.scene
-      const {hit, pickedPoint, pickedMesh} = scene.pick(scene.pointerX, scene.pointerY);
-      if (hit) {
-        var X = pickedPoint.x
-        var Y = pickedPoint.y
-      }
-
-      console.log('dist from last Q', dist_from_last_query([X, Y]))
-
-
-      let t = pt2triangle(mesh, [X, Y], box2)
-
-      let highlight = h.slice()
-      highlight[t] = 1.0
-      updateColorsFun(highlight)
-
-
-      const [x, y] = mesh.centroids[t]
-      box.position = new BABYLON.Vector3(x, y, -3);
-    }, {capture: true})
-
-  }, 2);
-
+  // setTimeout(() => renderMapGL(mesh, h), 0)
   console.log("num_tris", mesh.triIDs.length)
 
+  return [mesh, h]
 };
 
-
-export async function renderMapGL(mesh, h) {
-  let scene = await init_babylon(mesh, h)
-
-  await renderRiversGL(mesh, h, 0.01, scene)
-  renderCoastLine(mesh, h, 0, true, BABYLON.Color3.Black())
-
-  showCities = () => {
-    cities = placeCities(mesh, h, 20)
-    renderCitiesGL(mesh, cities, 10)
+/*
+ *  Tile/Tri under mouse
+ */
+export function tri_under_mouse() {
+  console.time("tri_under_mouse")
+  console.time("pick")
+  const scene = window.scene
+  const {hit, pickedPoint, PickedMesh} = scene.pick(scene.pointerX, scene.pointerY)
+  console.timeEnd("pick")
+  if (hit) {
+    var {x, y} = pickedPoint
   }
-
-  setTimeout(showCities, 1)
-  // setTimeout(() => displayIDs(mesh), 0);
+  const cam = scene.activeCamera
 
 
-  renderCoastLine(mesh, h, 0.20, true)
+  // console.log(cam)
+  // console.log(scene.pointerX, scene.pointerY)
+  // console.log(x, y)
+  console.time("math")
+  const p = screen2world()
+  console.timeEnd("math")
+
+  console.log()
+
+  const tri = pt2triangle(mesh, [x, y])
+  console.timeEnd("tri_under_mouse")
+  return tri
 }
 
+function screen2world() {
+  const {scene} = window
+  const x = scene.pointerX
+  const y = scene.pointerY
+  const cam = scene.activeCamera
+  const w = window.canvas.width
+  const h = window.canvas.height
+
+  // point fraction
+  const frac = {x: x / w, y: y / h}
+  console.log(frac)
+  // upper left corner (origin)
+  const orig = {
+    x: cam.position.x + cam.orthoLeft,
+    y: cam.position.y + cam.orthoTop
+  }
+
+  const point = {
+    x: orig.x + cam.orthoRight * frac.x * 2,
+    y: orig.y + cam.orthoBottom * frac.y * 2
+  }
+
+  return point
+}
 
 /* gets canvas ctx, generates points, sets scale transforms
  * width & height: 100 km
@@ -123,30 +122,10 @@ export async function renderMapGL(mesh, h) {
 async function setup(Wkm_ = 100, Hkm_ = 100, density = 1) {
   Wkm = Wkm_
   Hkm = Hkm_
-  const ratio = Wkm / Hkm;
-  Hpx = window.outerHeight * 0.90;
-  Wpx = Hpx * ratio
-  if (Wpx > window.outerWidth * 0.95) {
-    Wpx = window.outerWidth * 0.95
-    Hpx = Wpx / ratio
-  }
 
-  const km2px = Wpx / Wkm
-  const px2km = Wkm / Wpx
+  setup_canvas(Wkm, Hkm)
 
-  canvas = document.getElementById('map_canvas');
-  canvas.width = Wpx;
-  canvas.height = Hpx;
-  canvas.margin = '5px'
-  if (!WEBGL) {
-    ctx = canvas.getContext('2d');
-    ctx.font = '18px serif';
-    ctx.strokeRect(0, 0, Wpx, Hpx)
-  }
-
-  console.log('Wpx, Hpx', Wpx, Hpx)
   console.log('Wkm, Hkm', Wkm, Hkm)
-
 
   sampler = poissonDiscSampler(Wkm * 0.98, Hkm * 0.98, density);
 
@@ -167,14 +146,11 @@ async function setup(Wkm_ = 100, Hkm_ = 100, density = 1) {
   const delaunay = Delaunay.from(points);
   vor = delaunay.voronoi([0, 0, Wkm, Hkm]);
 
-  mesh = await makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx])
-
-  return mesh
-
+  return await makeMesh(vor, ctx, [Wkm, Hkm], [Wpx, Hpx])
 }
 
 
-function exportMesh(mesh, file) {
+export function exportMesh(mesh, toFile) {
   let ret = {}
   ret.adj = Array.from(mesh.adj)
   ret.halfedges = Array.from(mesh.halfedges)
@@ -189,26 +165,59 @@ function exportMesh(mesh, file) {
   ret.downhill = Array.from(mesh.downhill)
   ret.h = Array.from(getHeight())
   ret.area = Array.from(mesh.area)
+  ret.triPaths = mesh.triPaths
+  ret.hullPoly = mesh.hullPoly
   // ret.VorCentroids = mesh.VorCentroids
 
   let dataStr = JSON.stringify({Mesh: ret});
-  if (file) {
-    exportToJsonFile(ret)
+  if (toFile) {
+    console.log(dataStr)
+    exportToJsonFile(dataStr)
   }
   else {
     store.dispatch('sendMessage', dataStr)
   }
 }
 
-function exportToJsonFile(jsonData) {
-  let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+var _generateFeed = function (text) {
+  /*some code here*/
+  var url = URL.createObjectURL(new Blob([text], {type: 'text/plain'}));
+  $("#textLink").attr("href", url)[0].click();
+};
 
-  let exportFileDefaultName = 'data.json';
+export function exportCities(file) {
+  let ret = {}
+  ret.ids = cities
+  let dataStr = JSON.stringify({Mesh: ret});
+  if (file) {
+    exportToJsonFile(dataStr)
+  }
+  else {
+    store.dispatch('sendMessage', dataStr)
+  }
+
+}
+
+function exportToJsonFile(dataStr) {
+  let names = [
+    "Joe", "Robert", "Peter", "Louise",
+    "Doug", "Maximilian", "Vlad", "Luke",
+    "Alex", "Devon", "Tyler", "Sam",
+    "PeterSmith", "Smith", "Susan",
+  ]
+
+  let name1 = names[Math.floor(Math.random() * (names.length - 1))];
+  let name2 = names[Math.floor(Math.random() * (names.length - 1))];
+  const filename = "map_" + name1 + "_" + name2 + ".json"
+
+  var url = URL.createObjectURL(new Blob([dataStr], {type: 'text/plain'}));
 
   let linkElement = document.createElement('a');
-  linkElement.setAttribute('href', dataUri);
-  linkElement.setAttribute('download', exportFileDefaultName);
+  linkElement.setAttribute('href', url);
+  linkElement.setAttribute('download', filename);
   linkElement.click();
+
+  URL.revokeObjectURL(url)
 }
 
 function getMousePos(canvas, evt) {

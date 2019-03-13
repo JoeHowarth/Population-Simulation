@@ -15,6 +15,13 @@ extern crate failure;
 extern crate fnv;
 extern crate anymap;
 extern crate ws_rs_ex;
+#[macro_use(o, slog_log, slog_trace, slog_debug, slog_info, slog_warn, slog_error)]
+extern crate slog;
+extern crate slog_async;
+extern crate slog_term;
+#[macro_use]
+extern crate slog_scope;
+//extern crate config;
 
 
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
@@ -23,6 +30,7 @@ use std::thread::JoinHandle;
 use std::time::{Instant, Duration};
 use std::fmt::Debug;
 use std::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
+use std::result::Result;
 
 use failure::Error;
 //use fnv::{FnvHashMap, FnvHashSet };
@@ -32,8 +40,7 @@ use serde::Serialize;
 use specs::prelude::*;
 use specs::Join;
 
-use ws_rs_ex::ws_server::*;
-use ws_rs_ex::type_string::*;
+use ws_rs_ex::networking::*;
 use ws_rs_ex::components::*;
 use ws_rs_ex::systems::*;
 use specs::world::Generation;
@@ -42,57 +49,49 @@ use specs::shred::DynamicSystemData;
 use anymap::AnyMap;
 
 use ws_rs_ex::*;
-use ws_rs_ex::systems::subscription_system::SubscriptionManager;
+use ws_rs_ex::networking::subscription_system::SubscriptionManager;
 use ws_rs_ex::map::*;
-use ws_rs_ex::components::tiles::{
-    FarmData,
-    Tile2Entity,
-    TileID,
+use ws_rs_ex::components::tiles::*;
+use ws_rs_ex::map::{
+    map_file_loader::{move_map_files, load_map_file},
+    mesh::Mesh,
 };
-use ws_rs_ex::map::mesh::Mesh;
 
 
 fn main() -> Result<(), Error> {
-    println!("Hello, world!");
+    trace!("Hello, world!");
+    let wait_client = create_ws_server()?;
 
-    // Server thread
-    let WsReturn { server, out, mesh_recv, sub_recv } = create_ws_server()?;
+    let _guard = slog_scope::set_global_logger(setup_logger());
+
+    info!("testing logger");
+
+    move_map_files()?;
+    let (mesh, mesh_json) = load_map_file(None)?;
+    debug!("mesh from file, number of tiles: {}", mesh.ids.len());
 
     let mut world = World::new();
-    world.add_resource(DeltaTime(0.051));
-    world.add_resource(out.clone());
 
-    let mesh = mesh_recv.recv()?;
     register_map_ecs(&mesh, &mut world);
     world.add_resource(mesh);
+    world.add_resource(Some(mesh_json));
+    world.add_resource(DeltaTime(0.051));
+
+
+    // blocks until connection established to a client
+    let WsReturn { server_thread, out, sub_recv, rec_type_recv } = wait_client()?;
+    trace!("after waiting for connect");
+    world.add_resource(out.clone());
+    send_init_data(&mut world)?;
 
 
     // send fertility data to display on client
-    {
-        let (farm_data, ids, mesh): (ReadStorage<FarmData>, ReadStorage<TileID>, ReadExpect<Mesh>) = world.system_data();
-        let mut fert: Vec<f32> = vec![-10.; mesh.ids.len()];
-        for (fert_opt, &TileID { id }) in (farm_data.maybe(), &ids).join() {
-            let val = if let Some(FarmData { fertility, .. }) = fert_opt {
-                *fertility
-            } else {
-                0.0
-            };
-            fert[id] = val;
-        }
+    // world.exec(send_displayable_for_tag::<River>);
+//    world.exec(|x|
+//        send_displayable_for_data::<FarmData>(x, |&FarmData { fertility, .. }| fertility)
+//    );
 
-//        let fert = normalize_slice(&fert);
-
-        println!("fertility {:?}", &fert);
-
-        out.send(&MutationMsg {
-            mutation: "setMapData".into(),
-            inner: fert,
-        })
-    }
-
-    let mut dispatcher = DispatcherBuilder::new()
-        .build();
-
+    let mut dispatcher = DispatcherBuilder::new().build();
     dispatcher.dispatch(&mut world.res);
     world.maintain();
 
@@ -103,7 +102,7 @@ fn main() -> Result<(), Error> {
 
     game_loop(world, dispatcher, subsciption_manager);
 
-    let _ = server.join();
+    let _ = server_thread.join();
 
     Ok(())
 }

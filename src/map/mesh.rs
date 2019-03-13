@@ -24,7 +24,7 @@ pub struct Mesh {
 //    tri_paths: Vec<[Vec2; 3]>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[allow(non_snake_case)]
 pub struct MeshJson {
     pub halfedges: Vec<isize>,
@@ -42,6 +42,14 @@ pub struct MeshJson {
     pub centroids: Vec<(f32, f32)>,
     pub h: Vec<f32>,
     pub area: Vec<f32>,
+    pub triPaths: Vec<((f32,f32), (f32,f32), (f32,f32), (f32,f32))>,
+    pub hullPoly: Vec<(f32, f32)>
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+#[allow(non_snake_case)]
+pub struct MeshWrapper {
+    pub Mesh: MeshJson,
 }
 
 impl From<MeshJson> for Mesh {

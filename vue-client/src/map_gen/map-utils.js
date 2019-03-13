@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import { Delauney } from 'd3-delaunay';
+import {Delauney} from 'd3-delaunay';
 
 function drawPoly(ctx, poly, color) {
   if (!poly || !poly[0]) {

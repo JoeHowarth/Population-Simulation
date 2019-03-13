@@ -1,12 +1,64 @@
 import * as d3 from 'd3'
-import {rgb} from 'd3'
 import {drawPoly} from '../map-utils'
 import {edge2tri} from '../mesh'
-import {downhill, getFlux, getRivers} from '../heightmap'
+import {getRivers, placeCities} from '../heightmap'
 import * as color from './color'
 import {drawText} from './glText'
 import line2D from './glLine2D'
 import * as BABYLON from 'babylonjs'
+import {init_babylon} from "./webgl";
+import {RIVER_THRESH} from "../map_gen";
+
+export var showCities
+export var cities
+
+export async function renderMapGL(mesh, h) {
+  let scene = await init_babylon(mesh, h)
+
+  await renderRiversGL(mesh, h, RIVER_THRESH, scene)
+  renderCoastLine(mesh, h, 0, true, BABYLON.Color3.Black())
+
+  showCities = () => {
+    cities = placeCities(mesh, h, 20)
+    // exportCities()
+    renderCitiesGL(mesh, cities, 10)
+  }
+
+  // setTimeout(showCities, 1)
+  // setTimeout(() => displayIDs(mesh), 0);
+
+  /*
+  setTimeout(() => {
+    let box = BABYLON.MeshBuilder.CreatePlane("", {width: 0.9, height: 0.9}, window.scene);
+
+    canvas.addEventListener("click", (e) => {
+      const scene = window.scene
+      const {hit, pickedPoint, pickedMesh} = scene.pick(scene.pointerX, scene.pointerY);
+      if (hit) {
+        var X = pickedPoint.x
+        var Y = pickedPoint.y
+      }
+
+      console.log('dist from last Q', dist_from_last_query([X, Y]))
+
+
+      let t = pt2triangle(mesh, [X, Y], box2)
+
+      let highlight = h.slice()
+      highlight[t] = 1.0
+      updateColorsFun(highlight)
+
+
+      const [x, y] = mesh.centroids[t]
+      box.position = new BABYLON.Vector3(x, y, -3);
+    }, {capture: true})
+
+  }, 2);
+  */
+
+
+  renderCoastLine(mesh, h, 0.20, true)
+}
 
 const land = d3.interpolateRgbBasis([
   '#A4D475', //

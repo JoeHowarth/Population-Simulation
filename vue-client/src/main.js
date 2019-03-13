@@ -3,16 +3,24 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
-import websocket from './websocket'
 import store from './store'
-import mapGen from './map_gen/map_gen'
+import _ from './websocket'
+import {renderMapGL} from "./map_gen/render/render-map";
+import {setup_canvas} from "./map_gen/render/webgl";
 
-document.addEventListener('DOMContentLoaded', mapGen, false)
+document.addEventListener('DOMContentLoaded', () => {
+  Vue.config.productionTip = false
 
-Vue.config.productionTip = false
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}, false)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+
+export function main(mesh) {
+  console.log("main", mesh)
+  setup_canvas(mesh.Dkm[0], mesh.Dkm[1])
+  renderMapGL(mesh, mesh.h);
+}

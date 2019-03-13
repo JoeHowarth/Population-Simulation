@@ -1,4 +1,3 @@
-pub mod subscription_system;
 pub mod population;
 
 use std::fmt::Debug;
@@ -9,7 +8,7 @@ use serde_json::Value;
 use specs::prelude::*;
 
 use crate::components::*;
-use crate::ws_server::ClientSender;
+use crate::networking::ClientSender;
 
 
 pub struct PrintPosSys;
@@ -62,7 +61,7 @@ impl<T: Serialize + Component + Debug>  SendSys<T> {
 #[derive(Serialize, Debug)]
 pub struct MutationMsg<T: Serialize + Debug> {
     pub mutation: String,
-    pub inner: Vec<T>
+    pub inner: T
 }
 
 impl<'a, T: Serialize + Component + Debug> System<'a> for SendSys<T> {

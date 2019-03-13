@@ -148,12 +148,15 @@ export function initCamera(scene, ratio) {
 
 }
 
-export function setPositionScale(camera, loc, scale) {
+export function setPositionScale(camera, loc) {
   const [x, y] = loc
-  camera.orthoLeft = - scale
-  camera.orthoRight = scale
-  camera.orthoTop = scale
-  camera.orthoBottom = - scale
+  const rect = window.engine.getRenderingCanvasClientRect()
+  const ratio = rect.width / rect.height
+  const viewsize = x * 1.2
+  camera.orthoLeft = - viewsize
+  camera.orthoRight = viewsize
+  camera.orthoTop = viewsize / ratio
+  camera.orthoBottom = -viewsize / ratio
 
   let orth = camera.inputs.attached.keyboardTranslate
 

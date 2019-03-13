@@ -1,6 +1,6 @@
 import * as BABYLON from 'babylonjs';
-import { initCamera, setPositionScale } from './camera';
-import { heightToColor, heightToColorArr } from './render-map'
+import {initCamera, setPositionScale} from './camera';
+import {heightToColorArr} from './render-map'
 
 
 function createScene(mesh, h) {
@@ -11,8 +11,10 @@ function createScene(mesh, h) {
   var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
   // Create a built-in "sphere" shape; its constructor takes 6 params: name, segment, diameter, scene, updatable, sideOrientation
 
-  let camera = initCamera(scene, mesh.Dkm[0]/ mesh.Dkm[1]);
-  // console.log(camera)
+  // let camera = initCamera(scene, mesh.Dkm[0]/ mesh.Dkm[1]);
+  let camera = initCamera(scene, canvas.width / canvas.height);
+
+  console.log(canvas.width / canvas.height)
   setPositionScale(camera, [mesh.Dkm[0] / 2, mesh.Dkm[1] / 2], mesh.Dkm[0] * 0.5 )
   camera.attachControl(canvas, false);
 
@@ -128,11 +130,14 @@ export async function init_babylon(mesh, h) {
     preserveDrawingBuffer: true,
     stencil: true
   });
+  window.engine = engine
+  window.canvas = canvas
   // CreateScene function that creates and return the scene
 
   // call the createScene function
   scene = createScene(mesh, h);
 
+  engine.resize()
   window.scene = scene
   scene.preventDefaultOnPointerDown = false;
 
@@ -150,6 +155,24 @@ export async function init_babylon(mesh, h) {
   return scene
 }
 
+export function setup_canvas(Wkm, Hkm) {
+  const ratio = Wkm / Hkm;
+  let Hpx = window.innerHeight - 64; // canvas height
+  let Wpx = window.innerWidth;
+
+  canvas = document.getElementById('map_canvas');
+  canvas.width = Wpx;
+  canvas.height = Hpx;
+  canvas.margin = '5px'
+
+  /*
+  if (!WEBGL) { // old non-webgl
+    let ctx = canvas.getContext('2d');
+    ctx.font = '18px serif';
+    ctx.strokeRect(0, 0, Wpx, Hpx)
+  }
+  */
+}
 
 function updateColors (colors, mesh, mapMesh, h) {
   // let colors = mapMesh.getVerticesData(BABYLON.VertexBuffer.ColorKind);

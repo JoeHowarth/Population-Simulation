@@ -1,6 +1,7 @@
 import {add, rand, randDir, rnorm} from './map-utils'
 import * as d3 from 'd3'
 import {mergeSegments} from './render/render-map'
+import {RIVER_THRESH} from "./map_gen";
 
 
 async function genHM(mesh) {
@@ -184,12 +185,13 @@ function getFlux(mesh, h) {
 
   idxs.forEach((j, i) => {
     if (dh[j] >= 0) {
-      flux[dh[j]] += flux[j]
+      flux[dh[j]] += flux[j] * 0.99
     }
   })
   // quick_stats(flux, "flux")
-  console.log("95th", quantile(flux, 0.95))
-  return flux
+
+  const d = Math.sqrt(RIVER_THRESH);
+  return flux.map(f => Math.sqrt(f) / d * RIVER_THRESH);
 }
 
 // redefining slope to use with tri-vertices not triangles
@@ -326,7 +328,7 @@ function getRivers(mesh, h, limit) {
   for (let i = 0; i < h.length; i++) {
     if (h[i] > 0) above++;
   }
-  limit *= above / h.length;
+  // limit *= above / h.length;
   for (let i = 0; i < dh.length; i++) {
     if (mesh.isNearEdge(i)) continue;
     if (flux[i] > limit && h[i] > 0 && dh[i] >= 0) {

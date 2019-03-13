@@ -1,4 +1,3 @@
-import * as d3 from 'd3'
 import metrics from './OpenSans-Regular'
 import * as BABYLON from 'babylonjs'
 

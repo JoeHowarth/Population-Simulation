@@ -1,5 +1,4 @@
-import * as d3 from 'd3'
-import { rgb as colorRgb } from 'd3';
+import {rgb as colorRgb} from 'd3'
 
 /* D3 interpolate.basis */
 export function _basis(t1, v0, v1, v2, v3) {

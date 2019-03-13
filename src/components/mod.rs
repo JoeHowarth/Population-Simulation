@@ -4,6 +4,7 @@ use specs_derive;
 use specs::world::{Entity, Generation, Index};
 
 
+
 #[derive(Component, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
 #[storage(VecStorage)]
 pub struct Velocity {

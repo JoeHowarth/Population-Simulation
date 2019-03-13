@@ -6,7 +6,7 @@ use serde_json;
 use std::{fmt::Debug,
           sync::mpsc::{Sender, Receiver, channel, TryRecvError},
           marker::PhantomData};
-use crate::ws_server::ClientSender;
+use crate::networking::ClientSender;
 use crate::systems::MutationMsg;
 use crate::map::mesh::Mesh;
 use crate::components::tiles::FarmData;
@@ -53,7 +53,7 @@ impl SubscriptionManager {
                     },
                     */
                     _ => {
-                        println!("only subscribe to height implemented yet");
+                        warn!("only subscribe to height implemented yet");
                         vec![]
                     }
                 };
@@ -67,7 +67,7 @@ impl SubscriptionManager {
 
             },
             Err(TryRecvError::Disconnected) => {
-                eprintln!("bad, subscription manager disconnected!");
+                error!("bad, subscription manager disconnected!");
             },
             Err(TryRecvError::Empty) => {}
         }

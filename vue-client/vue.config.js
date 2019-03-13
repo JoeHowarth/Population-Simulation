@@ -8,5 +8,6 @@ module.exports = {
         // glsl: { chunkPath: resolve("/glsl/chunks") }
       })
       .end()
+    config.resolve.modules.add('./src')
   }
 }
