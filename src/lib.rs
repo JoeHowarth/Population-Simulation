@@ -28,7 +28,7 @@ extern crate chrono;
 pub mod networking;
 pub mod systems;
 pub mod components;
-pub mod map;
+pub mod terrain;
 
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
 use std::thread;
@@ -48,7 +48,7 @@ use crate::networking::*;
 use crate::components::*;
 use crate::systems::*;
 use specs::world::Generation;
-use crate::components::tiles::Tile2Entity;
+//use crate::components::tiles::Tile2Entity;
 use specs::ReadStorage;
 use specs::shred::DynamicSystemData;
 use anymap::AnyMap;

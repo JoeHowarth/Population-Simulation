@@ -1,4 +1,4 @@
-use crate::map::mesh::{Mesh, MeshJson};
+use crate::terrain::mesh::{Mesh, MeshJson};
 use super::{SubMsg};
 
 #[derive(Debug, Serialize, Deserialize)]

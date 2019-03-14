@@ -1,8 +1,9 @@
 pub mod mesh;
+pub mod components;
 pub mod map_file_loader;
 
-use crate::components::{tiles::*};
-use crate::map::mesh::{Mesh, MeshJson};
+use self::components::*;
+use crate::terrain::mesh::{Mesh, MeshJson};
 use fnv::FnvHashMap;
 use specs::prelude::*;
 use fnv::FnvHashSet;
@@ -14,7 +15,7 @@ use std::{
     iter::FromIterator,
     collections::VecDeque
 };
-use crate::map::mesh::MeshWrapper;
+use crate::terrain::mesh::MeshWrapper;
 
 pub const RIVER_FLUX_THRESH: f32 = 0.006;
 

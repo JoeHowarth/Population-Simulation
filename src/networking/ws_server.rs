@@ -8,7 +8,7 @@ use std::time::Duration;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use std::fmt::Debug;
-use crate::map::mesh::{Mesh, MeshJson};
+use crate::terrain::mesh::{Mesh, MeshJson};
 
 use crate::networking::SubMsg;
 use crate::networking::types::{ReceiveTypeWrapper, MapCompTag};

@@ -15,7 +15,7 @@ use std::{
 };
 use super::mesh::{MeshJson, Mesh, MeshWrapper};
 
-/// could move map files from downloads to a special directory within project later
+/// could move terrain files from downloads to a special directory within project later
 pub fn move_map_files() -> Result<(), Error> {
     let files = fs::read_dir("/Users/jh/Downloads")?;
     let map_files = files
@@ -27,7 +27,7 @@ pub fn move_map_files() -> Result<(), Error> {
     let dir = Path::new("/Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/maps/ex.json");
     for file in map_files {
         fs::rename(file.path(),
-                   dir.with_file_name(file.path().file_name().unwrap()));
+                   dir.with_file_name(file.path().file_name().unwrap()))?;
     }
 
     Ok(())

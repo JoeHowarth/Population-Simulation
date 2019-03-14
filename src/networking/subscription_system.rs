@@ -8,8 +8,8 @@ use std::{fmt::Debug,
           marker::PhantomData};
 use crate::networking::ClientSender;
 use crate::systems::MutationMsg;
-use crate::map::mesh::Mesh;
-use crate::components::tiles::FarmData;
+use crate::terrain::mesh::Mesh;
+use crate::terrain::components::FarmData;
 
 #[derive(Default)]
 pub struct SendSys<T: Serialize + Component + Debug> {

@@ -1,5 +1,5 @@
 [package]
-name = "ws-rs-ex"
+name = "population_simulation"
 version = "0.1.0"
 authors = ["Joe Howarth <josephehowarth@gmail.com>"]
 edition = "2018"
@@ -37,5 +37,3 @@ version = "0.16.11"
 features = [
     "serde-serialize"
 ]
-
-

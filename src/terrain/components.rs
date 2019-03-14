@@ -2,7 +2,7 @@ use specs_derive;
 use specs::prelude::*;
 use fnv::FnvHashMap;
 use nalgebra_glm::{vec2, Vec2};
-use crate::map::mesh::Mesh;
+use crate::terrain::mesh::Mesh;
 
 
 // resource for going the other way

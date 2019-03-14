@@ -14,8 +14,8 @@ use serde_json;
 use std::fmt::Debug;
 use specs::prelude::*;
 
-use crate::map::mesh::{MeshWrapper, Mesh, MeshJson};
-use crate::components::tiles::*;
+use crate::terrain::mesh::{MeshWrapper, Mesh, MeshJson};
+use crate::terrain::components::*;
 pub use self::ws_server::*;
 pub use self::types::*;
 pub use self::subscription_system::SubMsg;

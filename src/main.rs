@@ -14,7 +14,7 @@ extern crate serde_json;
 extern crate failure;
 extern crate fnv;
 extern crate anymap;
-extern crate ws_rs_ex;
+extern crate population_simulation;
 #[macro_use(o, slog_log, slog_trace, slog_debug, slog_info, slog_warn, slog_error)]
 extern crate slog;
 extern crate slog_async;
@@ -40,21 +40,20 @@ use serde::Serialize;
 use specs::prelude::*;
 use specs::Join;
 
-use ws_rs_ex::networking::*;
-use ws_rs_ex::components::*;
-use ws_rs_ex::systems::*;
+use population_simulation::networking::*;
+use population_simulation::components::*;
+use population_simulation::systems::*;
 use specs::world::Generation;
 use specs::ReadStorage;
 use specs::shred::DynamicSystemData;
 use anymap::AnyMap;
 
-use ws_rs_ex::*;
-use ws_rs_ex::networking::subscription_system::SubscriptionManager;
-use ws_rs_ex::map::*;
-use ws_rs_ex::components::tiles::*;
-use ws_rs_ex::map::{
+use population_simulation::*;
+use population_simulation::networking::subscription_system::SubscriptionManager;
+use population_simulation::terrain::{
     map_file_loader::{move_map_files, load_map_file},
     mesh::Mesh,
+    components::*,register_map_ecs,
 };
 
 
