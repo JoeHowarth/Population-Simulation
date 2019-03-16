@@ -54,6 +54,7 @@ async function genHM(mesh) {
   mesh.flux = getFlux(mesh, h);
   mesh.downhill = downhill(mesh, h);
   mesh.ER = erosionRate(mesh, h);
+  mesh.h = h
   quick_stats(mesh.flux, "flux");
   quick_stats(mesh.slope, "slope");
 
@@ -208,7 +209,8 @@ function getSlope(mesh, h) {
       }
 
       if (slope > 3) {
-        return Math.min(Math.max(Math.sqrt(0.7 * slope), 3), 7)
+        let r = Math.min(Math.max(Math.sqrt(slope), 3), 7);
+        return (r > 4)? 4 + Math.sqrt(r-4) : r;
       }
       return slope;
       // if (dh[i] < 0) {

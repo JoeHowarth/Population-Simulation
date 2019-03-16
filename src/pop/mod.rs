@@ -1,7 +1,11 @@
 pub mod systems;
 pub mod components;
 pub mod actions;
+pub mod init;
 
-use systems::*;
-use components::*;
-use actions::*;
+use self::{
+    systems::*,
+    components::*,
+    actions::*,
+};
+

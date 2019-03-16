@@ -5,7 +5,7 @@ pub mod subscription_system;
 use ws::{WebSocket, Handshake, CloseCode, Handler, Message, Sender as WS_sender};
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
 use std::thread::JoinHandle;
-use std::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
+use std::sync::atomic::{AtomicUsize, Ordering};
 use failure::Error;
 use std::thread;
 use std::time::Duration;
@@ -22,7 +22,7 @@ pub use self::subscription_system::SubMsg;
 use crate::systems::MutationMsg;
 
 
-pub static CONNECTION_COUNT: AtomicUsize = ATOMIC_USIZE_INIT;
+pub static CONNECTION_COUNT: AtomicUsize = AtomicUsize::new(0);
 const ADDRESS: &str = "127.0.0.1:8090";
 
 pub fn create_ws_server() -> Result<impl FnOnce() -> Result<WsReturn, Error>, Error> {

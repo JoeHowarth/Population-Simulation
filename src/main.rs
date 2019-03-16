@@ -24,37 +24,39 @@ extern crate slog_scope;
 //extern crate config;
 
 
-use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
-use std::thread;
-use std::thread::JoinHandle;
-use std::time::{Instant, Duration};
-use std::fmt::Debug;
-use std::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
-use std::result::Result;
+use std::{
+    sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn},
+    thread,
+    thread::JoinHandle,
+    time::{Instant, Duration},
+    fmt::Debug,
+    sync::atomic::{AtomicUsize, Ordering},
+    result::Result,
+    collections::HashMap,
+};
 
 use failure::Error;
 //use fnv::{FnvHashMap, FnvHashSet };
-use std::collections::HashMap;
 use ws::Sender as WsSender;
 use serde::Serialize;
-use specs::prelude::*;
-use specs::Join;
-
-use population_simulation::networking::*;
-use population_simulation::components::*;
-use population_simulation::systems::*;
-use specs::world::Generation;
-use specs::ReadStorage;
-use specs::shred::DynamicSystemData;
-use anymap::AnyMap;
-
-use population_simulation::*;
-use population_simulation::networking::subscription_system::SubscriptionManager;
-use population_simulation::terrain::{
-    map_file_loader::{move_map_files, load_map_file},
-    mesh::Mesh,
-    components::*,register_map_ecs,
+use population_simulation::{
+    *,
+    networking::*,
+    components::*,
+    systems::*,
+    terrain::{
+        map_file_loader::{move_map_files, load_map_file},
+        mesh::Mesh,
+        components::*,register_map_ecs,
+    }
 };
+use specs::{
+    world::Generation,
+    ReadStorage,
+    Join,
+    prelude::*
+};
+use population_simulation::networking::subscription_system::SubscriptionManager;
 
 
 fn main() -> Result<(), Error> {
@@ -75,6 +77,7 @@ fn main() -> Result<(), Error> {
     world.add_resource(mesh);
     world.add_resource(Some(mesh_json));
     world.add_resource(DeltaTime(0.051));
+    time::init_date(&mut world);
 
 
     // blocks until connection established to a client
@@ -86,11 +89,13 @@ fn main() -> Result<(), Error> {
 
     // send fertility data to display on client
     // world.exec(send_displayable_for_tag::<River>);
-//    world.exec(|x|
-//        send_displayable_for_data::<FarmData>(x, |&FarmData { fertility, .. }| fertility)
-//    );
+    world.exec(|x|
+        send_displayable_for_data::<TileTopography>(x, |&TileTopography { area, .. }| area)
+    );
 
-    let mut dispatcher = DispatcherBuilder::new().build();
+    let mut dispatcher = DispatcherBuilder::new()
+        .with(time::UpdateDate, "UpdateDate", &[])
+        .build();
     dispatcher.dispatch(&mut world.res);
     world.maintain();
 

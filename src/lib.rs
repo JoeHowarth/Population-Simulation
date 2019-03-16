@@ -24,18 +24,23 @@ extern crate slog_term;
 #[macro_use]
 extern crate slog_scope;
 extern crate chrono;
+extern crate ord_subset;
 
 pub mod networking;
 pub mod systems;
 pub mod components;
 pub mod terrain;
+pub mod normalize;
+pub mod agriculture;
+pub mod time;
+pub mod pop;
 
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
 use std::thread;
 use std::thread::JoinHandle;
 use std::time::{Instant, Duration};
 use std::fmt::Debug;
-use std::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
+use std::sync::atomic::{AtomicUsize, Ordering};
 
 use failure::Error;
 //use fnv::{FnvHashMap, FnvHashSet };

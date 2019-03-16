@@ -24,7 +24,7 @@ var canvas, ctx,
 export var mesh = {}, h = [];
 
 export function getHeight() {
-  return h.slice()
+  return mesh.h.slice()
 }
 
 export function getMesh() {

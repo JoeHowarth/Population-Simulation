@@ -25,11 +25,15 @@
   import mapGen, {cities, exportMesh, getER, getHeight, getMesh, showCities} from "../../map_gen/map_gen";
   import {cityScore, getFlux, getSlope, normalize, peaky, quick_stats} from "../../map_gen/heightmap";
   import BackButton from '@/components/util/BackButton'
+  import {mapState} from 'vuex'
 
   export default {
     name: "MapDebugger",
     components: {
       BackButton
+    },
+    computed: {
+      ...mapState(["mapColorData"])
     },
     methods: {
       async generateMap() {
@@ -40,6 +44,8 @@
         exportMesh(mesh, true)
       },
       setHeight() {
+        console.log("clicked setHeight")
+        console.log(getHeight())
         updateColorsFun(getHeight())
       },
       setER() {
@@ -59,17 +65,17 @@
         showCities()
       },
       setSent() {
-        console.log(this.mapColorData.inner)
-        updateColorsFun(this.mapColorData.inner)
+        console.log(this.mapColorData)
+        updateColorsFun(this.mapColorData)
       },
       setNormalize() {
-        updateColorsFun(normalize(this.mapColorData.inner))
+        updateColorsFun(normalize(this.mapColorData))
       },
       setPeaky() {
-        updateColorsFun(peaky(this.mapColorData.inner))
+        updateColorsFun(peaky(this.mapColorData))
       },
       quickStats() {
-        quick_stats(this.mapColorData.inner)
+        quick_stats(this.mapColorData)
       },
       setCityScore() {
         const vals = (normalize(cityScore(getMesh(), getHeight(), cities), 0.2))

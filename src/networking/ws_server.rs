@@ -1,7 +1,7 @@
 use ws::{WebSocket, Handshake, CloseCode, Handler, Message, Sender as WS_sender};
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
 use std::thread::JoinHandle;
-use std::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
+use std::sync::atomic::{AtomicUsize, Ordering};
 use failure::Error;
 use std::thread;
 use std::time::Duration;
