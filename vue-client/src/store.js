@@ -4,10 +4,18 @@ import Vuex from 'vuex'
 import {updateColorsFun} from "./map_gen/render/webgl";
 import {setMesh} from 'map_gen/map_gen';
 import {main} from "./main";
+import agricultureStore from './store/AgricultureStore'
+import terrainStore from './store/TerrainStore'
+import populationStore from './store/PopulationStore'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    Agr: agricultureStore,
+    Terr: terrainStore,
+    Pop: populationStore,
+  },
   state: {
     socket: {
       isConnected: false,

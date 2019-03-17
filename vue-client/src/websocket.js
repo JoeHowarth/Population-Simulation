@@ -16,9 +16,37 @@ vm.$options.sockets.onmessage = (msg) => {
   console.log(msg)
   let data = JSON.parse(msg.data)
 
+  console.log(data)
   if (data.mutation) {
     store.commit(data.mutation, data.inner)
+  }
+  if (data.SubPush) {
+    store.commit("subPush" + data.SubPush.section, data.SubPush);
   }
 }
 
 
+// could do validation of subscription requests, but let's just do it serverside
+/*
+let validation = new Map([
+  ["Agr", new Set(["FarmData", "BaseFarmData", "FoodStore"])],
+  ["Terr", new Set(["Region", "Weather", "RiverID", "LandMassID", ])]
+])*/
+
+export function subReq(section, component, insert, keys = false) {
+  let obj = {
+    SubReq: {
+      section: section,
+      insert,
+      component,
+    }
+  }
+
+  if (keys) {
+    obj.keys = keys
+  }
+
+  console.log("Sending SubReq: ", obj)
+  vm.$socket.sendObj(obj)
+
+}

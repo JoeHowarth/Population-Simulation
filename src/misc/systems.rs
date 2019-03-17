@@ -5,8 +5,10 @@ use serde::Serialize;
 use serde_json::Value;
 use specs::prelude::*;
 
-use crate::components::*;
-use crate::networking::ClientSender;
+use crate::{
+    misc::components::*,
+    networking::ClientSender,
+};
 
 
 

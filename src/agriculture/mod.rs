@@ -2,8 +2,11 @@ pub mod systems;
 pub mod components;
 pub mod actions;
 pub mod init;
+pub mod sub_req;
 
-use self::{
+use specs_derive;
+use specs::prelude::*;
+pub use self::{
     systems::*,
     components::*,
     actions::*,

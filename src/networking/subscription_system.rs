@@ -6,7 +6,7 @@ use std::{fmt::Debug,
           sync::mpsc::{Sender, Receiver, channel, TryRecvError},
           marker::PhantomData};
 use crate::networking::ClientSender;
-use crate::systems::MutationMsg;
+use crate::misc::systems::MutationMsg;
 use crate::terrain::mesh::Mesh;
 
 #[derive(Default)]
@@ -78,7 +78,7 @@ impl SubscriptionManager {
 
 
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum Subscribable {
     Height,
     Rivers,
@@ -87,7 +87,7 @@ pub enum Subscribable {
     Num(usize),
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SubMsg {
     mutation: String,
     data_req: Subscribable

@@ -2,9 +2,10 @@ use super::*;
 use crate::{
     terrain::{
         components::*,
-        init_tile_stats::{get_rivers, RIVER_FLUX_THRESH},
+        init::{get_rivers, RIVER_FLUX_THRESH},
         mesh::{Mesh, MeshJson}
-    }
+    },
+    misc::normalize::*,
 };
 use fnv::{FnvHashMap, FnvHashSet};
 use specs::prelude::*;
@@ -19,17 +20,19 @@ use std::{
     collections::VecDeque,
 };
 
-use crate::normalize::*;
 
-pub fn register_agr_ecs(mesh: &Mesh, world: &mut World) {
+pub fn register_agr_ecs(world: &mut World) {
     {
         world.register::<FarmData>();
+        world.register::<BaseFarmData>();
+        world.register::<FoodStock>();
 
 
+        let mesh: ReadExpect<Mesh> = world.system_data();
         let updater: Read<LazyUpdate> = world.system_data();
         let tile2entity: Read<Tile2Entity> = world.system_data();
 
-        let fd = get_farm_data(mesh, world.system_data());
+        let fd = get_farm_data(&mesh, world.system_data());
         for (i, farmdata) in fd.into_iter().enumerate() {
             match farmdata {
                 Some(data) => {

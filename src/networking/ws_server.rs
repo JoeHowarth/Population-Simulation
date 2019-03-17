@@ -11,7 +11,7 @@ use std::fmt::Debug;
 use crate::terrain::mesh::{Mesh, MeshJson};
 
 use crate::networking::SubMsg;
-use crate::networking::types::{ReceiveTypeWrapper, MapCompTag};
+use crate::networking::{ types::*, };
 use std::collections::VecDeque;
 use crate::networking::CONNECTION_COUNT;
 
@@ -20,6 +20,7 @@ pub struct Server {
     pub out: ws::Sender,
     pub ws_in: ThreadOut<WS_sender>,
     pub sub_send: ThreadOut<SubMsg>,
+    pub sub_req_send: ThreadOut<SubReq>,
     pub rec_type_send: ThreadOut<ReceiveTypeWrapper>,
 }
 
@@ -33,24 +34,14 @@ impl Handler for Server {
     fn on_message(&mut self, msg: Message) -> ws::Result<()> {
         if msg.len() < 100 { debug!("Server got message '{}'. ", msg); }
 
+        use ClientMsg::*;
         match msg {
             Message::Text(string) => {
-                if string.len() < 200 { debug!("Received string: {}", string); }
-                if let Ok(msg) = serde_json::from_str(&string) {
-                    if string.len() < 200 { debug!("Received type: {:?}", msg); }
-                    match msg {
-                        ReceiveTypeWrapper::SubMsg(sub) => {
-                            debug!("Subscription Message Received");
-                            self.sub_send.send(sub).expect("Couldn't send SubMsg");
-                        }
-
-                        ReceiveTypeWrapper::MapComponentTag(data) => {
-//                            self.rec_type_send.send(msg).expect("sending whole recv type falied");
-                        }
-                    }
-                } else {
-                    error!("[WS ERROR] Unrecognized message: {}", string);
-                }
+                let msg: ClientMsg = serde_json::from_str(&string).expect(&format!("Failed to parse ClientMessage: {:?}", &string));
+                match msg {
+                    SubReq(r) => self.sub_req_send.send(r).expect("error sending"),
+                    _ => unreachable!()
+                };
             }
             Message::Binary(_) => {
                 error!("[WS ERROR]:Can't receive binary messages yet");
@@ -69,6 +60,7 @@ pub struct WsReturn {
     pub server_thread: JoinHandle<Result<(), Error>>,
     pub out: ClientSender,
     pub sub_recv: ThreadIn<SubMsg>,
+    pub sub_req_recv: ThreadIn<SubReq>,
     pub rec_type_recv: ThreadIn<ReceiveTypeWrapper>,
 }
 
@@ -77,6 +69,11 @@ pub struct WsReturn {
 pub struct ClientSender(pub WS_sender);
 
 impl ClientSender {
+    pub fn sub_push<T: Debug + Clone + Serialize>(&self, sp: SubPush<T>) {
+        let sm = ServerMsg::SubPush(sp);
+        self.send(&sm);
+    }
+
     pub fn send_json(&self, json: &str) {
         self.0.send(json)
             .expect(&format!("failed to send {}", json));

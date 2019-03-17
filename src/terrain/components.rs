@@ -9,12 +9,12 @@ use crate::terrain::mesh::Mesh;
 pub type Tile2Entity = Vec<Entity>;
 pub type Region2Entity = Vec<Entity>;
 
-#[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, Ord, Eq)]
 pub struct TileID {
     pub id: usize
 }
 
-#[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, Ord, Eq)]
 /// Which region a tile belongs to
 pub struct RegionID {
     pub id: usize

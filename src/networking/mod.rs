@@ -1,6 +1,7 @@
 pub mod ws_server;
 pub mod types;
 pub mod subscription_system;
+pub mod sub_req;
 
 use ws::{WebSocket, Handshake, CloseCode, Handler, Message, Sender as WS_sender};
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
@@ -19,7 +20,8 @@ use crate::terrain::components::*;
 pub use self::ws_server::*;
 pub use self::types::*;
 pub use self::subscription_system::SubMsg;
-use crate::systems::MutationMsg;
+pub use self::sub_req::*;
+use crate::misc::systems::MutationMsg;
 
 
 pub static CONNECTION_COUNT: AtomicUsize = AtomicUsize::new(0);
@@ -28,7 +30,9 @@ const ADDRESS: &str = "127.0.0.1:8090";
 pub fn create_ws_server() -> Result<impl FnOnce() -> Result<WsReturn, Error>, Error> {
     let (ws_in, ws_out) = channel();
     let (sub_send, sub_recv) = channel();
+    let (sub_req_send, sub_req_recv) = channel();
     let (rec_type_send, rec_type_recv) = channel();
+
 
 
     let server_thread: JoinHandle<Result<(), Error>> = thread::spawn(move || {
@@ -37,6 +41,7 @@ pub fn create_ws_server() -> Result<impl FnOnce() -> Result<WsReturn, Error>, Er
                 out,
                 ws_in: ws_in.clone(),
                 sub_send: sub_send.clone(),
+                sub_req_send: sub_req_send.clone(),
                 rec_type_send: rec_type_send.clone(),
             }
         })?;
@@ -57,7 +62,7 @@ pub fn create_ws_server() -> Result<impl FnOnce() -> Result<WsReturn, Error>, Er
             i += 1;
         }
         trace!("not blocking anymore");
-        Ok(WsReturn { server_thread, out: ClientSender(out), sub_recv, rec_type_recv })
+        Ok(WsReturn { server_thread, out: ClientSender(out), sub_recv, sub_req_recv, rec_type_recv })
     })
 }
 

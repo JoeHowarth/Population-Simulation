@@ -16,6 +16,7 @@
       <v-btn color="info"  @click="setNormalize">Normalize Last Sent</v-btn>
       <v-btn color="info"  @click="setPeaky">Peaky Last Sent</v-btn>
       <v-btn color="info"  @click="quickStats">Log Stats on Sent</v-btn>
+      <v-btn color="info"  @click="agrData('BaseFarmData')">Sub BaseFarmData</v-btn>
       <v-btn color="error" @click="regen">Regen</v-btn>
     </v-layout>
 </template>
@@ -26,6 +27,7 @@
   import {cityScore, getFlux, getSlope, normalize, peaky, quick_stats} from "../../map_gen/heightmap";
   import BackButton from '@/components/util/BackButton'
   import {mapState} from 'vuex'
+  import {subReq} from "../../websocket";
 
   export default {
     name: "MapDebugger",
@@ -63,6 +65,9 @@
       },
       setCities() {
         showCities()
+      },
+      agrData(comp) {
+          subReq("Agr", comp, true)
       },
       setSent() {
         console.log(this.mapColorData)

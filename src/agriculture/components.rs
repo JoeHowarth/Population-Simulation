@@ -2,6 +2,12 @@ use super::*;
 use specs_derive;
 use specs::prelude::*;
 
+#[derive(Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, Eq, Ord, Hash)]
+pub enum AgrData {
+    BaseFarmData,
+    FarmData,
+    FoodStock,
+}
 
 #[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
 pub struct BaseFarmData {
