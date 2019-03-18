@@ -7,6 +7,7 @@ import {main} from "./main";
 import agricultureStore from './store/AgricultureStore'
 import terrainStore from './store/TerrainStore'
 import populationStore from './store/PopulationStore'
+import {mesh} from './map_gen/map_gen'
 
 Vue.use(Vuex);
 
@@ -27,10 +28,24 @@ export default new Vuex.Store({
       show: false,
       component: null,
     },
+    date: {year: 0, month: "January", day: 0, str: ""},
+    speed: 1,
     triClicked: false,
     mapColorData: [],
+    activeSubs: {
+      Time: ["Date"],
+      Agr: [],
+      Terr: [],
+      Pop: [],
+    },
+    activeMapData: {
+      section: "Terr",
+      component: "Height",
+      field: "Height"
+    }
   },
-  mutations:{
+
+  mutations: {
     // --------------
     setHMesh(state, _mesh) {
       console.log("store", _mesh)
@@ -41,8 +56,23 @@ export default new Vuex.Store({
       state.mapColorData = h
       updateColorsFun(h)
     },
+
     // ----------------
 
+    subPushMisc(state, {section, data, component}) {
+      console.assert(section === "Misc")
+
+      if (component === "Date") {
+        setDate(state, data)
+      } else {
+        state[component] = data
+      }
+    },
+    subPushDate(state, {section, data, component}) {
+      console.assert(section === "Date")
+
+      state.date = data
+    },
     toggleSidePanel(state, bool) {
       if (bool === null) {
         state.sidePanel.show = !state.sidePanel.show
@@ -54,34 +84,38 @@ export default new Vuex.Store({
       state.sidePanel.component = comp
       state.sidePanel.show = true
     },
+    setSpeed(state, val) {
+      if (val === 0) {
+        state.speed = 0
+      } else if (val + state.speed >= 0) {
+        state.speed += val
+      }
+      // Vue.prototype.$socket.sendAction("Time", "Speed", {value: val})
+    },
+    updateActiveSubs(state, {section, component, insert}) {
+      let {activeSubs} = state
 
+
+      if (insert) {
+        state.activeSubs[section].push(component)
+      } else {
+        state.activeSubs[section] = state.activeSubs[section].filter(c => c !== component)
+      }
+    },
+    setActiveMapData(state, md) {
+      // auto update colors at same time?
+      state.activeMapData = md
+    },
     triClicked(state, tri) {
       state.triClicked = tri
     },
     // ----------------
-    SOCKET_ONOPEN (state, event)  {
-      Vue.prototype.$socket = event.currentTarget
-      state.socket.isConnected = true
-    },
-    SOCKET_ONCLOSE (state, event)  {
-      state.socket.isConnected = false
-    },
-    SOCKET_ONERROR (state, event)  {
-      console.error(state, event)
-    },
-    // mutations for reconnect methods
-    SOCKET_RECONNECT(state, count) {
-      console.info(state, count)
-    },
-    SOCKET_RECONNECT_ERROR(state) {
-      state.socket.reconnectError = true;
-    },
     SOCKET_BUFFER_MSG(state, msg) {
       state.socket.bufferedMessages.push(msg)
     }
   },
   actions: {
-    sendMessage: function(context, message) {
+    sendMessage: function (context, message) {
       const socket = Vue.prototype.$socket
       console.log(socket)
       if (socket.readyState !== 1) {
@@ -94,77 +128,18 @@ export default new Vuex.Store({
         socket.send(message)
       }
     }
-  }
-})
-
-/*
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  state: {
-    entities: [],
-    positions: [],
-    socket: {
-      connected: false,
-      lastMessage: "",
-      reconnectError: ""
-    },
   },
-  mutations: {
-    // default handler called for all methods
-    SOCKET_ONMESSAGE(state, message) {
-      state.socket.message = message
-      console.log("ONMESSAGE", message)
-
+  getters: {
+    height() {
+      return mesh.h
     },
-
-    SOCKET_addEntity(state, payload) {
-      state.entities.push(state.entities.length)
+    mesh() {
+      return mesh
     },
-
-    SOCKET_set_pos(state, payload) {
-      console.log(payload)
-
-      // Vue.set(state.position, entity, [x,y])
-      console.log("hi")
-    },
-    SOCKET_SET_POS(state, payload) {
-      // Vue.set(state.position, entity, [x,y])
-      console.log(payload)
-      console.log("HI")
-    },
-
-    SOCKET_ONOPEN(state, event) {
-      console.log("Connected")
-      Vue.prototype.$socket = event.currentTarget
-      state.socket.isConnected = true
-    },
-
-    SOCKET_ONCLOSE(state, event) {
-      state.socket.isConnected = false
-    },
-
-    SOCKET_ONERROR(state, event) {
-      console.error(state, event)
-    },
-
-    // mutations for reconnect methods
-    SOCKET_RECONNECT(state, count) {
-      console.info(state, count)
-    },
-
-    SOCKET_RECONNECT_ERROR(state) {
-      state.socket.reconnectError = true;
-    },
-  },
-  actions: {
-    sendMessage: function (context, message) {
-      // probably do something more interesting here
-      Vue.prototype.$socket.send(message)
+    activeSecs(state) {
+      return Object.keys(state.activeSubs)
+        .filter(s => state.activeSubs[s].length > 0)
     }
   }
 })
-*/
+

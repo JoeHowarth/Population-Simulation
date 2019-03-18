@@ -15,6 +15,7 @@
   import {mapState} from 'vuex'
   import MapDebugger from './panels/MapDebugger'
   import TileInfo from './panels/TileInfo'
+  import DataSubPicker from './panels/DataSubPicker'
 
   export default {
     name: "SidePanel",
@@ -24,6 +25,7 @@
     components: {
       MapDebugger,
       TileInfo,
+      DataSubPicker,
     },
     computed: {
       ...mapState(["sidePanel"]),

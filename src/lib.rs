@@ -111,8 +111,10 @@ pub fn setup() -> Result<(), Error> {
 
     let mut dispatcher = DispatcherBuilder::new()
         .with(misc::time::UpdateDate, "UpdateDate", &[])
-        .with(SubReqDispatcher { recv: sub_req_recv }, "SubReqDispatcher", &[])
-        .with(AgrSubReq { out: out.clone() }, "AgrSubReq", &[])
+        .with(SubReqDispatcher { recv: sub_req_recv }, "SubReq", &[])
+        .with_barrier()
+        .with(DateSender { out: out.clone()}, "DateSender", &[])
+        .with(AgrSender { out: out.clone() }, "AgrSender", &[])
         .build();
     dispatcher.setup(&mut world.res);
 

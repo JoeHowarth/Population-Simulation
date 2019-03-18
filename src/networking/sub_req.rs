@@ -34,6 +34,10 @@ impl<'a> System<'a> for SubReqDispatcher {
                 Sections::Agr => update_sub_reqs(sr, &mut agr),
                 Sections::Terr => update_sub_reqs(sr, &mut terr),
                 Sections::Pop => update_sub_reqs(sr, &mut pop),
+                Sections::Date => {
+                    warn!("Can't Sub/Unsub Date");
+                    Ok(())
+                },
             }.expect("[SubReqDispatcher Error] failed to parse component")
         }
     }

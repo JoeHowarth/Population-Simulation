@@ -41,6 +41,7 @@ pub enum Sections {
     Agr,
     Pop,
     Terr,
+    Date,
 }
 
 #[derive(Debug, Clone, Serialize)]

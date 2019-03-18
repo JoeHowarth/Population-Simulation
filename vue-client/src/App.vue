@@ -9,7 +9,6 @@
 </template>
 
 <script>
-  import Drawer from './components/Drawer'
   import {mapState} from 'vuex'
   import SidePanel from './components/SidePanel'
   import Toolbar from './components/Toolbar'
@@ -17,23 +16,12 @@
   export default {
     name: 'App',
     components: {
-      Drawer,
       SidePanel,
       Toolbar,
     },
     data() {
       return {
-        drawer: true,
-        headers: [
-          {
-            text: 'IDs ',
-            align: 'left',
-            sortable: false,
-            value: 'id'
-          },
-          {text: 'X', value: 'x'},
-          {text: 'Y', value: 'y'},
-        ],
+
       }
     },
     computed: mapState(["positions", "mapColorData"]),

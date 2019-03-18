@@ -8,20 +8,20 @@ use std::sync::mpsc::Receiver;
 use std::collections::HashSet;
 use specs::prelude::*;
 
-pub struct AgrSubReq {
+pub struct AgrSender {
     pub out: ClientSender
 }
 
 pub struct Agr;
 
-impl<'a> System<'a> for AgrSubReq {
+impl<'a> System<'a> for AgrSender {
     type SystemData = (Read<'a, HashSet<AgrData>>,
                        ReadStorage<'a, BaseFarmData>,
                        ReadStorage<'a, FarmData>,
                        ReadStorage<'a, FoodStock>,
                        ReadStorage<'a, TileID>);
 
-    fn run(&mut self, (subs, base_farm_data, farm_data, food_stock, tileID): Self::SystemData) {
+    fn run(&mut self, (subs, base_farm_data, farm_data, food_stock, tile_id): Self::SystemData) {
         let out = &self.out;
         for &sub in subs.iter() {
             let section = Sections::Agr;
@@ -32,12 +32,12 @@ impl<'a> System<'a> for AgrSubReq {
                     out.sub_push(SubPush {
                         section,
                         component: "FarmData",
-                        data: (&tileID, &farm_data).join().collect::<Vec<_>>(),
+                        data: (&tile_id, &farm_data).join().collect::<Vec<_>>(),
                         keys: None,
                     });
                 }
                 AgrData::BaseFarmData => {
-                    let mut data = (&tileID, &base_farm_data).join()
+                    let mut data = (&tile_id, &base_farm_data).join()
                         .collect::<Vec<_>>();
                     data.sort_by_key(|(&x, _)| x.clone());
                     out.sub_push(SubPush {
@@ -51,7 +51,7 @@ impl<'a> System<'a> for AgrSubReq {
                     out.sub_push(SubPush {
                         section,
                         component: "FoodStock",
-                        data: (&tileID, &food_stock).join().collect::<Vec<_>>(),
+                        data: (&tile_id, &food_stock).join().collect::<Vec<_>>(),
                         keys: None,
                     })
                 }

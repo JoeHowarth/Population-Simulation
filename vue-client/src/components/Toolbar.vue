@@ -1,10 +1,11 @@
 <template>
-  <v-toolbar app>
+  <v-toolbar dense app class="elevation-2">
     <v-toolbar-title class="headline text-uppercase">
       <span>Map </span>
       <span class="font-weight-light">Generator</span>
     </v-toolbar-title>
     <v-btn
+        small
         v-for="view in views"
         :key="view.name"
         color="info"
@@ -13,15 +14,20 @@
       {{view.name}}
     </v-btn>
     <v-spacer></v-spacer>
+    <Date></Date>
   </v-toolbar>
 </template>
 
 <script>
   import store from '../store'
   import {tri_under_mouse} from "../map_gen/map_gen";
+  import Date from './Date'
 
   export default {
     name: "Toolbar",
+    components:{
+      Date,
+    },
     data() {
       return {
         views: [
@@ -39,22 +45,29 @@
               }
               window.canvas.addEventListener('click', handler, false)
 
-              this.unmount = () => {
+              this.unMount = () => {
                 window.canvas.removeEventListener('click', handler, false)
               }
             }
           },
+          {
+            name: 'Data Picker',
+            component: 'DataSubPicker'
+          },
         ],
-        unmount: () => {}
+        unMount: () => {}
       }
     },
     methods: {
       navigate(view) {
         console.log("[navigation]: ", view.component)
-        this.unmount()
+        if (this.unMount){
+          this.unMount()
+        }
         if (view.onMount) {
           view.onMount()
         }
+        this.unMount = view.unMount
         store.commit('setActiveSideComponent', view.component)
 
       },
