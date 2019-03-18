@@ -1,8 +1,7 @@
 const populationStore = {
-  state: {
-    RegionCohorts: null
-  }
+    state: {
+        RegionCohorts: null
+    }
 };
-
-
-export default populationStore
+export default populationStore;
+//# sourceMappingURL=PopulationStore.js.map

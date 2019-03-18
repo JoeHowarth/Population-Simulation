@@ -6,15 +6,22 @@
 
 <script>
   import store from '@/store'
+  import {Component, Vue} from 'vue-property-decorator'
 
-  export default {
-    name: "BackButton",
-    methods: {
-      toggleShow() {
-        store.commit("toggleSidePanel")
-      },
+  @Component
+  export default class BackButton extends Vue {
+    toggleShow() {
+      store.commit("toggleSidePanel")
     }
   }
+  // export default {
+  //   name: "BackButton",
+  //   methods: {
+  //     toggleShow() {
+  //       store.commit("toggleSidePanel")
+  //     },
+  //   }
+  // }
 </script>
 
 <style scoped>

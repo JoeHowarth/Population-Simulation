@@ -10,7 +10,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="k">
+      <change afterPath="$PROJECT_DIR$/vue-client/src/MapManager.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/Date.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/SidePanel.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/Toolbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/panels/TileInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/components/util/BackButton.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map-utils.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/mesh.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/planar-point-by-vec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/poissonDiscSampler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/poissonDiscSampler.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/poissonDiscSampler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/OpenSans-Regular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/color.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/glLine2D.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/glText.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/scene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/AgricultureStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/AgricultureStore.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/AgricultureStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/TerrainStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/TerrainStore.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/store/TerrainStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/src/websocket.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-client/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/.browserslistrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/components/util/BackButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/util/BackButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,56 +168,66 @@
     <session id="222877875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="browserslistrc" value="1" />
           <entry key="js" value="30" />
+          <entry key="json" value="1" />
           <entry key="lock" value="1" />
           <entry key="rs" value="168" />
           <entry key="toml" value="2" />
-          <entry key="ts" value="2" />
-          <entry key="vue" value="17" />
+          <entry key="ts" value="8" />
+          <entry key="vue" value="20" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JavaScript" value="30" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Rust" value="168" />
           <entry key="TOML file" value="3" />
-          <entry key="TypeScript" value="2" />
-          <entry key="Vue.js" value="17" />
+          <entry key="TypeScript" value="8" />
+          <entry key="Vue.js" value="20" />
           <entry key="YAML" value="1" />
+          <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="browserslistrc" value="7" />
           <entry key="js" value="12074" />
+          <entry key="json" value="26" />
           <entry key="lock" value="13" />
           <entry key="rs" value="33370" />
           <entry key="toml" value="66" />
+          <entry key="ts" value="2344" />
           <entry key="txt" value="6" />
-          <entry key="vue" value="7424" />
+          <entry key="vue" value="7552" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="12074" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="13" />
           <entry key="Rust" value="33370" />
           <entry key="TOML file" value="79" />
-          <entry key="Vue.js" value="7424" />
+          <entry key="TypeScript" value="2344" />
+          <entry key="Vue.js" value="7552" />
+          <entry key="tsconfig" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -163,51 +235,26 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.6923077">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.4793249">
+        <splitter split-orientation="horizontal" split-proportion="0.5835668">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1005">
-                      <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-                      <folding>
-                        <element signature="e#0#37#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/render-map.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="135">
-                      <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/scene.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="30">
-                      <caret line="4" selection-start-line="4" selection-end-line="4" />
-                      <folding>
-                        <element signature="e#0#37#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="615">
-                      <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+                    <state relative-caret-position="345">
+                      <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
                       <folding>
                         <element signature="n#!!doc" expanded="true" />
-                        <element signature="e#33#54#0" expanded="true" />
                       </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="435">
+                      <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
                     </state>
                   </provider>
                 </entry>
@@ -215,8 +262,20 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="315">
-                      <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+                    <state relative-caret-position="390">
+                      <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-390">
+                      <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+                      <folding>
+                        <element signature="e#1156#1197#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -226,15 +285,6 @@
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-248">
-                      <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="450">
@@ -246,11 +296,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/MapManager.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="435">
+                    <state relative-caret-position="405">
                       <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-                      <folding>
-                        <element signature="e#0#25#0" expanded="true" />
-                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -266,11 +313,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="463">
+                    <state relative-caret-position="503">
                       <caret line="65" column="2" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
-                      <folding>
-                        <element signature="e#0#48#0" expanded="true" />
-                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -278,11 +322,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/store/AgricultureStore.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="510">
-                      <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-                      <folding>
-                        <element signature="e#0#29#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="525">
+                      <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
                     </state>
                   </provider>
                 </entry>
@@ -354,17 +395,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/vue-client" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vue-client/src/map_gen/mesh.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.js" />
-        <option value="$PROJECT_DIR$/src/time.rs" />
-        <option value="$PROJECT_DIR$/src/terrain/tile_stats.rs" />
-        <option value="$PROJECT_DIR$/src/core_loop.rs" />
-        <option value="$PROJECT_DIR$/src/terrain/mesh.rs" />
         <option value="$PROJECT_DIR$/src/terrain/init_tile_stats.rs" />
         <option value="$PROJECT_DIR$/src/agriculture/systems.rs" />
         <option value="$PROJECT_DIR$/src/terrain/init.rs" />
@@ -386,7 +421,6 @@
         <option value="$PROJECT_DIR$/vue-client/src/store/AgricultureState.js" />
         <option value="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js" />
         <option value="$PROJECT_DIR$/vue-client/src/store/TerrainStore.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" />
         <option value="$PROJECT_DIR$/src/main.rs" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/vue-client/src/App.vue" />
@@ -409,7 +443,14 @@
         <option value="$PROJECT_DIR$/vue-client/src/MapManager.js" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" />
         <option value="$PROJECT_DIR$/vue-client/src/store.js" />
+        <option value="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" />
+        <option value="$PROJECT_DIR$/vue-client/.browserslistrc" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/map-utils.ts" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.ts" />
+        <option value="$PROJECT_DIR$/vue-client/tsconfig.json" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/mesh.ts" />
       </list>
     </option>
   </component>
@@ -434,8 +475,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="-281" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -444,6 +487,9 @@
           <State />
           <State>
             <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Code style issuesJavaScript</id>
           </State>
           <State>
             <id>Control flow issuesJavaScript</id>
@@ -462,6 +508,9 @@
           </State>
           <State>
             <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Node.jsJavaScript</id>
           </State>
           <State>
             <id>Potentially confusing code constructsJavaScript</id>
@@ -484,7 +533,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -492,7 +541,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -560,7 +608,8 @@
               <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
               <item name="vue-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="map_gen" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
@@ -568,14 +617,6 @@
               <item name="vue-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="map_gen" type="462c0819:PsiDirectoryNode" />
-              <item name="render" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
@@ -588,11 +629,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="core&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;core_l&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;update&#9;null&#9;null&#10;lib&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;types&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/networking/types.rs&#10;agri&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store/AgricultureStore.js&#10;carg tom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;cargotom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store.js&#10;terrain/comp&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;main.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;main&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;area&#9;null&#9;null&#10;slope&#9;null&#9;null&#10;webs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/websocket.js&#10;camera&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/render/camera.js&#10;renderMapgl&#9;null&#9;null&#10;meshjs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;meshJson&#9;null&#9;null&#10;MeshJ&#9;null&#9;null&#10;export&#9;null&#9;null&#10;tri2&#9;null&#9;null&#10;vue.con&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/vue.config.js&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;pt2trian&#9;null&#9;null&#10;setup&#9;null&#9;null&#10;resolve&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/node_modules/@vue/cli-service/lib/util/resolveLocal.js&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;file&#9;null&#9;null&#10;getmesh&#9;null&#9;null&#10;mutation&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/App.vue&#10;map_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;car&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;Mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;Receive&#9;null&#9;null&#10;client&#9;null&#9;null&#10;cargo.&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;ws_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/networking/ws_server.rs&#10;mesh.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;mapgen&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;mapg&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;getFlux&#9;null&#9;null&#10;gen&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;getRivers&#9;null&#9;null&#10;get_river&#9;null&#9;null&#10;tiles&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/components/tiles.rs&#10;river&#9;null&#9;null&#10;relax&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="mesh.ts&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/map_gen/mesh.ts&#10;core&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;core_l&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;update&#9;null&#9;null&#10;lib&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;types&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/networking/types.rs&#10;agri&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store/AgricultureStore.js&#10;carg tom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;cargotom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store.js&#10;terrain/comp&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;main.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;main&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;area&#9;null&#9;null&#10;slope&#9;null&#9;null&#10;webs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/websocket.js&#10;camera&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/render/camera.js&#10;renderMapgl&#9;null&#9;null&#10;meshjs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;meshJson&#9;null&#9;null&#10;MeshJ&#9;null&#9;null&#10;export&#9;null&#9;null&#10;tri2&#9;null&#9;null&#10;vue.con&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/vue.config.js&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;pt2trian&#9;null&#9;null&#10;setup&#9;null&#9;null&#10;resolve&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/node_modules/@vue/cli-service/lib/util/resolveLocal.js&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;file&#9;null&#9;null&#10;getmesh&#9;null&#9;null&#10;mutation&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/App.vue&#10;map_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;car&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;Mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;Receive&#9;null&#9;null&#10;client&#9;null&#9;null&#10;cargo.&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;ws_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/networking/ws_server.rs&#10;mesh.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;mapgen&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;mapg&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;getFlux&#9;null&#9;null&#10;gen&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;getRivers&#9;null&#9;null&#10;get_river&#9;null&#9;null&#10;tiles&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/components/tiles.rs&#10;river&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -601,8 +643,8 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/vue-client/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -629,7 +671,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.run --release">
+  <component name="RunManager" selected="Cargo Command.run">
     <configuration name="run --release" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --release" />
@@ -690,10 +732,11 @@
     <option name="totallyTimeSpent" value="1114000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="-281" y="-1080" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.08798283" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13844515" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Terminal" order="3" side_tool="true" weight="0.5617678" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
@@ -708,7 +751,7 @@
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" x="1091" y="-416" width="548" height="416" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" weight="0.17524752" />
+      <window_info anchor="bottom" x="1091" y="-900" width="548" height="900" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" visible="true" weight="0.17524752" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946752" weight="0.32970297" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -748,10 +791,40 @@
     <option name="version" value="1" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/main.js" />
-        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/main.js.map" />
-        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/store.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/planar-point-by-vec.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/poissonDiscSampler.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/planar-point-by-vec.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/map-utils.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/map-utils.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/map_gen.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/mesh.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/mesh.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/map_gen.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/heightmap.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/poissonDiscSampler.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/map_gen/heightmap.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/plugins/vuetify.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/plugins/vuetify.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/PopulationStore.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/AgricultureStore.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/AgricultureStore.js.map" />
         <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/store.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/TerrainStore.js" />
+        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/store.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/PopulationStore.js" />
+        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/main.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store/TerrainStore.js.map" />
+        <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/main.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/main.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/router.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/MapManager.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/router.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/websocket.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/store.js" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/MapManager.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/websocket.js.map" />
+        <option value="$PROJECT_DIR$/../pop-sim-test/Population-Simulation/vue-client/src/main.js" />
       </list>
     </option>
   </component>
@@ -763,62 +836,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/misc/components.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/misc/systems.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/init.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/agriculture/systems.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/terrain/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/components.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/sub_req.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agriculture/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1016,16 +1033,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
+        <state relative-caret-position="1020">
           <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -1042,7 +1052,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/scene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="60">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -1052,19 +1062,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#33#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1077,31 +1076,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/MapManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="405">
           <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
+        <state relative-caret-position="503">
           <caret line="65" column="2" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/store/AgricultureStore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="525">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1115,10 +1105,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/components/util/BackButton.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/.browserslistrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/mesh.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="317" column="28" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/heightmap.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="e#107#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding>
+            <element signature="e#14#51#0" expanded="true" />
+            <element signature="e#161#204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map-utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/MapManager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-248">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="-390">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="e#1156#1197#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

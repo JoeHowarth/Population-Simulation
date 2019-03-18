@@ -27,7 +27,7 @@
   import {cityScore, getFlux, getSlope, normalize, peaky, quick_stats} from "../../map_gen/heightmap";
   import BackButton from '@/components/util/BackButton'
   import {mapState} from 'vuex'
-  import {subReq} from "../../websocket";
+  import Socket from "../../websocket";
 
   export default {
     name: "MapDebugger",
@@ -67,7 +67,7 @@
         showCities()
       },
       agrData(comp) {
-          subReq("Agr", comp, true)
+          Socket.subReq("Agr", comp, true)
       },
       setSent() {
         console.log(this.mapColorData)

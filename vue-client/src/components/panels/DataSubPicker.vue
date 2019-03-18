@@ -50,6 +50,7 @@
   import {updateColorsFunSparse} from "../../map_gen/render/webgl"
   import MapManager from '../../MapManager'
   import BackButton from '../util/BackButton'
+  import Socket from '@/websocket'
 
   export default {
     name: "DataSubPicker",
@@ -92,10 +93,10 @@
       },
       unsub(sec, comp) {
         console.log('unsub', sec, comp, false)
-        this.$socket.subReq(sec, comp, false)
+        Socket.subReq(sec, comp, false)
       },
       submit() {
-        this.$socket.subReq(this.section, this.comp, true)
+        Socket.subReq(this.section, this.comp, true)
         this.section = ''
         this.comp = ''
       },
