@@ -92,10 +92,10 @@
       },
       unsub(sec, comp) {
         console.log('unsub', sec, comp, false)
-        this.$socket.subReq(sec, comp, false)
+        this.Socket.subReq(sec, comp, false)
       },
       submit() {
-        this.$socket.subReq(this.section, this.comp, true)
+        this.Socket.subReq(this.section, this.comp, true)
         this.section = ''
         this.comp = ''
       },

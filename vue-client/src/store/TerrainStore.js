@@ -1,8 +1,7 @@
 const terrainStore = {
-  state: {
-    TileID: null
-  }
+    state: {
+        TileID: null
+    }
 };
-
-
-export default terrainStore
+export default terrainStore;
+//# sourceMappingURL=TerrainStore.js.map
