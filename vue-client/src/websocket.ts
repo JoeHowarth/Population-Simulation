@@ -1,10 +1,13 @@
-import store from './store'
-import Vue from 'vue'
+import store from './store/store'
 
 const url = 'ws://127.0.0.1:8090'
 
+/* ------------------- */
+
+export type Sections = "Agr" | "Terr" | "Pop" | "Date" | "Misc"
+
 export interface SubReq {
-  section: string,
+  section: Sections,
   component: string,
   insert: boolean,
   keys?: any
@@ -15,17 +18,30 @@ interface ClientMsg {
   Action?: any
 }
 
+export interface SubPush {
+  section: Sections,
+  component: string,
+  data: any
+}
+
+interface ServerMsg {
+  SubPush?: SubPush,
+  [prop: string]: any
+}
+
+/* ------------------- */
+
 class SocketClass extends WebSocket {
   constructor(url: string) {
     super(url)
     this.addEventListener("message", function (msg) {
-      // console.log(msg)
-      let data = JSON.parse(msg.data)
+      let data: ServerMsg = JSON.parse(msg.data)
       
-      
+      // TODO remove
       if (data.mutation) {
         store.commit(data.mutation, data.inner)
       }
+      
       if (data.SubPush) {
         store.commit("subPush" + data.SubPush.section, data.SubPush)
       }
@@ -37,7 +53,7 @@ class SocketClass extends WebSocket {
     this.send(str)
   }
   
-  subReq(section: string, component: string, insert: boolean, keys = false) {
+  subReq(section: Sections, component: string, insert: boolean, keys = false) {
     let obj: ClientMsg = {
       SubReq: {
         section: section,
@@ -45,7 +61,6 @@ class SocketClass extends WebSocket {
         component,
       }
     }
-    
     if (keys) {
       // @ts-ignore
       obj.SubReq['keys'] = keys

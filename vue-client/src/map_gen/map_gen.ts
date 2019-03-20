@@ -5,7 +5,7 @@ import {genHM, peaky} from './heightmap'
 // @ts-ignore
 import {setup_canvas} from './render/webgl'
 import {makeMesh, mesh_from_data} from "./mesh";
-import store from '../store'
+import store from '../store/store'
 import {
   pt2triangle,
 } from "./planar-point-by-vec";
@@ -85,7 +85,7 @@ export function getER(): MapData {
 export default async function () {
   
   console.log("hi from before setup")
-  mesh = await setup(100, 100, 0.7)
+  mesh = await setup(100, 100, 2.7)
   // const {points, triangles, halfedges} = mesh
 
   h = await genHM(mesh)

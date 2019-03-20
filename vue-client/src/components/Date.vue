@@ -34,7 +34,7 @@
 </template>
 
 <script>
-  import store from "@/store"
+  import store from "../store/store"
   import {mapState} from 'vuex'
 
   export default {

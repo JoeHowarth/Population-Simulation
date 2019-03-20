@@ -25,6 +25,7 @@ pub fn register_agr_ecs(world: &mut World) {
     {
         world.register::<FarmData>();
         world.register::<BaseFarmData>();
+        world.register::<RegBaseFarmData>();
         world.register::<FoodStock>();
 
 

@@ -4,10 +4,11 @@ pub mod map_file_loader;
 pub mod init;
 pub mod sub_req;
 
-use self::{
+pub use self::{
     components::*,
     init::{register_terrain_ecs, get_rivers},
     mesh::{Mesh, MeshJson},
+    sub_req::*,
 };
 use fnv::{FnvHashMap, FnvHashSet};
 use specs::prelude::*;

@@ -3,7 +3,7 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/store'
 import Socket from './websocket'
 import {renderMapGL} from "./map_gen/render/render-map";
 import {setup_canvas} from "./map_gen/render/webgl";

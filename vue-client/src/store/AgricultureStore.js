@@ -3,7 +3,7 @@ const agricultureStore = {
     state: {
         FoodStock: null,
         BaseFarmData: { fertility: [], arable: [] },
-        FarmingData: null,
+        FarmData: null,
     },
     mutations: {
         subPushAgr(state, { section, data, component }) {

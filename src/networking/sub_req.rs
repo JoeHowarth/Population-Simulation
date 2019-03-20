@@ -35,7 +35,7 @@ impl<'a> System<'a> for SubReqDispatcher {
                 Sections::Terr => update_sub_reqs(sr, &mut terr),
                 Sections::Pop => update_sub_reqs(sr, &mut pop),
                 Sections::Date => {
-                    warn!("Can't Sub/Unsub Date");
+                    warn!("Can't Sub/Unsub Data");
                     Ok(())
                 },
             }.expect("[SubReqDispatcher Error] failed to parse component")
@@ -44,7 +44,7 @@ impl<'a> System<'a> for SubReqDispatcher {
 }
 
 pub fn update_sub_reqs<T>(mut sr: SubReq, set: &mut HashSet<T>) -> Result<(), Error>
-    where T: Eq + Hash + DeserializeOwned
+    where T: Eq + Hash + DeserializeOwned + Debug
 {
     sr.component.insert(0, '\"');
     sr.component.push('\"');
@@ -55,6 +55,7 @@ pub fn update_sub_reqs<T>(mut sr: SubReq, set: &mut HashSet<T>) -> Result<(), Er
     } else {
         set.remove(&comp_type);
     }
+    dbg!(set);
     Ok(())
 }
 

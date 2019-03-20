@@ -4,9 +4,10 @@ pub mod actions;
 pub mod init;
 pub mod sub_req;
 
-use self::{
+pub use self::{
     systems::*,
     components::*,
     actions::*,
+    sub_req::*,
 };
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import store from '@/store'
+  import store from '../../store/store'
   import {Component, Vue} from 'vue-property-decorator'
 
   @Component

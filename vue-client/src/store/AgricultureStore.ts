@@ -1,12 +1,18 @@
-import store from '../store';
+import store, {RootState} from './store'
 import MapManager from "../MapManager"
+import {Module} from 'vuex'
 
+export interface AgrState {
+  FoodStock: any,
+  BaseFarmData: {fertility: MapData, arable: MapData},
+  FarmData: any,
+}
 
-const agricultureStore  = {
+const agricultureStore: Module<AgrState, RootState>  = {
   state: {
     FoodStock: null,
     BaseFarmData: {fertility: [], arable: []},
-    FarmingData: null,
+    FarmData: null,
   },
   mutations: {
     subPushAgr(state, {section, data, component}) {

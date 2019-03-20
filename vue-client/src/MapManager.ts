@@ -1,6 +1,6 @@
-import store from './store'
+import store from './store/store'
 import {updateColorsFun, updateColorsFunSparse} from "./map_gen/render/webgl"
-import {mesh, MapData} from './map_gen/map_gen'
+import {mesh} from "@/map_gen/map_gen"
 
 const DEFAULT_MAP_DATA = {
   section: "Terr",
@@ -11,7 +11,7 @@ const DEFAULT_MAP_DATA = {
 function checkActiveMapData(del_sec: string, del_comp: string) {
   const {section, component} = store.state.activeMapData
   if (del_sec === section && del_comp === component) {
-    setMap({res:mesh.h, sec: DEFAULT_MAP_DATA.section, comp: DEFAULT_MAP_DATA.component})
+    setMap({res: mesh.h, sec: DEFAULT_MAP_DATA.section, comp: DEFAULT_MAP_DATA.component})
   }
 }
 

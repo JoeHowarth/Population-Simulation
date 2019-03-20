@@ -1,6 +1,6 @@
-import store from './store';
+import store from './store/store';
 import { updateColorsFunSparse } from "./map_gen/render/webgl";
-import { mesh } from './map_gen/map_gen';
+import { mesh } from "@/map_gen/map_gen";
 const DEFAULT_MAP_DATA = {
     section: "Terr",
     component: "Height",

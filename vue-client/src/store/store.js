@@ -1,28 +1,21 @@
 /*eslint no-unused-vars: "off"*/
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { updateColorsFun } from "./map_gen/render/webgl";
-import { setMesh } from './map_gen/map_gen';
-import { main } from "./main";
-import agricultureStore from './store/AgricultureStore';
-import terrainStore from './store/TerrainStore';
-import populationStore from './store/PopulationStore';
-import { mesh } from './map_gen/map_gen';
-import Socket from "@/websocket";
+import { updateColorsFun } from "../map_gen/render/webgl";
+import { setMesh } from '../map_gen/map_gen';
+import { main } from "../main";
+import agricultureStore from './AgricultureStore';
+import terrainStore from './TerrainStore';
+import populationStore from './PopulationStore';
+import { mesh } from '../map_gen/map_gen';
 Vue.use(Vuex);
-export default new Vuex.Store({
+const store = {
     modules: {
         Agr: agricultureStore,
         Terr: terrainStore,
         Pop: populationStore,
     },
     state: {
-        socket: {
-            isConnected: false,
-            message: '',
-            reconnectError: false,
-            bufferedMessages: []
-        },
         sidePanel: {
             show: false,
             component: null,
@@ -100,28 +93,8 @@ export default new Vuex.Store({
         triClicked(state, tri) {
             state.triClicked = tri;
         },
-        // ----------------
-        SOCKET_BUFFER_MSG(state, msg) {
-            state.socket.bufferedMessages.push(msg);
-        }
     },
-    actions: {
-        sendMessage: function (context, message) {
-            console.log(Socket);
-            if (Socket.readyState !== 1) {
-                context.commit('SOCKET_BUFFER_MSG', message);
-                if (Socket.onopen) {
-                    Socket.onopen = (e) => {
-                        context.state.socket.bufferedMessages
-                            .forEach(msg => Socket.send(msg));
-                    };
-                }
-            }
-            else {
-                Socket.send(message);
-            }
-        }
-    },
+    actions: {},
     getters: {
         height() {
             return mesh.h;
@@ -134,5 +107,6 @@ export default new Vuex.Store({
                 .filter(s => state.activeSubs[s].length > 0);
         }
     }
-});
+};
+export default new Vuex.Store(store);
 //# sourceMappingURL=store.js.map

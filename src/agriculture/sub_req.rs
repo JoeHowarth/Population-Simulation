@@ -37,9 +37,11 @@ impl<'a> System<'a> for AgrSender {
                     });
                 }
                 AgrData::BaseFarmData => {
+                    // doesn't have to be sorted now
                     let mut data = (&tile_id, &base_farm_data).join()
                         .collect::<Vec<_>>();
                     data.sort_by_key(|(&x, _)| x.clone());
+
                     out.sub_push(SubPush {
                         section,
                         component: "BaseFarmData",

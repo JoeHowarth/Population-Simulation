@@ -28,6 +28,10 @@ extern crate slog_scope;
 //extern crate env_logger;
 extern crate chrono;
 extern crate ord_subset;
+extern crate rand;
+extern crate arrayvec;
+#[macro_use]
+extern crate derive_more;
 
 pub mod networking;
 pub mod terrain;
@@ -66,11 +70,13 @@ use crate::{
         sub_req::SubReqDispatcher,
     },
     terrain::{
+        *,
         map_file_loader::{move_map_files, load_map_file},
         mesh::Mesh,
         components::*,
-        init::register_terrain_ecs,
+        init::*,
     },
+    pop::*,
     agriculture::{
         sub_req::*
     },
@@ -115,6 +121,8 @@ pub fn setup() -> Result<(), Error> {
         .with_barrier()
         .with(DateSender { out: out.clone()}, "DateSender", &[])
         .with(AgrSender { out: out.clone() }, "AgrSender", &[])
+        .with(TerrSender { out: out.clone() }, "TerrSender", &[])
+        .with(PopSender { out: out.clone() }, "PopSender", &[])
         .build();
     dispatcher.setup(&mut world.res);
 
@@ -144,6 +152,9 @@ fn setup_world() -> Result<World, Error> {
 
     agriculture::init::register_agr_ecs(&mut world);
     pop::init::register_pop_ecs(&mut world);
+
+    construct_regions(world.system_data());
+    world.maintain();
 
     Ok(world)
 }

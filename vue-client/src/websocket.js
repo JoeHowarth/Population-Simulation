@@ -1,11 +1,12 @@
-import store from './store';
+import store from './store/store';
 const url = 'ws://127.0.0.1:8090';
+/* ------------------- */
 class SocketClass extends WebSocket {
     constructor(url) {
         super(url);
         this.addEventListener("message", function (msg) {
-            // console.log(msg)
             let data = JSON.parse(msg.data);
+            // TODO remove
             if (data.mutation) {
                 store.commit(data.mutation, data.inner);
             }

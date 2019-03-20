@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import store from '../store'
+  import store from '../store/store'
   import {tri_under_mouse} from "../map_gen/map_gen";
   import Date from './Date'
 
