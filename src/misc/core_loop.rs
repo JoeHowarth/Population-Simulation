@@ -24,11 +24,15 @@ use crate::{
     terrain::*,
     pop::*,
     agriculture::*,
-    misc::components::DeltaTime,
+    misc::{
+        time::Date,
+        components::DeltaTime
+    },
 };
+use chrono::Datelike;
 
-pub fn game_loop(mut world: World, mut dispatcher: Dispatcher) {
-    let frame_target = Duration::from_millis(3000);
+pub fn game_loop(mut world: World, mut dispatcher_daily: Dispatcher) {
+    let frame_target = Duration::from_millis(1);
     let mut last = Instant::now();
     let mut total_frames = 0;
     loop {
@@ -40,16 +44,20 @@ pub fn game_loop(mut world: World, mut dispatcher: Dispatcher) {
             *delta = DeltaTime(dt.as_float_secs() as f32);
         }
 
-        dispatcher.dispatch(&mut world.res);
+
+        dispatcher_daily.dispatch(&mut world.res);
         world.maintain();
 
 
-        if total_frames > 5000 { break; }
+
+        if total_frames > 500_000 { break; }
         total_frames += 1;
 
         let used = Instant::now() - start;
         let sleep_time = std::cmp::max(frame_target, used) - used;
-        info!("Utilization: {:.2}%", (1. - sleep_time.as_float_secs() / frame_target.as_float_secs()) * 100.);
+        if total_frames % 100 == 0 {
+            info!("Utilization: {:.2}%", (1. - sleep_time.as_float_secs() / frame_target.as_float_secs()) * 100.);
+        }
 
 
         thread::sleep(sleep_time);

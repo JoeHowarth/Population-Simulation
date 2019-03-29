@@ -34,8 +34,6 @@ pub struct FarmData {
 pub struct FoodStock {
     /// amount of stored food in region/tile
     pub food: f32,
-    /// total land area that can be farmed without terracing etc.
-    pub arable: f32,
 }
 
 #[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]

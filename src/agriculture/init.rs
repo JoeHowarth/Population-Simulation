@@ -3,9 +3,10 @@ use crate::{
     terrain::{
         components::*,
         init::{get_rivers, RIVER_FLUX_THRESH},
-        mesh::{Mesh, MeshJson}
+        mesh::{Mesh, MeshJson},
     },
     misc::normalize::*,
+    pop::components::RegionPop,
 };
 use fnv::{FnvHashMap, FnvHashSet};
 use specs::prelude::*;
@@ -33,13 +34,13 @@ pub fn register_agr_ecs(world: &mut World) {
         let updater: Read<LazyUpdate> = world.system_data();
         let tile2entity: Read<Tile2Entity> = world.system_data();
 
-        let fd = get_farm_data(&mesh, world.system_data());
+        let fd = get_base_farm_data(&mesh, world.system_data());
         for (i, farmdata) in fd.into_iter().enumerate() {
             match farmdata {
                 Some(data) => {
                     let &e = tile2entity.get(i).expect("entity from TileID not found");
                     updater.insert(e, data);
-                },
+                }
                 None => {}
             }
         }
@@ -48,8 +49,11 @@ pub fn register_agr_ecs(world: &mut World) {
 }
 
 #[derive(PartialOrd, PartialEq, Copy, Clone, Debug)]
-struct Node(f32, f32, usize, usize); // flux, strength in [1,4], tileID {id <--- } curr, last
+struct Node(f32, f32, usize, usize);
+
+// flux, strength in [1,4], tileID {id <--- } curr, last
 impl Eq for Node {}
+
 impl Ord for Node {
     fn cmp(&self, other: &Node) -> Ordering {
         match self.0.partial_cmp(&other.0) {
@@ -60,18 +64,18 @@ impl Ord for Node {
     }
 }
 
-pub fn get_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStorage<TileTopography>)) -> Vec<Option<BaseFarmData>> {
+pub fn get_base_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStorage<TileTopography>)) -> Vec<Option<BaseFarmData>> {
     let Mesh { height: h, flux, adj, slope, .. } = mesh;
     // lower threshold than 'real' rivers
     let rivers = get_rivers(mesh, RIVER_FLUX_THRESH * 0.5);
 
 
     let mut heap = BinaryHeap::from_iter(rivers.iter().flatten()
-        .map(|&k| {
-            let strength = (flux[k] / (RIVER_FLUX_THRESH * 3.0)).min(1.0).sqrt();
-            let shifted = strength * 0.2 + 0.80;
-            Node(flux[k].min(RIVER_FLUX_THRESH), shifted, k, k)
-        }));
+                                               .map(|&k| {
+                                                   let strength = (flux[k] / (RIVER_FLUX_THRESH * 3.0)).min(1.0).sqrt();
+                                                   let shifted = strength * 0.2 + 0.80;
+                                                   Node(flux[k].min(RIVER_FLUX_THRESH), shifted, k, k)
+                                               }));
 
     const BASE_CARRIED: f32 = 1.0;
     let mut fertility = vec![0.; h.len()];
@@ -110,9 +114,19 @@ pub fn get_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStorage<T
         }
 
         let e = t2e[i];
-        let TileTopography{hillratio, area, ..} = topo.get(e).unwrap();
-        let arable =  area * hillratio;
+        let TileTopography { hillratio, area, .. } = topo.get(e).unwrap();
+        let arable = area * hillratio;
 
         Some(BaseFarmData { fertility, arable })
     }).collect()
+}
+
+
+// 'FarmData' is regional for now
+pub fn init_farm_data((base, pop, reg, topo, mut farm, entities): (ReadStorage<RegBaseFarmData>, ReadStorage<RegionPop>, ReadStorage<Region>, ReadStorage<RegionTopography>, WriteStorage<FarmData>, Entities)) {
+    for (base, pop, reg, topo, mut farm, e) in (&base, &pop, &reg, &topo, &mut farm, &entities).join() {
+        let area = topo.area * 25.; // map area is 1/5 'rea' area TODO correct area
+        let RegBaseFarmData { fertilty, arable } = base;
+        let cleared = 
+    }
 }

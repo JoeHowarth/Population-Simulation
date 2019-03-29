@@ -21,7 +21,9 @@ impl<'a> System<'a> for UpdateDate {
     fn run(&mut self, mut date: Self::SystemData) {
         *date = date.succ();
 
-        info!("Date: {}", date.format(DATE_FORMAT));
+        if date.day() == 15 {
+            info!("Date: {}", date.format(DATE_FORMAT));
+        }
     }
 }
 

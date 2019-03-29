@@ -105,8 +105,6 @@ impl Region {
         let b = all.remove(b_id).unwrap();
 
 
-        dbg!(r.tiles.len());
-        dbg!(b.tiles.len());
         for t in &b.tiles {
             if !r.tiles.contains(&t) {
                 r.tiles.push(*t);
@@ -131,16 +129,12 @@ impl RegionAdjacency {
         let mut a = all.remove(a_id).unwrap();
         let b = all.remove(b_id).unwrap();
 
-//        dbg!(&all);
         let mut count = 0;
         // update b.id -> self.id in regions adjacent to b
         for &nb_idx in b.nbs.iter().filter(|&&x| x != a_id && x != b_id) {
             if nb_idx == a_id {
                 continue
             }
-//            dbg!((&b, &a));
-//            dbg!(nb_idx);
-//            dbg!(count);
             let nb = &mut all[nb_idx];
 
             // get idx of b in its neighbor
@@ -163,13 +157,10 @@ impl RegionAdjacency {
             a.nbs.swap_remove(b_in_a);
         }
 
-        dbg!(a.nbs.len());
-        dbg!(b.nbs.len());
         // merge adjacency lists
         for nb in &b.nbs {
             if !a.nbs.contains(&nb) && *nb != a_id {
                 a.nbs.push(*nb);
-                dbg!(a.nbs.len());
             }
         }
         // above, for (optional) entities

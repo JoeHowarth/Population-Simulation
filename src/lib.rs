@@ -115,8 +115,9 @@ pub fn setup() -> Result<(), Error> {
     );
     */
 
-    let mut dispatcher = DispatcherBuilder::new()
+    let mut dispatcher_daily = DispatcherBuilder::new()
         .with(misc::time::UpdateDate, "UpdateDate", &[])
+        .with(PopUpdate {old_date: Date::from_num_days_from_ce(0)}, "PopUpdate", &["UpdateDate"])
         .with(SubReqDispatcher { recv: sub_req_recv }, "SubReq", &[])
         .with_barrier()
         .with(DateSender { out: out.clone()}, "DateSender", &[])
@@ -124,12 +125,17 @@ pub fn setup() -> Result<(), Error> {
         .with(TerrSender { out: out.clone() }, "TerrSender", &[])
         .with(PopSender { out: out.clone() }, "PopSender", &[])
         .build();
-    dispatcher.setup(&mut world.res);
+    dispatcher_daily.setup(&mut world.res);
 
-    dispatcher.dispatch(&mut world.res);
+    dispatcher_daily.dispatch(&mut world.res);
     world.maintain();
 
-    game_loop(world, dispatcher);
+    let dispatcher_pop = DispatcherBuilder::new()
+        .build();
+
+    world.maintain();
+
+    game_loop(world, dispatcher_daily, );
 
     let _ = server_thread.join();
 
@@ -151,9 +157,10 @@ fn setup_world() -> Result<World, Error> {
     time::init_date(&mut world);
 
     agriculture::init::register_agr_ecs(&mut world);
+    construct_regions(world.system_data());
+    world.maintain();
     pop::init::register_pop_ecs(&mut world);
 
-    construct_regions(world.system_data());
     world.maintain();
 
     Ok(world)
