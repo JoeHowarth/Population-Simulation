@@ -281,9 +281,9 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
 
     for (i, r) in region_map.drain() {
         let b = updater.create_entity(&entities)
-            .with(r)
-            .with(reg_topo.remove(i).unwrap())
-            .with(reg_adj.remove(i).unwrap());
+                       .with(r)
+                       .with(reg_topo.remove(i).unwrap())
+                       .with(reg_adj.remove(i).unwrap());
         if let Some(farm) = reg_agr.remove(i) {
             b.with(farm).build();
         } else {
