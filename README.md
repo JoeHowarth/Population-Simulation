@@ -10,7 +10,7 @@ and even Total War each immerse the player in a simulated world.
 Which aspects of reality they focus on while abstracting (or ignoring) the rest,
 defines the experience and the game.
 Crusader Kings stands out as the only game attempting to model
-leaders' intricasy and humanity.
+leaders' intricacy and humanity.
 Victoria, through representing and tying populations' plight or prosperity to events
 in the world abroad.
 Each bring a different perspective, yet all feel somewhat static in how they model
@@ -55,6 +55,7 @@ Here's roughly how I envision this project progressing
 5. Trade and economic systems
 6. Re-evaluation
 
+See [Architecture](Architecture.md) for technical details
 
 Next we'll take a closer look at map generation and then the infrastructure behind the
 simulation
