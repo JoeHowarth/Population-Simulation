@@ -25,6 +25,9 @@ pub struct Cohort {
     pub male: f64,
 }
 
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+pub struct PopEst(pub usize);
+
 const NUM_COHORTS: usize = 17;
 
 impl RegionPop {

@@ -51,6 +51,7 @@ pub fn register_agr_ecs(world: &mut World) {
 #[derive(PartialOrd, PartialEq, Copy, Clone, Debug)]
 struct Node(f32, f32, usize, usize);
 
+// TODO use weighted Node
 // flux, strength in [1,4], tileID {id <--- } curr, last
 impl Eq for Node {}
 
@@ -126,7 +127,8 @@ pub fn get_base_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStor
 pub fn init_farm_data((base, pop, reg, topo, mut farm, entities): (ReadStorage<RegBaseFarmData>, ReadStorage<RegionPop>, ReadStorage<Region>, ReadStorage<RegionTopography>, WriteStorage<FarmData>, Entities)) {
     for (base, pop, reg, topo, mut farm, e) in (&base, &pop, &reg, &topo, &mut farm, &entities).join() {
         let area = topo.area * 25.; // map area is 1/5 'rea' area TODO correct area
-        let RegBaseFarmData { fertilty, arable } = base;
-        let cleared = 
+        let RegBaseFarmData { fertility, arable } = base;
     }
+
+    //TODO: Implement function...
 }

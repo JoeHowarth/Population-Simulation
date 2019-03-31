@@ -38,14 +38,13 @@ pub mod terrain;
 pub mod agriculture;
 pub mod pop;
 pub mod misc;
-
+pub mod prelude;
 
 use std::{
     sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn},
     thread,
     thread::JoinHandle,
     time::{Instant, Duration},
-    fmt::Debug,
     sync::atomic::{AtomicUsize, Ordering},
     result::Result,
     collections::HashMap,
@@ -65,20 +64,10 @@ use specs::{
 };
 
 use crate::{
+    prelude::*,
     networking::{
         *,
         sub_req::SubReqDispatcher,
-    },
-    terrain::{
-        *,
-        map_file_loader::{move_map_files, load_map_file},
-        mesh::Mesh,
-        components::*,
-        init::*,
-    },
-    pop::*,
-    agriculture::{
-        sub_req::*
     },
     misc::{
         *,
@@ -86,6 +75,8 @@ use crate::{
         core_loop::game_loop,
     },
 };
+use crate::terrain::map_file_loader::load_map_file;
+use crate::terrain::init::construct_regions;
 
 //lazy_static! {
 //    pub static ref SETTINGS : RwLock<config::Config> = RwLock::new(config::Config::default());
