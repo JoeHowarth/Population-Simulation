@@ -4,7 +4,7 @@ See
 - [Map Generation](MapGen_README.md) for Computational Geometry Final Project
 
 
-#### How to Run
+### How to Run
 
 Requires Rust nightly [here](https://www.rust-lang.org/tools/install)
 
@@ -26,13 +26,7 @@ open localhost:8080 in chrome
 
 ---
 *Below is outdated*
-
----
-title: "Dynamic Grand Strategy"
-date: 2018-11-01T16:29:11-04:00
-draft: true
-author: Joe Howarth
----
+###Dynamic Grand Strategy 
 
 Grand strategy games like Europa Universalis, Crusader Kings, Civilization, Victoria
 and even Total War each immerse the player in a simulated world.
