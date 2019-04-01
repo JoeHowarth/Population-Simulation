@@ -26,6 +26,7 @@ open localhost:8080 in chrome
 
 ---
 *Below is outdated*
+
 ###Dynamic Grand Strategy 
 
 Grand strategy games like Europa Universalis, Crusader Kings, Civilization, Victoria
