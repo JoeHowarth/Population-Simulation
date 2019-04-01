@@ -1,3 +1,32 @@
+
+See
+- [Architecture](Architecture.md) for technical details
+- [Map Generation](MapGen_README.md) for Computational Geometry Final Project
+
+
+#### How to Run
+
+Requires Rust nightly [here](https://www.rust-lang.org/tools/install)
+
+    rustup install nightly
+    
+    git clone git@github.com:JoeHowarth/Population-Simulation.git
+    cd Population-Simulation
+    rustup override set nightly
+    cargo build
+    cargo run
+    
+In new terminal
+
+    cd vue-client
+    npm install
+    npm run serve
+    
+open localhost:8080 in chrome
+
+---
+*Below is outdated*
+
 ---
 title: "Dynamic Grand Strategy"
 date: 2018-11-01T16:29:11-04:00
@@ -55,7 +84,6 @@ Here's roughly how I envision this project progressing
 5. Trade and economic systems
 6. Re-evaluation
 
-See [Architecture](Architecture.md) for technical details
 
 Next we'll take a closer look at map generation and then the infrastructure behind the
 simulation
