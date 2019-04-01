@@ -27,7 +27,7 @@ open localhost:8080 in chrome
 ---
 *Below is outdated*
 
-###Dynamic Grand Strategy 
+### Dynamic Grand Strategy 
 
 Grand strategy games like Europa Universalis, Crusader Kings, Civilization, Victoria
 and even Total War each immerse the player in a simulated world.
