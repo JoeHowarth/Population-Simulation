@@ -1,5 +1,6 @@
 
 # Architecture
+High level overview of each module's purpose and function.
 
 ### Modules
 1. Terrain Generation
@@ -14,7 +15,7 @@
 ### Terrain Generation
 Constructs semi-random continents, islands, heightmap, biomes, raw resources (metal deposits etc.). 
 Equivalent of Comp Geom final project, but bigger and better!
-* Should use plate tectonics for world level, probably external library
+* Should use plate tectonics for world level, probably *external library*
 * Then 'up-sample' using existing techniques to gain higher detail
 * Separate process 
   - Either CLI or GUI
@@ -40,10 +41,12 @@ Take terrain & climate and produce initial state of world before day0
     change too rapidly at the start)
   
 ## Server
-Written in Rust, massively parallel, enables client and server to be on different machines (maybe ?)
+Written in Rust, massively parallel, enables client and server to be on different machines. 
+Later multiplayer support should be easily extended by 'simply' supporting multiple clients.
   
 #### Simulation 
-The 'dynamics' transforming State A + Actions --> State B
+The 'dynamics' transforming State A + Actions --> State B. Consumes the initial state produced by 
+**World Building**. 
 * Needs a semi-realistic state to start from 
 * Use specs ECS library to handle parallelism and as 'in-memory database'
 
