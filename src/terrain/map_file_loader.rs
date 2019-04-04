@@ -50,7 +50,7 @@ pub fn load_map_file(path: Option<&str>) -> Result<(Mesh, MeshJson), Error> {
         .filter(|d| if let Some(e) = d.path().extension() { e == "json" } else { false })
         .filter(|d| d.path().to_str().unwrap().contains("map_"))
         .min_by(|a, b| {
-            let f: fn(&fs::DirEntry) -> Result<f64, Error> = |x: &fs::DirEntry| Ok(fs::metadata(x.path())?.modified()?.elapsed()?.as_float_secs());
+            let f: fn(&fs::DirEntry) -> Result<f64, Error> = |x: &fs::DirEntry| Ok(fs::metadata(x.path())?.modified()?.elapsed()?.as_secs_f64());
             let a = f(a).expect("couldn't open metadata");
             let b = f(b).expect("couldn't open metadata");
             a.partial_cmp(&b).unwrap()

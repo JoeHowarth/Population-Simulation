@@ -10,13 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="Wrote Architecture.md and did work on initial population distribution">
-      <change afterPath="$PROJECT_DIR$/TerrainGenerator.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WorldBuilding.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jh.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Actors.md" beforeDir="false" afterPath="$PROJECT_DIR$/Actors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agriculture.md" beforeDir="false" afterPath="$PROJECT_DIR$/Agriculture.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/Architecture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Actors.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Actors.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agriculture.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Agriculture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Architecture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChallengingThePlayer.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/ChallengingThePlayer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MapGen_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/MapGen_README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poplulation" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PopulationDesign.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/PopulationDesign.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerrainGenerator.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/TerrainGenerator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorldBuilding.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/WorldBuilding.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/core_loop.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/core_loop.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,15 +117,15 @@
     <session id="222877875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -130,8 +135,8 @@
           <entry key="json" value="2" />
           <entry key="lock" value="1" />
           <entry key="map" value="1" />
-          <entry key="md" value="13" />
-          <entry key="rs" value="229" />
+          <entry key="md" value="18" />
+          <entry key="rs" value="230" />
           <entry key="toml" value="3" />
           <entry key="ts" value="23" />
           <entry key="vue" value="27" />
@@ -142,9 +147,9 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="33" />
-          <entry key="Markdown" value="13" />
+          <entry key="Markdown" value="18" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Rust" value="229" />
+          <entry key="Rust" value="230" />
           <entry key="SourceMap" value="1" />
           <entry key="TOML file" value="4" />
           <entry key="TypeScript" value="23" />
@@ -159,8 +164,8 @@
           <entry key="js" value="12274" />
           <entry key="json" value="145" />
           <entry key="lock" value="13" />
-          <entry key="md" value="26802" />
-          <entry key="rs" value="84630" />
+          <entry key="md" value="26803" />
+          <entry key="rs" value="84637" />
           <entry key="toml" value="140" />
           <entry key="ts" value="5443" />
           <entry key="txt" value="99" />
@@ -171,9 +176,9 @@
         <counts>
           <entry key="JSON" value="119" />
           <entry key="JavaScript" value="12274" />
-          <entry key="Markdown" value="26802" />
+          <entry key="Markdown" value="26803" />
           <entry key="PLAIN_TEXT" value="106" />
-          <entry key="Rust" value="84630" />
+          <entry key="Rust" value="84637" />
           <entry key="TOML file" value="153" />
           <entry key="TypeScript" value="5443" />
           <entry key="Vue.js" value="7604" />
@@ -189,69 +194,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pop/init.rs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Architecture.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="160">
-                <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WorldBuilding.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MapGen_README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2160">
-                <caret line="144" column="2" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TerrainGenerator.md">
+        <entry file="file://$PROJECT_DIR$/design_docs/WorldBuilding.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="240">
-                <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="155">
-                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+              <first_editor relative-caret-position="120">
+                <caret line="8" selection-start-line="8" selection-end-line="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -350,7 +298,6 @@
         <option value="$PROJECT_DIR$/src/terrain/components.rs" />
         <option value="$PROJECT_DIR$/src/terrain/init.rs" />
         <option value="$PROJECT_DIR$/src/misc/time.rs" />
-        <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
         <option value="$PROJECT_DIR$/src/pop/systems.rs" />
         <option value="$PROJECT_DIR$/src/agriculture/components.rs" />
         <option value="$PROJECT_DIR$/Archetecture.md" />
@@ -373,6 +320,7 @@
         <option value="$PROJECT_DIR$/Agriculture.md" />
         <option value="$PROJECT_DIR$/WorldBuilding.md" />
         <option value="$PROJECT_DIR$/TerrainGenerator.md" />
+        <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
       </list>
     </option>
   </component>
@@ -396,7 +344,7 @@
       <path value="$PROJECT_DIR$/vue-client/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -461,12 +409,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="design_docs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
@@ -483,12 +437,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="map&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/MapGen_README.md&#10;actors&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Actors.md&#10;RiverThre&#9;null&#9;null&#10;gamelo&#9;null&#9;null&#10;lib&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;components&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;lib.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;normalize&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/normalize.rs&#10;pop/mod.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/pop/mod.rs&#10;mesh.ts&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/map_gen/mesh.ts&#10;core&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;core_l&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;update&#9;null&#9;null&#10;types&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/networking/types.rs&#10;agri&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store/AgricultureStore.js&#10;carg tom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;cargotom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store.js&#10;terrain/comp&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;main.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;main&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;area&#9;null&#9;null&#10;slope&#9;null&#9;null&#10;webs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/websocket.js&#10;camera&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/render/camera.js&#10;renderMapgl&#9;null&#9;null&#10;meshjs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;meshJson&#9;null&#9;null&#10;MeshJ&#9;null&#9;null&#10;export&#9;null&#9;null&#10;tri2&#9;null&#9;null&#10;vue.con&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/vue.config.js&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;pt2trian&#9;null&#9;null&#10;setup&#9;null&#9;null&#10;resolve&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/node_modules/@vue/cli-service/lib/util/resolveLocal.js&#10;file&#9;null&#9;null&#10;getmesh&#9;null&#9;null&#10;mutation&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/App.vue&#10;map_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;car&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;Mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;Receive&#9;null&#9;null&#10;client&#9;null&#9;null&#10;cargo.&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;ws_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/networking/ws_server.rs&#10;mesh.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs" />
+    <property name="SearchEverywhereHistoryKey" value=".giti&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/.gitignore&#10;core_loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;map&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/MapGen_README.md&#10;actors&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Actors.md&#10;RiverThre&#9;null&#9;null&#10;gamelo&#9;null&#9;null&#10;lib&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;components&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;lib.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;normalize&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/normalize.rs&#10;pop/mod.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/pop/mod.rs&#10;mesh.ts&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/map_gen/mesh.ts&#10;core&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;core_l&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;update&#9;null&#9;null&#10;types&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/networking/types.rs&#10;agri&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store/AgricultureStore.js&#10;carg tom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;cargotom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store.js&#10;terrain/comp&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;main.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;main&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;area&#9;null&#9;null&#10;slope&#9;null&#9;null&#10;webs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/websocket.js&#10;camera&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/render/camera.js&#10;renderMapgl&#9;null&#9;null&#10;meshjs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;meshJson&#9;null&#9;null&#10;MeshJ&#9;null&#9;null&#10;export&#9;null&#9;null&#10;tri2&#9;null&#9;null&#10;vue.con&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/vue.config.js&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;pt2trian&#9;null&#9;null&#10;setup&#9;null&#9;null&#10;resolve&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/node_modules/@vue/cli-service/lib/util/resolveLocal.js&#10;file&#9;null&#9;null&#10;getmesh&#9;null&#9;null&#10;mutation&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/App.vue&#10;map_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;car&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;Mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;Receive&#9;null&#9;null&#10;client&#9;null&#9;null&#10;cargo.&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -501,16 +454,16 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/vue-client/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vue-client/src/store" />
+      <recent name="$PROJECT_DIR$/src/agriculture" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/design_docs" />
       <recent name="$PROJECT_DIR$/vue-client/src/store" />
       <recent name="$PROJECT_DIR$/vue-client/src/components/panels" />
       <recent name="$PROJECT_DIR$/src/misc" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/terrain" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/vue-client/src/store" />
-      <recent name="$PROJECT_DIR$/src/agriculture" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -525,7 +478,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.run">
+  <component name="RunManager" selected="npm.serve">
     <configuration name="check" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="check " />
@@ -607,10 +560,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.12517883" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12517883" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Terminal" order="3" side_tool="true" weight="0.5617678" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
@@ -625,7 +577,7 @@
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32970297" />
-      <window_info anchor="bottom" x="1024" y="-389" width="615" height="389" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" weight="0.17524752" />
+      <window_info anchor="bottom" x="510" y="245" width="930" height="655" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" weight="0.17524752" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946752" weight="0.32970297" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -850,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -955,13 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/init.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pop/components.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -969,37 +907,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChallengingThePlayer.md">
+    <entry file="file://$PROJECT_DIR$/src/pop/init.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="32" column="75" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
+          <first_editor relative-caret-position="405">
+            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PopulationDesign.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="765">
-            <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Actors.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="4" selection-start-column="4" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Agriculture.md">
+    <entry file="file://$PROJECT_DIR$/design_docs/Agriculture.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="60">
@@ -1009,51 +934,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Architecture.md">
+    <entry file="file://$PROJECT_DIR$/design_docs/Actors.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="160">
-            <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <first_editor>
+            <caret column="4" selection-start-column="4" selection-end-column="4" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WorldBuilding.md">
+    <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design_docs/TerrainGenerator.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <first_editor relative-caret-position="240">
+            <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/design_docs/PopulationDesign.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="155">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <first_editor relative-caret-position="750">
+            <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MapGen_README.md">
+    <entry file="file://$PROJECT_DIR$/design_docs/MapGen_README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2160">
+          <first_editor relative-caret-position="750">
             <caret line="144" column="2" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TerrainGenerator.md">
+    <entry file="file://$PROJECT_DIR$/design_docs/ChallengingThePlayer.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="85" />
+          <first_editor relative-caret-position="480">
+            <caret line="32" column="75" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design_docs/Architecture.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="330">
+            <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design_docs/WorldBuilding.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
         </state>

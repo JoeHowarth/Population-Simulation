@@ -1,9 +1,9 @@
 
 See
-- [Architecture](Architecture.md) for technical details
-- [Map Generation](MapGen_README.md) for Computational Geometry Final Project
-- [Population Design Discussion](PopulationDesign.md)
-- [How to Challenge the Player](ChallengingThePlayer.md) for lamenting about traditional AI's limitation
+- [Architecture](design_docs/Architecture.md) for technical details
+- [Map Generation](design_docs/MapGen_README.md) for Computational Geometry Final Project
+- [Population Design Discussion](design_docs/PopulationDesign.md)
+- [How to Challenge the Player](design_docs/ChallengingThePlayer.md) for lamenting about traditional AI's limitation
 
 
 ### How to Run

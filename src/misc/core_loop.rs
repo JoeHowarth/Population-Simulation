@@ -32,7 +32,7 @@ use crate::{
 use chrono::Datelike;
 
 pub fn game_loop(mut world: World, mut dispatcher_daily: Dispatcher) {
-    let frame_target = Duration::from_millis(1);
+    let frame_target = Duration::from_millis(1000);
     let mut last = Instant::now();
     let mut total_frames = 0;
     loop {
@@ -41,7 +41,7 @@ pub fn game_loop(mut world: World, mut dispatcher_daily: Dispatcher) {
         last = Instant::now();
         {
             let mut delta = world.write_resource::<DeltaTime>();
-            *delta = DeltaTime(dt.as_float_secs() as f32);
+            *delta = DeltaTime(dt.as_secs_f64() as f32);
         }
 
 
@@ -56,7 +56,7 @@ pub fn game_loop(mut world: World, mut dispatcher_daily: Dispatcher) {
         let used = Instant::now() - start;
         let sleep_time = std::cmp::max(frame_target, used) - used;
         if total_frames % 100 == 0 {
-            info!("Utilization: {:.2}%", (1. - sleep_time.as_float_secs() / frame_target.as_float_secs()) * 100.);
+            info!("Utilization: {:.2}%", (1. - sleep_time.as_secs_f64() / frame_target.as_secs_f64()) * 100.);
         }
 
 
