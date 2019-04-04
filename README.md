@@ -1,6 +1,5 @@
-[![](https://tokei.rs/b1/github/JoeHowarth/Population-Simulation?category=code)](http://github.com/JoeHowarth/Population-Simulation)
+[![](https://tokei.rs/b1/github/JoeHowarth/Population-Simulation?category=code&exclude=*.json)](http://github.com/JoeHowarth/Population-Simulation)
 
--- XAMPPRocky/tokei?category=lines)](https://github.com/XAMPPRocky/tokei).
 
 See
 - [Architecture](design_docs/Architecture.md) for technical details
