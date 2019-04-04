@@ -9,20 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="Wrote Architecture.md and did work on initial population distribution">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Actors.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Actors.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Agriculture.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Agriculture.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/Architecture.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChallengingThePlayer.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/ChallengingThePlayer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MapGen_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/MapGen_README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poplulation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PopulationDesign.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/PopulationDesign.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerrainGenerator.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/TerrainGenerator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorldBuilding.md" beforeDir="false" afterPath="$PROJECT_DIR$/design_docs/WorldBuilding.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misc/core_loop.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/core_loop.rs" afterDir="false" />
-    </list>
+    <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="Wrote Architecture.md and did work on initial population distribution" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,26 +104,28 @@
     <session id="222877875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="browserslistrc" value="1" />
+          <entry key="gitignore" value="1" />
           <entry key="js" value="33" />
           <entry key="json" value="2" />
           <entry key="lock" value="1" />
           <entry key="map" value="1" />
           <entry key="md" value="18" />
-          <entry key="rs" value="230" />
+          <entry key="rs" value="232" />
           <entry key="toml" value="3" />
           <entry key="ts" value="23" />
           <entry key="vue" value="27" />
@@ -148,8 +137,8 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="33" />
           <entry key="Markdown" value="18" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Rust" value="230" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Rust" value="232" />
           <entry key="SourceMap" value="1" />
           <entry key="TOML file" value="4" />
           <entry key="TypeScript" value="23" />
@@ -161,11 +150,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="browserslistrc" value="7" />
+          <entry key="gitignore" value="9" />
           <entry key="js" value="12274" />
           <entry key="json" value="145" />
           <entry key="lock" value="13" />
           <entry key="md" value="26803" />
-          <entry key="rs" value="84637" />
+          <entry key="rs" value="84726" />
           <entry key="toml" value="140" />
           <entry key="ts" value="5443" />
           <entry key="txt" value="99" />
@@ -177,8 +167,8 @@
           <entry key="JSON" value="119" />
           <entry key="JavaScript" value="12274" />
           <entry key="Markdown" value="26803" />
-          <entry key="PLAIN_TEXT" value="106" />
-          <entry key="Rust" value="84637" />
+          <entry key="PLAIN_TEXT" value="115" />
+          <entry key="Rust" value="84726" />
           <entry key="TOML file" value="153" />
           <entry key="TypeScript" value="5443" />
           <entry key="Vue.js" value="7604" />
@@ -194,7 +184,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/design_docs/WorldBuilding.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -202,6 +192,33 @@
                 <caret line="8" selection-start-line="8" selection-end-line="8" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="58" column="98" selection-start-line="58" selection-start-column="98" selection-end-line="58" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/terrain/map_file_loader.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -221,7 +238,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>canvas.w</find>
       <find>camera</find>
       <find>px</find>
       <find>x</find>
@@ -251,6 +267,7 @@
       <find>16</find>
       <find>info</find>
       <find>RIVER</find>
+      <find>as_float_secs</find>
     </findStrings>
     <replaceStrings>
       <replace>viewsize</replace>
@@ -270,8 +287,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" />
-        <option value="$PROJECT_DIR$/vue-client/.browserslistrc" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/map-utils.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/heightmap.ts" />
         <option value="$PROJECT_DIR$/vue-client/tsconfig.json" />
@@ -321,6 +336,8 @@
         <option value="$PROJECT_DIR$/WorldBuilding.md" />
         <option value="$PROJECT_DIR$/TerrainGenerator.md" />
         <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
+        <option value="$PROJECT_DIR$/src/terrain/map_file_loader.rs" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -560,9 +577,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12517883" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12660944" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Terminal" order="3" side_tool="true" weight="0.5617678" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
@@ -637,20 +655,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Wrote Architecture.md and did work on initial population distribution" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vue-client/src/MapManager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/components/Toolbar.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -944,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/design_docs/TerrainGenerator.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1008,6 +1005,27 @@
             <caret line="8" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="58" column="98" selection-start-line="58" selection-start-column="98" selection-end-line="58" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terrain/map_file_loader.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
