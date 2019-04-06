@@ -9,178 +9,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="Wrote Architecture.md and did work on initial population distribution" />
+    <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="Wrote Architecture.md and did work on initial population distribution">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/terrain/init.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/terrain/init.rs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-932005397">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="22" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="6" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="26" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="browserslistrc" value="1" />
-          <entry key="gitignore" value="1" />
-          <entry key="glsl" value="2" />
-          <entry key="html" value="5" />
-          <entry key="js" value="152" />
-          <entry key="json" value="9" />
-          <entry key="md" value="1" />
-          <entry key="rs" value="133" />
-          <entry key="toml" value="8" />
-          <entry key="ts" value="6" />
-          <entry key="vmoptions" value="1" />
-          <entry key="vue" value="41" />
-          <entry key="yaml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="GLSL shader file" value="2" />
-          <entry key="HTML" value="5" />
-          <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="152" />
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Rust" value="133" />
-          <entry key="TOML file" value="8" />
-          <entry key="TypeScript" value="6" />
-          <entry key="Vue.js" value="41" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="glsl" value="98" />
-          <entry key="html" value="272" />
-          <entry key="js" value="29781" />
-          <entry key="json" value="224" />
-          <entry key="rs" value="91165" />
-          <entry key="toml" value="451" />
-          <entry key="txt" value="13" />
-          <entry key="vmoptions" value="56" />
-          <entry key="vue" value="12562" />
-          <entry key="yaml" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="GLSL shader file" value="98" />
-          <entry key="HTML" value="272" />
-          <entry key="JSON" value="224" />
-          <entry key="JavaScript" value="29781" />
-          <entry key="PLAIN_TEXT" value="69" />
-          <entry key="Rust" value="91165" />
-          <entry key="TOML file" value="451" />
-          <entry key="Vue.js" value="12562" />
-          <entry key="YAML" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="222877875">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="browserslistrc" value="1" />
-          <entry key="gitignore" value="1" />
-          <entry key="js" value="33" />
-          <entry key="json" value="2" />
-          <entry key="lock" value="1" />
-          <entry key="map" value="1" />
-          <entry key="md" value="18" />
-          <entry key="rs" value="232" />
-          <entry key="toml" value="3" />
-          <entry key="ts" value="23" />
-          <entry key="vue" value="27" />
-          <entry key="yaml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="33" />
-          <entry key="Markdown" value="18" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Rust" value="232" />
-          <entry key="SourceMap" value="1" />
-          <entry key="TOML file" value="4" />
-          <entry key="TypeScript" value="23" />
-          <entry key="Vue.js" value="27" />
-          <entry key="YAML" value="1" />
-          <entry key="tsconfig" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="browserslistrc" value="7" />
-          <entry key="gitignore" value="9" />
-          <entry key="js" value="12274" />
-          <entry key="json" value="145" />
-          <entry key="lock" value="13" />
-          <entry key="md" value="26803" />
-          <entry key="rs" value="84726" />
-          <entry key="toml" value="140" />
-          <entry key="ts" value="5443" />
-          <entry key="txt" value="99" />
-          <entry key="vue" value="7604" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JSON" value="119" />
-          <entry key="JavaScript" value="12274" />
-          <entry key="Markdown" value="26803" />
-          <entry key="PLAIN_TEXT" value="115" />
-          <entry key="Rust" value="84726" />
-          <entry key="TOML file" value="153" />
-          <entry key="TypeScript" value="5443" />
-          <entry key="Vue.js" value="7604" />
-          <entry key="tsconfig" value="26" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="TypeScriptServerServiceImpl" value="3" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -199,26 +36,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
+            <state relative-caret-position="870">
               <caret line="58" column="98" selection-start-line="58" selection-start-column="98" selection-end-line="58" selection-end-column="98" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/terrain/map_file_loader.rs">
+        <entry file="file://$PROJECT_DIR$/src/terrain/init.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
+            <state relative-caret-position="219">
+              <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pop/components.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pop/systems.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -311,7 +166,6 @@
         <option value="$PROJECT_DIR$/vue-client/src/store/TerrainStore.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" />
         <option value="$PROJECT_DIR$/src/terrain/components.rs" />
-        <option value="$PROJECT_DIR$/src/terrain/init.rs" />
         <option value="$PROJECT_DIR$/src/misc/time.rs" />
         <option value="$PROJECT_DIR$/src/pop/systems.rs" />
         <option value="$PROJECT_DIR$/src/agriculture/components.rs" />
@@ -338,30 +192,17 @@
         <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
         <option value="$PROJECT_DIR$/src/terrain/map_file_loader.rs" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/terrain/init.rs" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/vue-client/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/vue-client/package.json" />
-    </packageJsonPaths>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -437,12 +278,18 @@
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
-              <item name="design_docs" type="462c0819:PsiDirectoryNode" />
+              <item name="maps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Population-Simulation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="population-simulation" type="b2602c69:ProjectViewProjectNode" />
@@ -458,6 +305,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value=".giti&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/.gitignore&#10;core_loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;map&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/MapGen_README.md&#10;actors&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Actors.md&#10;RiverThre&#9;null&#9;null&#10;gamelo&#9;null&#9;null&#10;lib&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;components&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;lib.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/lib.rs&#10;cargo&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;normalize&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/normalize.rs&#10;pop/mod.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/pop/mod.rs&#10;mesh.ts&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/map_gen/mesh.ts&#10;core&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;core_l&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;loop&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/misc/core_loop.rs&#10;update&#9;null&#9;null&#10;types&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/networking/types.rs&#10;agri&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store/AgricultureStore.js&#10;carg tom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;cargotom&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/Cargo.toml&#10;store&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/vue-client/src/store.js&#10;terrain/comp&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/terrain/components.rs&#10;main.rs&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;main&#9;FILE&#9;file:///Users/jh/Desktop/projects/Population-Simulation/src/main.rs&#10;area&#9;null&#9;null&#10;slope&#9;null&#9;null&#10;webs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/websocket.js&#10;camera&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/render/camera.js&#10;renderMapgl&#9;null&#9;null&#10;meshjs&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;meshJson&#9;null&#9;null&#10;MeshJ&#9;null&#9;null&#10;export&#9;null&#9;null&#10;tri2&#9;null&#9;null&#10;vue.con&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/vue.config.js&#10;mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/mesh.js&#10;pt2trian&#9;null&#9;null&#10;setup&#9;null&#9;null&#10;resolve&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/node_modules/@vue/cli-service/lib/util/resolveLocal.js&#10;file&#9;null&#9;null&#10;getmesh&#9;null&#9;null&#10;mutation&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/App.vue&#10;map_&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/vue-client/src/map_gen/map_gen.js&#10;car&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml&#10;Mesh&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/src/map/mesh.rs&#10;Receive&#9;null&#9;null&#10;client&#9;null&#9;null&#10;cargo.&#9;FILE&#9;file:///Users/jh/Desktop/projects/rust-proj/async/ws-rs-ex/Cargo.toml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -467,7 +315,7 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/vue-client/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -495,7 +343,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="Cargo Command.run">
     <configuration name="check" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="check " />
@@ -526,7 +374,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="serve" type="js.build_tools.npm" factoryName="npm">
+    <configuration name="serve" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/vue-client/package.json" />
       <command value="run" />
       <scripts>
@@ -537,9 +385,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Cargo Command.run" />
       <item itemvalue="Cargo Command.check" />
       <item itemvalue="Cargo Command.run --release" />
+      <item itemvalue="Cargo Command.run" />
       <item itemvalue="npm.serve" />
     </list>
   </component>
@@ -580,7 +428,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12660944" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13161659" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Terminal" order="3" side_tool="true" weight="0.5617678" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
@@ -642,9 +490,6 @@
         <option value="$PROJECT_DIR$/../Web-projs/test-ts/src/main.js" />
       </list>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -813,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/systems.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agriculture/components.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -883,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/terrain/init.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1324">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/misc/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -901,13 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="892">
           <caret line="132" column="5" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pop/components.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -998,6 +822,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/terrain/map_file_loader.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/design_docs/WorldBuilding.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1010,22 +841,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
+        <state relative-caret-position="870">
           <caret line="58" column="98" selection-start-line="58" selection-start-column="98" selection-end-line="58" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/terrain/map_file_loader.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/terrain/init.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pop/components.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pop/systems.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>

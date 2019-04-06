@@ -310,6 +310,7 @@ pub fn sim_region(a: usize, b: usize, topo: &VecMap<RegionTopography>,
         return -1;
     }
 
+
     let d_h = (a_h - b_h).abs();
     let d_hil = (a_hil - b_hil).abs();
     let d_flux = ((a_flux - b_flux).abs() * RIVER_MULT)
