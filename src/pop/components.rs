@@ -25,6 +25,17 @@ pub struct Cohort {
 }
 
 #[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+pub struct Health {
+    pub health: f32
+}
+
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+pub struct FoodConsumption {
+    pub consump: f32,
+    pub ratio_of_norm: f32,
+}
+
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
 pub struct PopEst(pub usize);
 
 const NUM_COHORTS: usize = 17;
@@ -88,10 +99,10 @@ impl RegionPop {
         let low: f64 = low.into();
         let hi: f64 = hi.into();
         for c in &self.cohorts {
-            if c.high_age > low && c.low_age < hi {
+            if c.high_age > low & &c.low_age < hi {
                 let l = low.max(c.low_age);
                 let h = hi.min(c.high_age);
-                let d = (h-l)/(c.high_age - c.low_age);
+                let d = (h - l) / (c.high_age - c.low_age);
                 total += (c.pop as f64 * d) as usize;
             }
         }

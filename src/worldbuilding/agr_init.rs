@@ -137,7 +137,7 @@ pub fn init_farm_data((base, reg, topo, pop, mut farm, entities): (ReadStorage<R
         let &RegBaseFarmData { fertility, arable } = base;
 
         let high_yield = base_yield(2, arable, fertility);
-        let needed_grain = pop.cohorts.iter().fold(0., |acc, c| acc + grain_for_cohort(c));
+        let needed_grain = grain_for_pop(pop);
         if high_yield < needed_grain {
             warn!("Too many people for yield to supply, Needed: {}, Max Yield: {}", needed_grain, high_yield);
         }

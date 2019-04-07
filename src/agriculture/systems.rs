@@ -67,3 +67,7 @@ pub fn grain_for_cohort(c: &Cohort) -> f32 {
     bm * pop as f32 * male as f32 + bf * pop as f32 * (1. - male) as f32
 }
 
+pub fn grain_for_pop(p: &RegionPop) -> f32 {
+    p.cohorts.iter().fold(0., |grain, c| grain_for_cohort(c) + grain)
+}
+
