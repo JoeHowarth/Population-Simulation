@@ -56,15 +56,15 @@ pub fn grain_for_cohort(c: &Cohort) -> f32 {
         lerp(BUSHELS_CHILD, BUSHELS_MALE, mean_age as f32 / 15.)
     } else {
         BUSHELS_MALE
-    };
+    } as f64;
 
     let bf = if mean_age < 14. {
         lerp(BUSHELS_CHILD, BUSHELS_FEMALE, mean_age as f32 / 15.)
     } else {
         BUSHELS_FEMALE
-    };
+    } as f64;
 
-    bm * pop as f32 * male as f32 + bf * pop as f32 * (1. - male) as f32
+    (bm * pop as f64 * male + bf as f64 * pop as f64 * (1. - male)) as f32
 }
 
 pub fn grain_for_pop(p: &RegionPop) -> f32 {

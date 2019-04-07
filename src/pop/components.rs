@@ -99,7 +99,7 @@ impl RegionPop {
         let low: f64 = low.into();
         let hi: f64 = hi.into();
         for c in &self.cohorts {
-            if c.high_age > low & &c.low_age < hi {
+            if c.high_age > low && c.low_age < hi {
                 let l = low.max(c.low_age);
                 let h = hi.min(c.high_age);
                 let d = (h - l) / (c.high_age - c.low_age);

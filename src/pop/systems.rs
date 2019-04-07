@@ -65,7 +65,7 @@ impl<'a> System<'a> for FoodConsumptionUpdate {
                        ReadStorage<'a, Health>,
                        ReadExpect<'a, Date>);
 
-    fn run(&mut self, (mut stock, mut consump, pop, health): Self::SystemData) {
+    fn run(&mut self, (mut stock, mut consump, pop, health, date): Self::SystemData) {
         if date.day() != 3 {
             return;
         }
