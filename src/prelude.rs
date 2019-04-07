@@ -3,6 +3,11 @@ pub use crate::{
     agriculture::*,
     pop::*,
     terrain::*,
+    worldbuilding::*,
+    misc::{
+        normalize::*,
+        *
+    },
 };
 pub use arrayvec::ArrayVec;
 pub use vec_map::VecMap;
@@ -18,3 +23,4 @@ pub use std::{
 };
 pub use rand::prelude::*;
 pub use specs::prelude::*;
+pub use failure::Error;

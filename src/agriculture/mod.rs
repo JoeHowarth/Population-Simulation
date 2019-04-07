@@ -1,7 +1,6 @@
 pub mod systems;
 pub mod components;
 pub mod actions;
-pub mod init;
 pub mod sub_req;
 
 use specs_derive;
@@ -10,6 +9,5 @@ pub use self::{
     systems::*,
     components::*,
     actions::*,
-    init::*,
     sub_req::*,
 };

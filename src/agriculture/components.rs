@@ -25,15 +25,15 @@ pub struct FarmData {
     pub auc: f32,
     /// Area cleared and 'ready' to be farmed
     pub cleared: f32,
-    /// farming efficiency, may be derived quantity instead..
-    pub fe: f32,
+    // farming efficiency, may be derived quantity instead..
+    //pub fe: f32,
 }
 
 
 #[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
 pub struct FoodStock {
     /// amount of stored food in region/tile
-    pub food: f32,
+    pub bushels: f32,
 }
 
 #[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]

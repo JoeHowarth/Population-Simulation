@@ -8,7 +8,6 @@ use std::{
     },
     f64,
     f32,
-
 };
 
 #[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
@@ -57,7 +56,7 @@ impl RegionPop {
             c.pop -= deaths as usize;
 
             // update ages
-            c.low_age += dt_frac ;
+            c.low_age += dt_frac;
             c.high_age += dt_frac;
             c.mean_age += dt_frac;
         }
@@ -75,7 +74,6 @@ impl RegionPop {
             c.pop += newborns;
             c.low_age = 0.;
         }
-
     }
 
     pub fn pop(&self) -> usize {
@@ -85,7 +83,20 @@ impl RegionPop {
     }
 
     // pub fn dist(&self) ->  [usize; 14]
-    // pub fn pop_in_range(low: u8, hi: u8) -> usize
+    pub fn pop_in_range(&self, low: u8, hi: u8) -> usize {
+        let mut total = 0;
+        let low: f64 = low.into();
+        let hi: f64 = hi.into();
+        for c in &self.cohorts {
+            if c.high_age > low && c.low_age < hi {
+                let l = low.max(c.low_age);
+                let h = hi.min(c.high_age);
+                let d = (h-l)/(c.high_age - c.low_age);
+                total += (c.pop as f64 * d) as usize;
+            }
+        }
+        total
+    }
 }
 
 impl Cohort {

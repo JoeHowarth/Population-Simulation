@@ -3,25 +3,8 @@
 #![feature(core_intrinsics)]
 
 
-//#[macro_use]
-//extern crate specs_derive;
-//extern crate specs;
-//extern crate ws;
-//#[macro_use]
-//extern crate serde_derive;
-//extern crate serde;
-//extern crate serde_json;
 extern crate failure;
-//extern crate fnv;
-//extern crate anymap;
 extern crate population_simulation;
-//#[macro_use(o, slog_log, slog_trace, slog_debug, slog_info, slog_warn, slog_error)]
-//extern crate slog;
-//extern crate slog_async;
-//extern crate slog_term;
-//#[macro_use]
-//extern crate slog_scope;
-//extern crate config;
 
 
 use std::{
@@ -43,10 +26,8 @@ use population_simulation::{
     *,
     networking::*,
     terrain::{
-        map_file_loader::{move_map_files, load_map_file},
         mesh::Mesh,
         components::*,
-        init::register_terrain_ecs,
     },
     agriculture::components::AgrData,
 };

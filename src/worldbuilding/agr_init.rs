@@ -2,12 +2,14 @@ use super::*;
 use crate::{
     terrain::{
         components::*,
-        init::{get_rivers, RIVER_FLUX_THRESH},
         mesh::{Mesh, MeshJson},
     },
     misc::normalize::*,
     pop::components::RegionPop,
+    worldbuilding::terrain_init::{get_rivers, RIVER_FLUX_THRESH},
+    prelude::*,
 };
+
 use fnv::{FnvHashMap, FnvHashSet};
 use specs::prelude::*;
 use ord_subset::*;
@@ -20,6 +22,7 @@ use std::{
     iter::FromIterator,
     collections::VecDeque,
 };
+use std::intrinsics::unaligned_volatile_load;
 
 
 pub fn register_agr_ecs(world: &mut World) {
@@ -106,8 +109,10 @@ pub fn get_base_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStor
         }
     }
 
-    fertility = normalize_vec(fertility);
-
+    let it = fertility.iter().filter(|&&f| f > 0.);
+    let mean = it.clone().sum::<f32>() / it.count() as f32;
+    fertility.iter_mut().for_each(|f| *f /= mean); // change
+    dbg!(&fertility);
 
     fertility.iter().enumerate().map(|(i, &fertility)| {
         if h[i] < 0. {
@@ -124,11 +129,36 @@ pub fn get_base_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStor
 
 
 // 'FarmData' is regional for now
-pub fn init_farm_data((base, pop, reg, topo, mut farm, entities): (ReadStorage<RegBaseFarmData>, ReadStorage<RegionPop>, ReadStorage<Region>, ReadStorage<RegionTopography>, WriteStorage<FarmData>, Entities)) {
-    for (base, pop, reg, topo, mut farm, e) in (&base, &pop, &reg, &topo, &mut farm, &entities).join() {
-        let area = topo.area * 25.; // map area is 1/5 'rea' area TODO correct area
-        let RegBaseFarmData { fertility, arable } = base;
+pub fn init_farm_data((base, reg, topo, pop, mut farm, entities): (ReadStorage<RegBaseFarmData>, ReadStorage<Region>, ReadStorage<RegionTopography>, ReadStorage<RegionPop>, WriteStorage<FarmData>, Entities)) {
+    let mut count = 0;
+    let mut rng = SmallRng::from_entropy();
+    for (base, pop, reg, topo, e) in (&base, &pop, &reg, &topo, &entities).join() {
+        count += 1;
+        let &RegBaseFarmData { fertility, arable } = base;
+
+        let high_yield = base_yield(2, arable, fertility);
+        let needed_grain = pop.cohorts.iter().fold(0., |acc, c| acc + grain_for_cohort(c));
+        if high_yield < needed_grain {
+            warn!("Too many people for yield to supply, Needed: {}, Max Yield: {}", needed_grain, high_yield);
+        }
+
+        let needed_area = inverse_yield(2, needed_grain, fertility);
+        let cleared = (needed_area * rng.gen_range(1.01, 1.5)).min(arable);
+        let auc = needed_area.min(arable);
+
+        dbg!(needed_grain / high_yield);
+        farm.insert(e, FarmData {auc, cleared}).unwrap();
     }
 
-    //TODO: Implement function...
+    dbg!(count);
 }
+
+
+fn inverse_yield(seed_ratio: u8, bushels: f32, fertility: f32) -> f32 {
+    let bph = BUSHELS_PER_HECTARE_2_TO_1 * (seed_ratio - 1) as f32 * SEED_RATIO * fertility;
+
+    // km = bushels / bushels_per_km
+    bushels / (bph * 1000.)
+}
+
+

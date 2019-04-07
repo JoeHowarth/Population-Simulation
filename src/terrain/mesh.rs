@@ -54,12 +54,13 @@ pub struct MeshWrapper {
 
 impl From<MeshJson> for Mesh {
     fn from(json: MeshJson) -> Self {
+        // Note: server distances are 5x graphical distances
         Mesh {
             halfedges: json.halfedges.into_iter().map(|i| if i < 0 { NO_EDGE } else { i as usize }).collect(),
             triangles: json.triangles,
             hull: Vec::new(),
-            points: json.points.chunks(2).map(|a| vec2(a[0], a[1])).collect(),
-            dim: vec2(json.Dkm.0, json.Dkm.1),
+            points: json.points.chunks(2).map(|a| vec2(a[0] * 5., a[1] * 5.)).collect(),
+            dim: vec2(json.Dkm.0 * 5., json.Dkm.1 * 5.),
             adj: json.adj,
             ids: json.triIDs,
             inv_ids: VecMap::from_iter(json.invTriIDs),
@@ -67,8 +68,8 @@ impl From<MeshJson> for Mesh {
             flux: json.flux,
             slope: json.slope,
             height: json.h,
-            area: json.area,
-            centroids: json.centroids.into_iter().map(|(x,y)| vec2(x,y)).collect(),
+            area: json.area.into_iter().map(|a| a * 25.).collect(),
+            centroids: json.centroids.into_iter().map(|(x,y)| vec2(x * 5.,y * 5.)).collect(),
         }
     }
 }

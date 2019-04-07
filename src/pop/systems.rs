@@ -34,7 +34,7 @@ impl<'a> System<'a> for PopUpdate {
                 p.update(&BIRTH_RATES, &DEATH_RATES, dt as u16);
 
                 if b {
-                    dbg!(&p);
+                    //dbg!(&p);
                     b = false
                 }
             }

@@ -1,12 +1,11 @@
-
 pub fn normalize<'a, I: 'static>(arr: I) -> Box<dyn Iterator<Item=f32>>
     where I: Iterator<Item=&'a f32> + Clone,
 {
     use std::f32;
     let (min, max): (f32, f32) = arr.clone()
-        .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &v| {
-            (min.min(v), max.max(v))
-        });
+                                    .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &v| {
+                                        (min.min(v), max.max(v))
+                                    });
 
     debug!("normalize, max {}, min {}", &max, &min);
 
@@ -17,9 +16,9 @@ pub fn normalize_vec<'a>(mut arr: Vec<f32>) -> Vec<f32>
 {
     use std::f32;
     let (min, max) = arr.iter()
-        .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &v| {
-            (min.min(v), max.max(v))
-        });
+                        .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &v| {
+                            (min.min(v), max.max(v))
+                        });
 
     debug!("normalize, max {}, min {}", &max, &min);
 
@@ -32,9 +31,9 @@ pub fn normalize_mut<'a, I>(arr: I)
 {
     use std::f32;
     let (min, max) = arr.clone()
-        .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &mut v| {
-            (min.min(v), max.max(v))
-        });
+                        .fold((f32::INFINITY, -f32::INFINITY), |(min, max), &mut v| {
+                            (min.min(v), max.max(v))
+                        });
 
     debug!("normalize, max {}, min {}", &max, &min);
 
@@ -52,5 +51,9 @@ pub fn float_max<'a, I>(arr: I) -> f32
     arr.fold(-f32::INFINITY, |max, &v| {
         max.max(v)
     })
+}
+
+pub fn lerp(a: f32, b: f32, x: f32) -> f32 {
+    a * x + b * (1. - x)
 }
 

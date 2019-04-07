@@ -38,6 +38,7 @@ pub mod terrain;
 pub mod agriculture;
 pub mod pop;
 pub mod misc;
+pub mod worldbuilding;
 pub mod prelude;
 
 use std::{
@@ -71,12 +72,9 @@ use crate::{
     },
     misc::{
         *,
-        components::DeltaTime,
         core_loop::game_loop,
     },
 };
-use crate::terrain::map_file_loader::load_map_file;
-use crate::terrain::init::construct_regions;
 
 //lazy_static! {
 //    pub static ref SETTINGS : RwLock<config::Config> = RwLock::new(config::Config::default());
@@ -134,28 +132,6 @@ pub fn setup() -> Result<(), Error> {
 }
 
 
-fn setup_world() -> Result<World, Error> {
-    move_map_files()?;
-    let (mesh, mesh_json) = load_map_file(None)?;
-    debug!("mesh from file, number of tiles: {}", mesh.ids.len());
-
-    let mut world = World::new();
-
-    register_terrain_ecs(&mesh, &mut world);
-    world.add_resource(mesh);
-    world.add_resource(Some(mesh_json));
-    world.add_resource(DeltaTime(0.051));
-    time::init_date(&mut world);
-
-    agriculture::init::register_agr_ecs(&mut world);
-    construct_regions(world.system_data());
-    world.maintain();
-    pop::init::register_pop_ecs(&mut world);
-
-    world.maintain();
-
-    Ok(world)
-}
 
 const TIMESTAMP_FORMAT: &'static str = "%m-%d %H:%M:%S";
 
