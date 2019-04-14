@@ -1,8 +1,15 @@
+cargo-features = ["default-run"]
+
 [package]
 name = "population_simulation"
 version = "0.1.0"
 authors = ["Joe Howarth <josephehowarth@gmail.com>"]
 edition = "2018"
+default-run = "population_simulation"
+
+#[[bin]]
+#name = "gen_typescript"
+#path = "src/bin/gen_typescript.rs"
 
 [profile.dev]
 opt-level = 0
@@ -29,6 +36,7 @@ slog-scope = "4.1.1"
 chrono = "0.4.6"
 rand = "0.6.5"
 derive_more = "0.14.0"
+typescript-definitions = "0.1.10"
 
 [dependencies.arrayvec]
 version = "0.4.10"
@@ -45,3 +53,4 @@ version = "0.16.11"
 features = [
     "serde-serialize"
 ]
+

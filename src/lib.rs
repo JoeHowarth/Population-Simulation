@@ -32,6 +32,8 @@ extern crate rand;
 extern crate arrayvec;
 #[macro_use]
 extern crate derive_more;
+#[macro_use]
+extern crate typescript_definitions;
 
 pub mod networking;
 pub mod terrain;

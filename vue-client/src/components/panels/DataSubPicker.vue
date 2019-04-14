@@ -46,7 +46,6 @@
 
 <script>
   import {mapState, mapGetters} from 'vuex'
-  import {updateColorsFunSparse} from "../../map_gen/render/webgl"
   import MapManager from '../../MapManager'
   import BackButton from '../util/BackButton'
   import Socket from '@/websocket'

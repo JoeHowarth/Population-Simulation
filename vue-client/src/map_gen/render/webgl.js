@@ -63,20 +63,4 @@ export function setup_canvas(Wkm, Hkm) {
 }
 
 
-export function updateColorsFunSparse(arr) {
-  let buf = new Float32Array(NUM_TILES)
-  for (let i = 0; i < NUM_TILES; i++) {
-    buf[i] = (arr[i] !== undefined)? arr[i] : -0.1
-  }
-  updateColorsFun(buf)
-}
-
-export function updateColorsFromMap(map, field) {
-  let buf = new Float32Array(NUM_TILES)
-  for (let i = 0; i < map.length; i++) {
-    buf[i] = field ? map[i][field] : map[i]
-  }
-  updateColorsFun(buf)
-
-}
 

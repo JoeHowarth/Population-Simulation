@@ -9,6 +9,7 @@ import terrainStore from './TerrainStore'
 import populationStore from './PopulationStore'
 import {mesh} from '../map_gen/map_gen'
 import Socket from "../websocket"
+import MapManager from "../MapManager"
 
 Vue.use(Vuex)
 
@@ -71,7 +72,7 @@ const store: StoreOptions<RootState> = {
     },
     setMapData(state, h) {
       state.mapColorData = h
-      updateColorsFun(h)
+      MapManager.setColor(h)
     },
     
     // ----------------

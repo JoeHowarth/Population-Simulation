@@ -4,6 +4,7 @@ use chrono::Datelike;
 
 
 pub const BUSHELS_PER_HECTARE_2_TO_1: f32 = 13.;
+pub const FALLOW_MULT: f32 = 0.5;
 pub const HECTARES_TO_KM: u16 = 1000;
 pub const SEED_RATIO: f32 = 1.343;
 pub const BUSHELS_MALE: f32 = 24.;
@@ -43,10 +44,15 @@ impl<'a> System<'a> for GrainYield {
 }
 
 /// Yield in bushels for given seed ratio {2,3,4}:1, area km2, fertility mean = 1.
+/// seed_ratio is 1 => 3:1, 2 => 4:1
 pub fn base_yield(seed_ratio: u8, area: f32, fertility: f32) -> f32 {
-    let bph = BUSHELS_PER_HECTARE_2_TO_1 * (seed_ratio - 1) as f32 * SEED_RATIO * fertility;
+    let seed_mult = (seed_ratio as f32* SEED_RATIO).max(1.);
+    let bph = BUSHELS_PER_HECTARE_2_TO_1 * seed_mult * fertility;
     let bpkm = bph * 1000.;
-    bpkm * area
+
+    // multiply area by how ratio of planted area to total area to account for
+    // fallow fields under crop rotation
+    bpkm * area * FALLOW_MULT
 }
 
 // Normal grain consumption for cohort

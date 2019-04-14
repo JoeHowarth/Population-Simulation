@@ -89,14 +89,14 @@ export function createScene(mesh, h) {
 
 
   let colors = new Float32Array(num_colors)
-  updateColors(colors, mesh, mapMesh, h)
+  updateColors(colors, mesh, mapMesh, h, heightToColorArr)
 
   // scene.onBeforeRenderObservable.add(() => {
   //   h = h.map(v => v + 0.0001);
   //   updateColors(colors, mesh, mapMesh, h)
   // })
 
-  updateColorsFun = (h) => updateColors(colors, mesh, mapMesh, h)
+  updateColorsFun = (vals, valToColor) => updateColors(colors, mesh, mapMesh, vals, valToColor)
 
   let red_wire = new BABYLON.StandardMaterial('wire', scene)
   red_wire.wireframe = true
@@ -114,12 +114,12 @@ export function createScene(mesh, h) {
   return [scene, updateColorsFun];
 }
 
-export function updateColors (colors, mesh, mapMesh, h) {
+export function updateColors (colors, mesh, mapMesh, arr, toColor) {
   // let colors = mapMesh.getVerticesData(BABYLON.VertexBuffer.ColorKind);
-  for (let i = 0; i < h.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
 
 
-    const c = heightToColorArr(h[i])
+    const c = toColor(arr[i])
 
     let j = mesh.triIDs[i] * 12
 
@@ -144,7 +144,6 @@ export function updateColors (colors, mesh, mapMesh, h) {
 
   mapMesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, colors)
 }
-
 
 export function indecesFromMesh(mesh) {
   // console.log(mesh.triangles);

@@ -1,5 +1,6 @@
 import store from './store/store'
-import {updateColorsFun, updateColorsFunSparse} from "./map_gen/render/webgl"
+import {updateColorsFun, NUM_TILES} from "./map_gen/render/webgl"
+import {heightToColorArr} from "./map_gen/render/render-map"
 import {mesh} from "@/map_gen/map_gen"
 
 const DEFAULT_MAP_DATA = {
@@ -8,12 +9,6 @@ const DEFAULT_MAP_DATA = {
   field: "Height"
 }
 
-function checkActiveMapData(del_sec: string, del_comp: string) {
-  const {section, component} = store.state.activeMapData
-  if (del_sec === section && del_comp === component) {
-    setMap({res: mesh.h, sec: DEFAULT_MAP_DATA.section, comp: DEFAULT_MAP_DATA.component})
-  }
-}
 
 interface SetMapArgs {
   res?: MapData | any,
@@ -21,21 +16,82 @@ interface SetMapArgs {
   comp?: string,
   key?: string | number
   key_ind?: number
+  valToColor?: (arg0: number) => number
 }
 
-function setMap({res, sec, comp, key, key_ind}: SetMapArgs) {
-  console.log('setMap ', sec, comp, key, key_ind, res)
-  res = res? res : store.state[sec][comp]
-  console.log(res)
-  if ((key_ind || key_ind === 0)&& !key) {
-    key = Object.keys(res)[key_ind]
-    console.log(Object.keys(res))
+
+class MapManager {
+  buf = new Float32Array(NUM_TILES)
+  
+  setColor(vals: number[], valToColor = heightToColorArr) {
+    console.log("in set color, buf, vals: ", this.buf, vals)
+    
+    if (this.buf.length != NUM_TILES) {
+      this.buf = new Float32Array(NUM_TILES)
+    }
+  
+    for (let i = 0; i < NUM_TILES; i++) {
+      this.buf[i] = (vals[i] !== undefined)? vals[i] : -0.1
+    }
+    
+    updateColorsFun(this.buf, valToColor)
   }
-  console.log(key)
-  let buf = key? res[key] : res
-  console.log(buf)
-  store.commit('setActiveMapData', {section: sec, component: comp})
-  updateColorsFunSparse(buf)
+  
+  setColorByGroup(groups: number[][], vals: number[], valToColor = heightToColorArr) {
+    if (this.buf.length != NUM_TILES) {
+      this.buf = new Float32Array(NUM_TILES)
+    }
+    
+    for (let i = 0; i < groups.length; i++) {
+      const g = groups[i]
+      const val = vals[i]
+      for (const id of g) {
+        this.buf[id] = val
+      }
+    }
+    
+    updateColorsFun(this.buf, valToColor)
+  
+  }
+  
+  checkActiveMapData(del_sec: string, del_comp: string) {
+    const {section, component} = store.state.activeMapData
+    if (del_sec === section && del_comp === component) {
+      this.setMap({res: mesh.h, sec: DEFAULT_MAP_DATA.section, comp: DEFAULT_MAP_DATA.component})
+    }
+  }
+  
+  setMap({res, sec, comp, key, key_ind, valToColor}: SetMapArgs) {
+    console.log('setMap ', sec, comp, key, key_ind, res, valToColor)
+    res = res? res : store.state[sec][comp]
+    console.log(res)
+    if ((key_ind || key_ind === 0)&& !key) {
+      key = Object.keys(res)[key_ind]
+      console.log(Object.keys(res))
+    }
+    console.log(key)
+    let buf = key? res[key] : res
+    console.log(buf)
+    store.commit('setActiveMapData', {section: sec, component: comp})
+    
+    if (valToColor)  {
+      this.setColor(buf, valToColor)
+    } else  {
+      this.setColor(buf)
+    }
+  }
+  
 }
 
-export default {checkActiveMapData, setMap}
+
+function updateColorsFromMap(map, field) {
+  let buf = new Float32Array(NUM_TILES)
+  for (let i = 0; i < map.length; i++) {
+    buf[i] = field ? map[i][field] : map[i]
+  }
+  updateColorsFun(buf)
+  
+}
+
+let map_manager = new MapManager()
+export default map_manager

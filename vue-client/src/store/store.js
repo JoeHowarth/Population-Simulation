@@ -1,13 +1,13 @@
 /*eslint no-unused-vars: "off"*/
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { updateColorsFun } from "../map_gen/render/webgl";
 import { setMesh } from '../map_gen/map_gen';
 import { main } from "../main";
 import agricultureStore from './AgricultureStore';
 import terrainStore from './TerrainStore';
 import populationStore from './PopulationStore';
 import { mesh } from '../map_gen/map_gen';
+import MapManager from "../MapManager";
 Vue.use(Vuex);
 const store = {
     modules: {
@@ -45,7 +45,7 @@ const store = {
         },
         setMapData(state, h) {
             state.mapColorData = h;
-            updateColorsFun(h);
+            MapManager.setColor(h);
         },
         // ----------------
         subPushMisc(state, { section, data, component }) {

@@ -2,6 +2,8 @@ import store, {RootState} from './store'
 import MapManager from "../MapManager"
 import {Module} from 'vuex'
 import {SubPush, SubReq} from "@/websocket"
+import {mesh} from "../map_gen/map_gen"
+import * as d3 from 'd3'
 
 export interface TerrState {
   Region: any,
@@ -26,21 +28,21 @@ const populationStore: Module<TerrState, RootState> = {
       if (component === 'Region') {
         console.log("region data", data)
         
-        state.Region = data
-        
+        state.Region = []
         let buf = []
         for (let reg of data) {
           let color = Math.random()
+          state.Region.push([])
           for (let t of reg.tiles) {
-            console.log("reg: ", reg)
-            console.log("t: ", t)
-            buf[t.id] = color
+            //console.log("reg: ", reg)
+            //console.log("t: ", t)
+            //buf[t.id] = color
+            state.Region[state.Region.length - 1].push(t.id)
           }
         }
         
-        console.log("buf ", buf)
-        MapManager.setMap({res: buf})
-        
+        console.log("state.Region ", state.Region)
+        MapManager.setColorByGroup(state.Region, state.Region.map(tiles => Math.random() / 5 + d3.mean(tiles.map(t => mesh.h[t]))))
         return
       }
       

@@ -9,13 +9,15 @@ use std::{
     f64,
     f32,
 };
+use typescript_definitions::TypeScriptifyTrait;
 
-#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypeScriptify, TypescriptDefinition)]
 pub struct RegionPop {
     pub cohorts: VecDeque<Cohort>
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypescriptDefinition)]
 pub struct Cohort {
     pub low_age: f64,
     pub high_age: f64,
@@ -24,18 +26,18 @@ pub struct Cohort {
     pub male: f64,
 }
 
-#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypescriptDefinition)]
 pub struct Health {
     pub health: f32
 }
 
-#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypescriptDefinition)]
 pub struct FoodConsumption {
     pub consump: f32,
     pub ratio_of_norm: f32,
 }
 
-#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq)]
+#[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypescriptDefinition)]
 pub struct PopEst(pub usize);
 
 const NUM_COHORTS: usize = 17;

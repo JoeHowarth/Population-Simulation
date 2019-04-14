@@ -137,7 +137,7 @@ pub fn construct_regions(data: ConsRegionData) {
     construct_regions_inner(data).expect("Error in construct_regions_inner, returned None")
 }
 
-pub const MAX_TILES_PER_REGION: u8 = 8;
+pub const MAX_TILES_PER_REGION: u8 = 12;
 pub const REGION_BASE_FOOD_MAX: f32 = 30.;// too high, bring down eventually
 
 // TODO refactor and simplify
@@ -167,7 +167,8 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
         }
     }
     let num_tiles = region_map.len();
-    let min_regions = num_tiles / MAX_TILES_PER_REGION as usize;
+    let min_regions = ((num_tiles / MAX_TILES_PER_REGION as usize) as f32 * 0.8) as usize;
+    debug!("num_tiles: {}, min_regions: {}", num_tiles, min_regions);
 
 
     // Step 1 --
@@ -181,8 +182,9 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
         let id = region_pool.swap_remove(rng.gen_range(0, region_pool.len()));
 
         let mut nbs = reg_adj[id].nbs.iter().filter(|&i| {
-            &reg_topo[i].tiles + &reg_topo[id].tiles < 3
-                && done.contains(i)
+            &reg_topo[i].tiles + &reg_topo[id].tiles < 5
+                && !done.contains(i)
+                && reg_topo[i].height * reg_topo[id].height > 0.
         });
 
         if let Some(&first) = nbs.next() {
@@ -215,18 +217,23 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
         }
     }
 
+    debug!("num_regions after step 1: {}", region_map.len());
+
     // Step 2 --
     // randomly pick region and pair with most similar neighbor
     // if new region > food prod thresh ---> take out of merge pool
     // else continue merging until ~ R regions
     let mut region_pool = region_map.keys().collect::<Vec<_>>();
     let mut done = HashSet::new();
-    while region_pool.len() > min_regions {
+    let mut loops = 0;
+    while region_map.len() > min_regions && region_pool.len() > 0 {
         let id = region_pool[(rng.gen_range(0, region_pool.len()))];
+        loops += 1;
 
         let mut nbs = reg_adj[id].nbs.iter().filter(|&i| {
             &reg_topo[i].tiles + &reg_topo[id].tiles < MAX_TILES_PER_REGION
                 && !done.contains(i)
+                && reg_topo[i].height * reg_topo[id].height > 0.
         });
 
         let mut region_done = false;
@@ -281,6 +288,9 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
         }
     }
 
+    debug!("num loops: {}", loops);
+    debug!("num_regions: {}", region_map.len());
+
     for (i, r) in region_map.drain() {
         let b = updater.create_entity(&entities)
                        .with(r)
@@ -320,7 +330,7 @@ pub fn sim_region(a: usize, b: usize, topo: &VecMap<RegionTopography>,
     // ratio  dist / sqrt(area)
     // idea: long regions avoided
     // TODO figure out coefficients
-    // let d_pos = a_pos.distance(b_pos) / (topo[a].area + topo[b].area).sqrt();
+//     let d_pos = a_pos.distance(b_pos) / (topo[a].area + topo[b].area).sqrt();
 
     match (agr.get(a), agr.get(b)) {
         (Some(a_agr), Some(b_agr)) => {

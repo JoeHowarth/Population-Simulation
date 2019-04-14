@@ -55,7 +55,7 @@ impl<'a> System<'a> for HealthUpdate {
                        WriteStorage<'a, FoodConsumption>,
                        ReadStorage<'a, FoodStock>);
 
-    fn run(&mut self, (mut health, mut consump, food): Self::SystemData) {}
+    fn run(&mut self, (health, consump, food): Self::SystemData) {}
 }
 
 impl<'a> System<'a> for FoodConsumptionUpdate {

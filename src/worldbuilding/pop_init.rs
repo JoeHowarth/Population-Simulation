@@ -13,16 +13,22 @@ pub fn register_pop_ecs(world: &mut World) {
     {
         world.register::<RegionPop>();
         world.register::<PopEst>();
+        world.register::<PopEst>();
         init_pop_est(world);
-        let (regions, entities): (ReadStorage<Region>, Entities) = world.system_data();
+        let (regions, entities, est, t2e, basefarm): (ReadStorage<Region>, Entities, ReadStorage<PopEst>, ReadExpect<Tile2Entity>, ReadStorage<RegBaseFarmData>) = world.system_data();
         let updater: Read<LazyUpdate> = world.system_data();
 
 
         // temporary
         let mut dist = [1. / 16.; 17]; // uniform
         dist[16] = 0.;
-        for (region, e) in (&regions, &entities).join() {
-            let rp = RegionPop::new(&dist, 10_000);
+        for (region, e, _) in (&regions, &entities, &basefarm).join() {
+
+            let total_est = region.tiles.iter().filter_map(|id| est.get(t2e[id.id]))
+                .fold(0, |a, est| a + est.0);
+
+            dbg!(total_est);
+            let rp = RegionPop::new(&dist, total_est);
             //dbg!(&rp);
             updater.insert(e, rp);
         }
@@ -38,7 +44,7 @@ pub fn init_pop_est(world: &mut World) {
         .collect();
     let goodness: Vec<i32> = v.values().map(|(_, t, b, _)| {
         //b.fertility + t.hillratio / 2. + (t.flux * RIVER_FLUX_THRESH).sqrt().sqrt() / 2.
-        ((b.fertility + t.hillratio / 2.) * 1000.) as i32
+        ((b.fertility * 2. + t.hillratio / 2.) * 100_000.) as i32
     }).collect();
     let keys: Vec<_> = v.keys().collect();
 
@@ -47,7 +53,7 @@ pub fn init_pop_est(world: &mut World) {
     let mut rng = SmallRng::from_entropy();
 
     let mut arr = ArrayVec::<[usize; 30]>::new();
-    for i in 0..30 {
+    for i in 0..10 {
         arr.push(dist.sample(&mut rng));
     }
 

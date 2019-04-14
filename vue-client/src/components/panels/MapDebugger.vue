@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import {updateColorsFun} from "../../map_gen/render/webgl";
+  import MapManager from "../../MapManager"
   import mapGen, {cities, exportMesh, getER, getHeight, getMesh, showCities} from "../../map_gen/map_gen";
   import {cityScore, getFlux, getSlope, normalize, peaky, quick_stats} from "../../map_gen/heightmap";
   import BackButton from '@/components/util/BackButton'
@@ -48,17 +48,18 @@
       setHeight() {
         console.log("clicked setHeight")
         console.log(getHeight())
-        updateColorsFun(getHeight())
+        MapManager.setColor(getHeight())
       },
       setER() {
-        updateColorsFun(getER())
+        MapManager.setColor(getER())
       },
       setFlux() {
-        updateColorsFun(peaky(peaky(getFlux(getMesh(), getHeight()))))
+        MapManager.setColor(peaky(peaky(getFlux(getMesh(), getHeight()))))
+
       },
       setSlope() {
         const vals = normalize(getSlope(getMesh(), getHeight()), 0.5)
-        updateColorsFun(vals)
+        MapManager.setColor(vals)
       },
       regen() {
         mapGen()
@@ -71,20 +72,20 @@
       },
       setSent() {
         console.log(this.mapColorData)
-        updateColorsFun(this.mapColorData)
+        MapManager.setColor(this.mapColorData)
       },
       setNormalize() {
-        updateColorsFun(normalize(this.mapColorData))
+        MapManager.setColor(normalize(this.mapColorData))
       },
       setPeaky() {
-        updateColorsFun(peaky(this.mapColorData))
+        MapManager.setColor(peaky(this.mapColorData))
       },
       quickStats() {
         quick_stats(this.mapColorData)
       },
       setCityScore() {
         const vals = (normalize(cityScore(getMesh(), getHeight(), cities), 0.2))
-        updateColorsFun(vals)
+        MapManager.setColor(vals)
       }
     }
   }

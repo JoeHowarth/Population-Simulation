@@ -112,7 +112,7 @@ pub fn get_base_farm_data(mesh: &Mesh, (t2e, topo): (Read<Tile2Entity>, ReadStor
     let it = fertility.iter().filter(|&&f| f > 0.);
     let mean = it.clone().sum::<f32>() / it.count() as f32;
     fertility.iter_mut().for_each(|f| *f /= mean); // change
-    dbg!(&fertility);
+    //dbg!(&fertility);
 
     fertility.iter().enumerate().map(|(i, &fertility)| {
         if h[i] < 0. {
@@ -136,26 +136,36 @@ pub fn init_farm_data((base, reg, topo, pop, mut farm, entities): (ReadStorage<R
         count += 1;
         let &RegBaseFarmData { fertility, arable } = base;
 
-        let high_yield = base_yield(2, arable, fertility);
+        let high_yield = base_yield(0, arable, fertility);
         let needed_grain = grain_for_pop(pop);
         if high_yield < needed_grain {
             warn!("Too many people for yield to supply, Needed: {}, Max Yield: {}", needed_grain, high_yield);
         }
 
-        let needed_area = inverse_yield(2, needed_grain, fertility);
+        let needed_area = inverse_yield(0, needed_grain, fertility);
         let cleared = (needed_area * rng.gen_range(1.01, 1.5)).min(arable);
         let auc = needed_area.min(arable);
 
         dbg!(needed_grain / high_yield);
+        dbg!(needed_grain);
+        dbg!(high_yield);
+        dbg!(pop.pop());
+        dbg!(arable);
+        dbg!(topo.area);
+        dbg!(fertility);
+        println!("");
         farm.insert(e, FarmData {auc, cleared}).unwrap();
     }
+
+    dbg!(base_yield(0, 1., 1.));
 
     dbg!(count);
 }
 
 
 fn inverse_yield(seed_ratio: u8, bushels: f32, fertility: f32) -> f32 {
-    let bph = BUSHELS_PER_HECTARE_2_TO_1 * (seed_ratio - 1) as f32 * SEED_RATIO * fertility;
+    let seed_mult = (seed_ratio as f32* SEED_RATIO).max(1.);
+    let bph = BUSHELS_PER_HECTARE_2_TO_1 * seed_mult * fertility;
 
     // km = bushels / bushels_per_km
     bushels / (bph * 1000.)
