@@ -83,7 +83,7 @@ export function getER(): MapData {
 export default async function () {
   
   console.log("hi from before setup")
-  mesh = await setup(100, 100, 1.7)
+  mesh = await setup(100, 100, 0.7)
   // const {points, triangles, halfedges} = mesh
 
   h = await genHM(mesh)
