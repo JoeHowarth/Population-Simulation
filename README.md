@@ -28,10 +28,11 @@ In new terminal
 - open localhost:8080 in chrome
 - Click on Map Debugger -> Generate Map
 - In other terminal
-     
-     
-     cargo run
-     
+
+```
+cargo run
+```
+
 - now refresh client in browser
 
 
