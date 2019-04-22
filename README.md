@@ -18,15 +18,25 @@ Requires Rust nightly [here](https://www.rust-lang.org/tools/install)
     cd Population-Simulation
     rustup override set nightly
     cargo build
-    cargo run
     
 In new terminal
 
     cd vue-client
     npm install
     npm run serve
-    
-open localhost:8080 in chrome
+
+- open localhost:8080 in chrome
+- Click on Map Debugger -> Generate Map
+- In other terminal
+     
+     
+     cargo run
+     
+- now refresh client in browser
+
+
+In future, won't have to generate map file separately.
+   
 
 ---
 *Below is outdated*
