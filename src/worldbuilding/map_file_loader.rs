@@ -1,23 +1,22 @@
-use fnv::FnvHashMap;
+use fnv::{FnvHashMap, FnvHashSet};
 use specs::prelude::*;
-use fnv::FnvHashSet;
 use ord_subset::*;
-use vec_map::VecMap;
-use std::collections::BinaryHeap;
 use failure::{Error, Fail};
 use std::{
     path::{Path, PathBuf},
     io::BufReader,
-    fs,
     fs::File,
+    fs,
     iter::FromIterator,
-    collections::VecDeque,
+    collections::{VecDeque, BinaryHeap},
+    env
 };
 use super::mesh::{MeshJson, Mesh, MeshWrapper};
 
 /// move terrain files from downloads to a special directory within project later
 pub fn move_map_files() -> Result<(), Error> {
-    let files = fs::read_dir("/Users/jh/Downloads")?;
+
+    let files = fs::read_dir(dirs::download_dir().unwrap())?;
     let map_files = files
         .filter_map(Result::ok)
         .filter(|d| if let Some(e) = d.path().extension() { e == "json" } else { false })
@@ -32,8 +31,8 @@ pub fn move_map_files() -> Result<(), Error> {
         let s = fname.to_str().unwrap();
         fs::rename(file.path(),
                    dir.with_file_name(file.path()
-                       .file_name()
-                       .unwrap()))
+                                          .file_name()
+                                          .unwrap()))
             .map_err(|e| e.context(s.to_string()))?;
     }
 
@@ -43,7 +42,7 @@ pub fn move_map_files() -> Result<(), Error> {
 /// Loads most recent map.json file from (dir)/maps/
 pub fn load_map_file(path: Option<&str>) -> Result<(Mesh, MeshJson), Error> {
     let dir = std::env::var("CARGO_MANIFEST_DIR")? + "/maps";
-    debug!("{}", dir);
+    trace!("{}", dir);
     let files = fs::read_dir(path.unwrap_or(&dir))?;
     let map_file = files
         .filter_map(Result::ok)

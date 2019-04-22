@@ -10,29 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="k">
-      <change afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/jh.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/networking/ws_server.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/ws_server.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/worldbuilding/terrain_init.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/worldbuilding/terrain_init.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/components/panels/TileInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/components/panels/TileInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/PopulationStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/store.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/store.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/websocket.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/websocket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/websocket.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/websocket.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-client/src/websocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/websocket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +34,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/networking/ws_server.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+                <state relative-caret-position="277">
+                  <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="810">
+                  <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -66,7 +56,7 @@
             <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="498">
-                  <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
+                  <caret line="220" selection-start-line="220" selection-end-line="220" />
                   <folding>
                     <element signature="n#!!block;n#get_rivers#0" />
                   </folding>
@@ -176,7 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>console.table(</find>
       <find>invTriIDs[</find>
       <find>dist_from</find>
       <find>identity</find>
@@ -206,6 +195,7 @@
       <find>checkA</find>
       <find>updateColors</find>
       <find>Region</find>
+      <find>max was</find>
     </findStrings>
     <replaceStrings>
       <replace>viewsize</replace>
@@ -225,7 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MapGen_README.md" />
         <option value="$PROJECT_DIR$/PopulatinDesign.md" />
         <option value="$PROJECT_DIR$/PopulationDesign.md" />
         <option value="$PROJECT_DIR$/LimitingThePlayer.md" />
@@ -276,6 +265,7 @@
         <option value="$PROJECT_DIR$/src/networking/mod.rs" />
         <option value="$PROJECT_DIR$/src/worldbuilding/terrain_init.rs" />
         <option value="$PROJECT_DIR$/src/networking/ws_server.rs" />
+        <option value="$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs" />
       </list>
     </option>
   </component>
@@ -786,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="52" column="140" selection-start-line="52" selection-start-column="140" selection-end-line="52" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -934,7 +917,7 @@
     <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
-          <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
           <folding>
             <element signature="n#!!block;n#get_rivers#0" />
           </folding>
@@ -943,8 +926,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/networking/ws_server.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="277">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
         </state>
       </provider>
     </entry>
