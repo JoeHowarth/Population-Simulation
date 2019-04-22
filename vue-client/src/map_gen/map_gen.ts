@@ -1,14 +1,12 @@
 // @ts-ignore
-import {Delaunay} from 'd3-delaunay';
+import {Delaunay} from 'd3-delaunay'
 import poissonDiscSampler from './poissonDiscSampler'
 import {genHM, peaky} from './heightmap'
 // @ts-ignore
 import {setup_canvas} from './render/webgl'
-import {makeMesh, mesh_from_data} from "./mesh";
+import {makeMesh, mesh_from_data} from "./mesh"
 import store from '../store/store'
-import {
-  pt2triangle,
-} from "./planar-point-by-vec";
+import {pt2triangle,} from "./planar-point-by-vec"
 // @ts-ignore
 import {cities} from './render/render-map'
 
@@ -127,7 +125,7 @@ export function tri_under_mouse() {
   return tri
 }
 
-function screen2world() {
+export function screen2world() {
   const {scene} = window
   const x = scene.pointerX
   const y = scene.pointerY
@@ -137,19 +135,17 @@ function screen2world() {
 
   // point fraction
   const frac = {x: x / w, y: y / h}
-  console.log(frac)
+  // console.log(frac)
   // upper left corner (origin)
   const orig = {
     x: cam.position.x + cam.orthoLeft,
     y: cam.position.y + cam.orthoTop
   }
 
-  const point = {
+  return {
     x: orig.x + cam.orthoRight * frac.x * 2,
     y: orig.y + cam.orthoBottom * frac.y * 2
   }
-
-  return point
 }
 
 /* gets canvas ctx, generates points, sets scale transforms

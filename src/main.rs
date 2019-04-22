@@ -31,7 +31,6 @@ use population_simulation::{
     },
     agriculture::components::AgrData,
 };
-use population_simulation::networking::subscription_system::SubscriptionManager;
 
 
 fn main() -> Result<(), Error> {

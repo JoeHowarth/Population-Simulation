@@ -66,7 +66,7 @@ export function tri_under_mouse() {
     console.timeEnd("tri_under_mouse");
     return tri;
 }
-function screen2world() {
+export function screen2world() {
     const { scene } = window;
     const x = scene.pointerX;
     const y = scene.pointerY;
@@ -75,17 +75,16 @@ function screen2world() {
     const h = window.canvas.height;
     // point fraction
     const frac = { x: x / w, y: y / h };
-    console.log(frac);
+    // console.log(frac)
     // upper left corner (origin)
     const orig = {
         x: cam.position.x + cam.orthoLeft,
         y: cam.position.y + cam.orthoTop
     };
-    const point = {
+    return {
         x: orig.x + cam.orthoRight * frac.x * 2,
         y: orig.y + cam.orthoBottom * frac.y * 2
     };
-    return point;
 }
 /* gets canvas ctx, generates points, sets scale transforms
  * width & height: 100 km

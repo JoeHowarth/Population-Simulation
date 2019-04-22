@@ -10,7 +10,6 @@ use serde_json;
 use std::fmt::Debug;
 use crate::terrain::mesh::{Mesh, MeshJson};
 
-use crate::networking::SubMsg;
 use crate::networking::{types::*};
 use std::collections::VecDeque;
 use crate::networking::CONNECTION_COUNT;
@@ -24,9 +23,7 @@ lazy_static! {
 pub struct Server {
     pub out: ws::Sender,
     pub ws_in: ThreadOut<WS_sender>,
-    pub sub_send: ThreadOut<SubMsg>,
     pub sub_req_send: ThreadOut<SubReq>,
-    pub rec_type_send: ThreadOut<ReceiveTypeWrapper>,
 }
 
 impl Handler for Server {
@@ -73,9 +70,7 @@ impl Handler for Server {
 pub struct WsReturn {
     pub server_thread: JoinHandle<Result<(), Error>>,
     pub out: ClientSender,
-    pub sub_recv: ThreadIn<SubMsg>,
     pub sub_req_recv: ThreadIn<SubReq>,
-    pub rec_type_recv: ThreadIn<ReceiveTypeWrapper>,
 }
 
 

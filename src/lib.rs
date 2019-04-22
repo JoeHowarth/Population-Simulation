@@ -92,7 +92,7 @@ pub fn setup() -> Result<(), Error> {
 
     let foo = Some("hi");
     // blocks until connection established to a client
-    let WsReturn { server_thread, out, sub_recv, sub_req_recv, rec_type_recv } = wait_client()?;
+    let WsReturn { server_thread, out, sub_req_recv} = wait_client()?;
     trace!("after waiting for connect");
     world.add_resource(out.clone());
     send_init_data(&mut world)?;

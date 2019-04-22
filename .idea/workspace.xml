@@ -10,7 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40eb87f8-69a3-48ac-b8d2-4046749d3631" name="Default Changelist" comment="k">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/core_loop.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/core_loop.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/subscription_system.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/types.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/types.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/networking/ws_server.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/networking/ws_server.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,46 +31,50 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.898469">
+    <splitter split-orientation="horizontal" split-proportion="0.52334946">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/agriculture/systems.rs">
+            <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-260">
-                  <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/networking/ws_server.rs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+                <state relative-caret-position="153">
+                  <caret line="197" column="27" selection-start-line="197" selection-start-column="27" selection-end-line="197" selection-end-column="27" />
+                  <folding>
+                    <element signature="n#!!block;n#get_rivers#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="540">
-                    <caret line="36" selection-start-line="36" selection-end-line="36" />
-                  </first_editor>
-                  <second_editor />
+            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="469">
+                  <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#0#36#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="498">
-                  <caret line="220" selection-start-line="220" selection-end-line="220" />
+                <state relative-caret-position="3030">
+                  <caret line="205" column="60" selection-start-line="205" selection-start-column="52" selection-end-line="205" selection-end-column="60" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="354">
+                  <caret line="127" column="6" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
                   <folding>
-                    <element signature="n#!!block;n#get_rivers#0" />
+                    <element signature="e#14#50#0" expanded="true" />
+                    <element signature="e#160#203#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -70,61 +86,7 @@
         <splitter split-orientation="vertical" split-proportion="0.8217822">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/lib.rs">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="280">
-                      <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/networking/mod.rs">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="279">
-                      <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-1856">
-                      <caret line="4" selection-start-line="4" selection-end-line="4" />
-                      <folding>
-                        <element signature="e#0#36#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/store/store.ts">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="218">
-                      <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-                      <folding>
-                        <element signature="e#33#54#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/vue-client/src/store/AgricultureStore.ts">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="615">
-                      <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-                      <folding>
-                        <element signature="e#0#40#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.ts">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="105">
@@ -166,8 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>invTriIDs[</find>
-      <find>dist_from</find>
       <find>identity</find>
       <find>ws_rs_ex</find>
       <find>mesh.h</find>
@@ -196,6 +156,8 @@
       <find>updateColors</find>
       <find>Region</find>
       <find>max was</find>
+      <find>EventLis</find>
+      <find>triCl</find>
     </findStrings>
     <replaceStrings>
       <replace>viewsize</replace>
@@ -215,8 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PopulatinDesign.md" />
-        <option value="$PROJECT_DIR$/PopulationDesign.md" />
         <option value="$PROJECT_DIR$/LimitingThePlayer.md" />
         <option value="$PROJECT_DIR$/ChallengingThePlayer.md" />
         <option value="$PROJECT_DIR$/Architecture.md" />
@@ -224,14 +184,12 @@
         <option value="$PROJECT_DIR$/Agriculture.md" />
         <option value="$PROJECT_DIR$/WorldBuilding.md" />
         <option value="$PROJECT_DIR$/TerrainGenerator.md" />
-        <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
         <option value="$PROJECT_DIR$/src/terrain/map_file_loader.rs" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/terrain/init.rs" />
         <option value="$PROJECT_DIR$/src/pop/mod.rs" />
         <option value="$PROJECT_DIR$/src/agriculture/mod.rs" />
         <option value="$PROJECT_DIR$/src/terrain/mod.rs" />
-        <option value="$PROJECT_DIR$/src/main.rs" />
         <option value="$PROJECT_DIR$/src/terrain/mesh.rs" />
         <option value="$PROJECT_DIR$/src/misc/mod.rs" />
         <option value="$PROJECT_DIR$/src/misc/normalize.rs" />
@@ -245,7 +203,6 @@
         <option value="$PROJECT_DIR$/bin/gen_typescript.rs" />
         <option value="$PROJECT_DIR$/src/pop/components.rs" />
         <option value="$PROJECT_DIR$/src/bin/gen_typescript.rs" />
-        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/scene.js" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/webgl.js" />
@@ -253,19 +210,24 @@
         <option value="$PROJECT_DIR$/vue-client/src/components/panels/MapDebugger.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/MapManager.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/store/TerrainStore.ts" />
-        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" />
-        <option value="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/websocket.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/components/panels/DataSubPicker.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/store/store.ts" />
         <option value="$PROJECT_DIR$/vue-client/src/components/panels/TileInfo.vue" />
         <option value="$PROJECT_DIR$/vue-client/src/store/PopulationStore.ts" />
-        <option value="$PROJECT_DIR$/src/networking/mod.rs" />
         <option value="$PROJECT_DIR$/src/worldbuilding/terrain_init.rs" />
-        <option value="$PROJECT_DIR$/src/networking/ws_server.rs" />
         <option value="$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main.rs" />
+        <option value="$PROJECT_DIR$/src/misc/core_loop.rs" />
+        <option value="$PROJECT_DIR$/src/networking/subscription_system.rs" />
+        <option value="$PROJECT_DIR$/src/networking/types.rs" />
+        <option value="$PROJECT_DIR$/src/networking/ws_server.rs" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
+        <option value="$PROJECT_DIR$/src/networking/mod.rs" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts" />
+        <option value="$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js" />
       </list>
     </option>
   </component>
@@ -476,7 +438,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11158799" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.13590844" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Terminal" order="3" side_tool="true" weight="0.5617678" />
       <window_info anchor="bottom" id="TypeScript" order="0" weight="0.32970297" />
@@ -486,12 +448,12 @@
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49893504" weight="0.32970297" />
+      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49893504" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32970297" />
-      <window_info active="true" anchor="bottom" x="815" y="608" width="625" height="292" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" visible="true" weight="0.17524752" />
+      <window_info active="true" anchor="bottom" x="865" y="608" width="575" height="292" id="Run" order="12" sideWeight="0.50106496" side_tool="true" type="FLOATING" visible="true" weight="0.17524752" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946752" weight="0.32970297" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -549,35 +511,19 @@
     <MESSAGE value="Wrote Architecture.md and did work on initial population distribution" />
     <option name="LAST_COMMIT_MESSAGE" value="Wrote Architecture.md and did work on initial population distribution" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts</url>
+          <line>127</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/terrain/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/agriculture/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pop/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -697,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/scene.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -769,20 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="112" column="56" lean-forward="true" selection-start-line="112" selection-start-column="56" selection-end-line="112" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-client/src/MapManager.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
@@ -793,68 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1856">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store/store.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-          <folding>
-            <element signature="e#33#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-client/src/store/AgricultureStore.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/networking/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/worldbuilding/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/networking/subscription_system.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -900,23 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/agriculture/systems.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="220" selection-start-line="220" selection-end-line="220" />
-          <folding>
-            <element signature="n#!!block;n#get_rivers#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/worldbuilding/map_file_loader.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="771">
@@ -924,20 +774,148 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/networking/ws_server.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="540">
-            <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <first_editor relative-caret-position="375">
+            <caret line="26" selection-start-line="26" selection-end-line="26" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/networking/subscription_system.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/networking/ws_server.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agriculture/systems.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/networking/types.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/misc/core_loop.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/networking/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="94" column="50" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/store/AgricultureStore.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/websocket.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/worldbuilding/terrain_init.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="197" column="27" selection-start-line="197" selection-start-column="27" selection-end-line="197" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!block;n#get_rivers#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/components/Toolbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/store/store.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-812">
+          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding>
+            <element signature="e#33#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/store/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="92" column="15" lean-forward="true" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/mouseCameraInput.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3030">
+          <caret line="205" column="60" selection-start-line="205" selection-start-column="52" selection-end-line="205" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/map_gen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="127" column="6" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+          <folding>
+            <element signature="e#14#50#0" expanded="true" />
+            <element signature="e#160#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-client/src/map_gen/render/camera.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

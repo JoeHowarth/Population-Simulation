@@ -29,7 +29,7 @@ In new terminal
 - Click on Map Debugger -> Generate Map
 - In other terminal
 
-```
+``` 
 cargo run
 ```
 

@@ -1,5 +1,6 @@
 import * as BABYLON from 'babylonjs'
 import OrthoCameraMouseInput from './mouseCameraInput'
+import {screen2world} from "../map_gen"
 
 const CAMERA_LEVEL = -100
 
@@ -84,10 +85,20 @@ export function initCamera(scene, ratio) {
             return;
           }
           const s = evt.deltaY * 0.001
+          let XY = screen2world()
+          const dx = (camera.position.x - XY.x) * (s)
+          const dy = (camera.position.y - XY.y) * (s)
+
+          camera.position.x += dx
+          camera.position.y += dy
+
           camera.orthoLeft *= 1.0 + s
           camera.orthoRight *= 1.0 + s
           camera.orthoTop *= 1.0 + s
           camera.orthoBottom *= 1.0 + s
+
+
+
           evt.preventDefault();
 
           _this.sensibility = _this._sensibility * camera.orthoRight

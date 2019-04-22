@@ -1,14 +1,8 @@
 use crate::terrain::mesh::{Mesh, MeshJson};
-use super::{SubMsg};
 use std::fmt::Debug;
 use serde::{Serialize, Deserialize};
 
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub enum ReceiveTypeWrapper {
-    MapComponentTag(MapCompTag),
-    SubMsg(SubMsg),
-}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MapCompTag {
@@ -57,3 +51,5 @@ pub struct SubPush<'a, T: Debug + Clone + Serialize> {
     pub keys: Option<Vec<String>>,
     pub data: T,
 }
+
+
