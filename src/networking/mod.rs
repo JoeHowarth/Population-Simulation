@@ -62,7 +62,7 @@ pub fn create_ws_server() -> Result<impl FnOnce() -> Result<WsReturn, Error>, Er
             i += 1;
         }
         trace!("not blocking anymore");
-        Ok(WsReturn { server_thread, out: ClientSender(out), sub_recv, sub_req_recv, rec_type_recv })
+        Ok(WsReturn { server_thread, out: ClientSender(out), sub_recv, sub_req_recv, rec_type_recv})
     })
 }
 
@@ -109,6 +109,7 @@ pub fn send_displayable_for_data<T: Component>((storage, ids, mesh, out):
 }
 
 pub fn send_init_data(world: &mut World) -> Result<(), Error> {
+    use crate::networking::ws_server::INIT_DATA;
     // send mesh to client
     info!("sending mesh to client...");
     world.exec(|(mut mesh_json, out): (WriteExpect<Option<MeshJson>>, ReadExpect<ClientSender>)| {
@@ -116,6 +117,10 @@ pub fn send_init_data(world: &mut World) -> Result<(), Error> {
         let inner = inner.expect("No mesh_json loaded when sending to client");
         let wrapper = MutationMsg {mutation: "setHMesh".into(), inner};
         out.send(&wrapper);
+        let mut init_data = INIT_DATA.write().expect("can't get INIT_DATA lock");
+        let json = serde_json::to_string(&wrapper)
+            .expect(&format!("failed to serialize {:?}", &wrapper));
+        *init_data = Some(json);
     });
     trace!("sent");
 

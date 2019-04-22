@@ -178,6 +178,7 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
     // ids not paired
     let mut region_pool = region_map.keys().collect::<Vec<_>>();
     let mut done = FnvHashSet::<usize>::default();
+    let mut max_not_in_region_set = 0;
     while region_pool.len() > 0 {
         let id = region_pool.swap_remove(rng.gen_range(0, region_pool.len()));
 
@@ -212,10 +213,11 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
                 region_pool.swap_remove(i);
                 done.remove(&max);
             } else {
-                warn!("max was not in region_set");
+                max_not_in_region_set += 1;
             }
         }
     }
+    info!("Num times max not in region set: {}", max_not_in_region_set);
 
     debug!("num_regions after step 1: {}", region_map.len());
 

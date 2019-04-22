@@ -1,6 +1,6 @@
 use ws::{WebSocket, Handshake, CloseCode, Handler, Message, Sender as WS_sender};
 use std::sync::mpsc::{channel, Sender as ThreadOut, Receiver as ThreadIn};
-use std::thread::JoinHandle;
+use std::thread::{JoinHandle, ThreadId};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use failure::Error;
 use std::thread;
@@ -11,10 +11,15 @@ use std::fmt::Debug;
 use crate::terrain::mesh::{Mesh, MeshJson};
 
 use crate::networking::SubMsg;
-use crate::networking::{ types::*, };
+use crate::networking::{types::*};
 use std::collections::VecDeque;
 use crate::networking::CONNECTION_COUNT;
+use crate::misc::systems::MutationMsg;
+use std::sync::{RwLock, RwLockReadGuard};
 
+lazy_static! {
+    pub static ref INIT_DATA: RwLock<Option<String>> = RwLock::new(None);
+}
 
 pub struct Server {
     pub out: ws::Sender,
@@ -29,6 +34,15 @@ impl Handler for Server {
         info!("Connection Establish");
         let old_connection_count = CONNECTION_COUNT.fetch_add(1, Ordering::SeqCst);
         info!("live connections: {}", CONNECTION_COUNT.load(Ordering::SeqCst));
+
+        let data = INIT_DATA.read()
+                            .expect("Couldn't get read on init_data");
+        if data.is_some() {
+            let s = data.clone().unwrap();
+            self.out.send(s).expect("failed to send from on_open");
+        }
+
+
         Ok(())
     }
     fn on_message(&mut self, msg: Message) -> ws::Result<()> {
