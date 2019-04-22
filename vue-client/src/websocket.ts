@@ -5,6 +5,7 @@ const url = 'ws://127.0.0.1:8090'
 /* ------------------- */
 
 export type Sections = "Agr" | "Terr" | "Pop" | "Date" | "Misc"
+export const SectionList: Sections[] = ["Agr", "Terr", "Pop"]
 
 export interface SubReq {
   section: Sections,

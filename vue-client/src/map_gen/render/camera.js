@@ -1,7 +1,7 @@
 import * as BABYLON from 'babylonjs'
+import OrthoCameraMouseInput from './mouseCameraInput'
 
 const CAMERA_LEVEL = -100
-
 
 export function initCamera(scene, ratio) {
   const orthoInputProto = {
@@ -22,14 +22,11 @@ export function initCamera(scene, ratio) {
           var keyCode = this._keys[index];
           if (this.keysLeft.indexOf(keyCode) !== -1) {
             camera.position.x -= this.sensibility;
-          }
-          else if (this.keysRight.indexOf(keyCode) !== -1) {
+          } else if (this.keysRight.indexOf(keyCode) !== -1) {
             camera.position.x += this.sensibility;
-          }
-          else if (this.keysUp.indexOf(keyCode) !== -1) {
+          } else if (this.keysUp.indexOf(keyCode) !== -1) {
             camera.position.y += this.sensibility;
-          }
-          else if (this.keysDown.indexOf(keyCode) !== -1) {
+          } else if (this.keysDown.indexOf(keyCode) !== -1) {
             camera.position.y -= this.sensibility;
           }
         }
@@ -122,7 +119,9 @@ export function initCamera(scene, ratio) {
 
 
   // Let's remove default keyboard:
+  console.log(camera)
   camera.inputs.removeByType('FreeCameraKeyboardMoveInput');
+  camera.inputs.removeByType('FreeCameraMouseInput')
 
   // Create our own manager:
   var FreeCameraKeyboardTranslateInput = function () {
@@ -135,11 +134,12 @@ export function initCamera(scene, ratio) {
     this.sensibility = 0.20;
   }
 
-  FreeCameraKeyboardTranslateInput.prototype = { ...orthoInputProto, ...FreeCameraKeyboardTranslateInput.prototype }
+  FreeCameraKeyboardTranslateInput.prototype = {...orthoInputProto, ...FreeCameraKeyboardTranslateInput.prototype}
 
 
   // Connect to camera:
   camera.inputs.add(new FreeCameraKeyboardTranslateInput());
+  camera.inputs.add(new OrthoCameraMouseInput())
 
   // Target the camera to scene origin
   camera.setTarget(BABYLON.Vector3.Zero());
@@ -153,7 +153,7 @@ export function setPositionScale(camera, loc) {
   const rect = window.engine.getRenderingCanvasClientRect()
   const ratio = rect.width / rect.height
   const viewsize = x * 1.2
-  camera.orthoLeft = - viewsize
+  camera.orthoLeft = -viewsize
   camera.orthoRight = viewsize
   camera.orthoTop = viewsize / ratio
   camera.orthoBottom = -viewsize / ratio

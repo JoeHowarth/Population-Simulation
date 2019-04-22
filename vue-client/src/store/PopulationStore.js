@@ -1,10 +1,11 @@
 const populationStore = {
     state: {
-        RegionCohorts: {}
+        RegionPop: {}
     },
     mutations: {
         subPushPop(state, { section, data, component }) {
             console.assert(section === 'Pop');
+            console.log(data);
             let c = state[component];
             // assuming data is array
             const arr = data;

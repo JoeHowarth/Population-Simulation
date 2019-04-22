@@ -10,7 +10,6 @@ import populationStore from './PopulationStore'
 import {mesh} from '../map_gen/map_gen'
 import Socket from "../websocket"
 import MapManager from "../MapManager"
-
 Vue.use(Vuex)
 
 export interface RootState {
@@ -51,7 +50,7 @@ const store: StoreOptions<RootState> = {
     triClicked: false,
     mapColorData: [],
     activeSubs: {
-      Time: ["Date"],
+      Time: [],
       Agr: [],
       Terr: [],
       Pop: [],

@@ -4,17 +4,18 @@ import {Module} from 'vuex'
 import {SubPush, SubReq} from "@/websocket"
 
 export interface PopState {
-  RegionCohorts: any
+  RegionPop: any
 }
 
 const populationStore: Module<PopState, RootState> = {
   state: {
-    RegionCohorts: {}
+    RegionPop: {}
   },
   mutations: {
     subPushPop(state: PopState, {section, data, component}: SubPush) {
       console.assert(section === 'Pop')
   
+      console.log(data)
       let c = state[component]
   
       // assuming data is array

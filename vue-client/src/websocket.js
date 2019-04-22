@@ -1,5 +1,6 @@
 import store from './store/store';
 const url = 'ws://127.0.0.1:8090';
+export const SectionList = ["Agr", "Terr", "Pop"];
 /* ------------------- */
 class SocketClass extends WebSocket {
     constructor(url) {

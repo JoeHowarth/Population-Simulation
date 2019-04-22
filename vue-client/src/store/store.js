@@ -25,7 +25,7 @@ const store = {
         triClicked: false,
         mapColorData: [],
         activeSubs: {
-            Time: ["Date"],
+            Time: [],
             Agr: [],
             Terr: [],
             Pop: [],

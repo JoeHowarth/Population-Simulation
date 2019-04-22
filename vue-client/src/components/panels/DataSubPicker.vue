@@ -1,7 +1,8 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container class="grey lighten-5"
+    @keyup.enter="submit"
+  >
     <BackButton/>
-    <v-btn @click="printSubs">print subs</v-btn>
     <v-list>
       <v-list-tile
           v-for="sec in activeSecs"
@@ -32,15 +33,33 @@
       </v-list-tile>
 
     </v-list>
-    <v-form @submit="submit">
-      <v-layout column>
-        <v-flex xs12>
-          <v-text-field v-model="section" label="Section"/>
-          <v-text-field v-model="comp" label="Component"/>
-          <v-btn @click="submit">Sub</v-btn>
-        </v-flex>
-      </v-layout>
-    </v-form>
+    <!--    <v-form @submit="submit">-->
+    <!--      <v-layout column>-->
+    <!--        <v-flex xs12>-->
+    <!--          <v-text-field v-model="section" label="Section"></v-text-field>-->
+    <!--          <v-text-field v-model="comp" label="Component"></v-text-field>-->
+    <!--          <v-btn @click="submit">Sub</v-btn>-->
+    <!--        </v-flex>-->
+    <!--      </v-layout>-->
+    <!--    </v-form>-->
+    <v-select
+        v-model="section"
+        :items="sections"
+        attach
+        chips
+        label="Section"
+    ></v-select>
+    <v-select
+        v-model="comp"
+        :items="comps"
+        attach
+        chips
+        label="Component"
+        @submit="submit"
+        @keypress.enter.prevent="noop"
+    ></v-select>
+    <v-btn @click="submit">Sub</v-btn>
+
   </v-container>
 </template>
 
@@ -48,7 +67,7 @@
   import {mapState, mapGetters} from 'vuex'
   import MapManager from '../../MapManager'
   import BackButton from '../util/BackButton'
-  import Socket from '@/websocket'
+  import Socket, {SectionList} from '@/websocket'
 
   export default {
     name: "DataSubPicker",
@@ -63,32 +82,20 @@
     },
     computed: {
       ...mapState(["activeSubs"]),
-      ...mapGetters(['activeSecs'])
-      // subs() {
-      //   console.log(this.activeSubs)
-      //   let arr = []
-      //   for (let sec of this.activeSubs.) {
-      //     arr.push(sec)
-      //   }
-      //   return arr
-      // },
-      // comps() {
-      //   let o = {}
-      //
-      //   for (let sec of this.activeSubs.secs) {
-      //     o[sec] =
-      //   }
-      //   for (let [sec, comp] of this.activeSubs.entries()) {
-      //     o[sec] = Array.from(comp)
-      //   }
-      //   return o
-      // }
+      ...mapGetters(['activeSecs']),
+      sections() {
+        return SectionList
+      },
+      comps() {
+        const state = this.$store.state
+        if (state.hasOwnProperty(this.section)) {
+          return Object.keys(state[this.section])
+        } else {
+          return []
+        }
+      }
     },
     methods: {
-      printSubs() {
-        console.log(this.subs)
-        console.log(this.comps)
-      },
       unsub(sec, comp) {
         console.log('unsub', sec, comp, false)
         Socket.subReq(sec, comp, false)
