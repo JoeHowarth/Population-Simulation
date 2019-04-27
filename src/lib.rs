@@ -77,6 +77,7 @@ use crate::{
         core_loop::game_loop,
     },
 };
+use crate::misc::graph_ds::test_graph_ds;
 
 //lazy_static! {
 //    pub static ref SETTINGS : RwLock<config::Config> = RwLock::new(config::Config::default());
@@ -90,7 +91,7 @@ pub fn setup() -> Result<(), Error> {
 
     let mut world = setup_world()?;
 
-    let foo = Some("hi");
+    test_graph_ds(&mut world);
     // blocks until connection established to a client
     let WsReturn { server_thread, out, sub_req_recv} = wait_client()?;
     trace!("after waiting for connect");

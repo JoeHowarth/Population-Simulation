@@ -79,6 +79,7 @@ pub fn register_terrain_ecs(mesh: &Mesh, world: &mut World) {
     }
     world.maintain();
     world.add_resource(tile2entity);
+    world.add_resource(Region2Entity::default());
 }
 
 pub const RIVER_FLUX_THRESH: f32 = 0.006;
@@ -129,6 +130,7 @@ type ConsRegionData<'a> = (ReadStorage<'a, TileTopography>,
                            WriteStorage<'a, Region>,
                            WriteStorage<'a, RegionID>,
                            Read<'a, Tile2Entity>,
+                           Write<'a, Region2Entity>,
                            Entities<'a>,
                            Write<'a, LazyUpdate>);
 
@@ -141,7 +143,7 @@ pub const MAX_TILES_PER_REGION: u8 = 12;
 pub const REGION_BASE_FOOD_MAX: f32 = 30.;// too high, bring down eventually
 
 // TODO refactor and simplify
-fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_id, t2e, entities, updater): ConsRegionData) -> Option<()> {
+fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_id, t2e, mut r2e, entities, updater): ConsRegionData) -> Option<()> {
     // N: num tiles
     // R: num regions
     // A: tiles per region; N / R
@@ -265,7 +267,7 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
                 region_pool.swap_remove(i);
             } else {
                 error!("Should have removed max");
-                dbg!( &region_pool);
+                dbg!(&region_pool);
                 dbg!(max);
             }
 
@@ -290,19 +292,24 @@ fn construct_regions_inner((tile_topo, tile_id, tile_adj, farm, region, region_i
         }
     }
 
+
     debug!("num loops: {}", loops);
     debug!("num_regions: {}", region_map.len());
 
+
     for (i, r) in region_map.drain() {
+        let id = r.id;
         let b = updater.create_entity(&entities)
                        .with(r)
                        .with(reg_topo.remove(i).unwrap())
                        .with(reg_adj.remove(i).unwrap());
-        if let Some(farm) = reg_agr.remove(i) {
-            b.with(farm).build();
+        let e = if let Some(farm) = reg_agr.remove(i) {
+            b.with(farm).build()
         } else {
-            b.build();
-        }
+            b.build()
+        };
+
+        r2e.insert(id, e);
     }
 
     Some(())

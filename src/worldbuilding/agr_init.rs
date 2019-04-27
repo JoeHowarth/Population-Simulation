@@ -146,20 +146,20 @@ pub fn init_farm_data((base, reg, topo, pop, mut farm, entities): (ReadStorage<R
         let cleared = (needed_area * rng.gen_range(1.01, 1.5)).min(arable);
         let auc = needed_area.min(arable);
 
-        dbg!(needed_grain / high_yield);
-        dbg!(needed_grain);
-        dbg!(high_yield);
-        dbg!(pop.pop());
-        dbg!(arable);
-        dbg!(topo.area);
-        dbg!(fertility);
-        println!("");
+//        dbg!(needed_grain / high_yield);
+//        dbg!(needed_grain);
+//        dbg!(high_yield);
+//        dbg!(pop.pop());
+//        dbg!(arable);
+//        dbg!(topo.area);
+//        dbg!(fertility);
+//        println!("");
         farm.insert(e, FarmData {auc, cleared}).unwrap();
     }
 
-    dbg!(base_yield(0, 1., 1.));
-
-    dbg!(count);
+//    dbg!(base_yield(0, 1., 1.));
+//
+//    dbg!(count);
 }
 
 

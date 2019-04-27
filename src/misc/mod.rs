@@ -3,6 +3,7 @@ pub mod core_loop;
 pub mod normalize;
 pub mod time;
 pub mod systems;
+pub mod graph_ds;
 
 use crate::prelude::*;
 pub use self::{

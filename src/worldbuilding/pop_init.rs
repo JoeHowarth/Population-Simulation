@@ -27,7 +27,7 @@ pub fn register_pop_ecs(world: &mut World) {
             let total_est = region.tiles.iter().filter_map(|id| est.get(t2e[id.id]))
                 .fold(0, |a, est| a + est.0);
 
-            dbg!(total_est);
+            //dbg!(total_est);
             let rp = RegionPop::new(&dist, total_est);
             //dbg!(&rp);
             updater.insert(e, rp);
@@ -49,9 +49,7 @@ pub fn init_pop_est(world: &mut World) {
     let keys: Vec<_> = v.keys().collect();
 
     let dist = WeightedIndex::new(goodness.iter()).unwrap();
-
     let mut rng = SmallRng::from_entropy();
-
     let mut arr = ArrayVec::<[usize; 30]>::new();
     for i in 0..10 {
         arr.push(dist.sample(&mut rng));
@@ -62,8 +60,8 @@ pub fn init_pop_est(world: &mut World) {
         let g = goodness[i];
         WeightedNode { weight: ((g as f32).sqrt() as i32) * 10, inner: &v[keys[i]] }
     }));
-    let mut seen = VecMap::with_capacity(goodness.len());
 
+    let mut seen = VecMap::with_capacity(goodness.len());
     let mut pop_est = VecMap::with_capacity(v.len());
     while let Some(WeightedNode { weight, inner: (id, t, b, a) }) = heap.pop() {
         let coef = ((t.hillratio / 2. + b.fertility) as f32 / 2.).sqrt();
@@ -72,7 +70,7 @@ pub fn init_pop_est(world: &mut World) {
 
         seen.insert(id.id, ());
         for &n in a.nbs.iter().filter(|&&n| !seen.contains_key(n)) {
-            let e = t2e.get(id.id).unwrap();
+            //let e = t2e.get(id.id).unwrap();
 
             if let Some(x) = v.get(n) {
                 heap.push(WeightedNode {
@@ -84,7 +82,7 @@ pub fn init_pop_est(world: &mut World) {
     }
 
 
-    dbg!(&pop_est);
+    //dbg!(&pop_est);
     for (k, p) in pop_est {
         pop.insert(t2e[k], PopEst(p as usize)).unwrap();
     }

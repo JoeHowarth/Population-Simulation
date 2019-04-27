@@ -10,7 +10,7 @@ use vec_map::VecMap;
 
 // resource for going the other way
 pub type Tile2Entity = Vec<Entity>;
-pub type Region2Entity = Vec<Entity>;
+pub type Region2Entity = VecMap<Entity>;
 
 #[derive(Component, Copy, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, Ord, Eq)]
 pub struct TileID {
