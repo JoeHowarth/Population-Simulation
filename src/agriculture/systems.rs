@@ -55,7 +55,7 @@ pub fn base_yield(seed_ratio: u8, area: f32, fertility: f32) -> f32 {
     bpkm * area * FALLOW_MULT
 }
 
-// Normal grain consumption for cohort
+/// Normal yearly grain consumption for cohort
 pub fn grain_for_cohort(c: &Cohort) -> f32 {
     let &Cohort { pop, mean_age, male, .. } = c;
     let bm = if mean_age < 14. {
@@ -73,6 +73,7 @@ pub fn grain_for_cohort(c: &Cohort) -> f32 {
     (bm * pop as f64 * male + bf as f64 * pop as f64 * (1. - male)) as f32
 }
 
+/// normal yearly grain cosump for pop
 pub fn grain_for_pop(p: &RegionPop) -> f32 {
     p.cohorts.iter().fold(0., |grain, c| grain_for_cohort(c) + grain)
 }

@@ -40,10 +40,10 @@ pub struct FoodConsumption {
 #[derive(Component, Clone, Debug, Serialize, Deserialize, PartialOrd, PartialEq, TypescriptDefinition)]
 pub struct PopEst(pub usize);
 
-const NUM_COHORTS: usize = 17;
+pub const NUM_COHORTS: usize = 17;
 
 impl RegionPop {
-    pub fn new(dist: &[f32; NUM_COHORTS], pop: usize) -> RegionPop {
+    pub fn new(dist: &[f32], pop: usize) -> RegionPop {
         let cohorts = (0..NUM_COHORTS).map(|i| {
             Cohort::new(i * 5, dist[i as usize], pop)
         }).collect();
@@ -53,7 +53,7 @@ impl RegionPop {
         }
     }
 
-    pub fn update(&mut self, brs: &[f32; NUM_COHORTS], drs: &[f32; NUM_COHORTS], dt: u16) {
+    pub fn update(&mut self, brs: &[f32], drs: &[f32], dt: u16) {
         let mut newborns = 0;
         for c in &mut self.cohorts {
             let br = lerp_pop_arr(c.mean_age, brs);
@@ -141,7 +141,7 @@ impl Cohort {
     }
 }
 
-pub fn lerp_pop_arr(x: f64, arr: &[f32; NUM_COHORTS]) -> f64 {
+pub fn lerp_pop_arr(x: f64, arr: &[f32]) -> f64 {
     let l_i = (x / 5.).floor() as usize;
     let h_i = (x / 5.).ceil() as usize;
     let l: f64 = (arr[l_i].clone()).into();
