@@ -4,7 +4,7 @@
 
 This repo is not being actively developed, but the larger project idea is still active. This setup is user-focussed with significant considerations for parallezation, scalable archetecture etc., but I found that many components still need to be designed and this setup doesn't allow for fast enough iteration. In that spirit I've focussed on smaller projects that tackle an aspect of this in the hope that down the line I can take what I've learned and build the project I outlined in the design docs here. Right now I'm mostly focussed on a market based econonic engine and building out developer tooling to make the simulations more interpretable and debuggable while I'm writing them.
 
-**2022 update**: A fresh take on this architecture with a much smaller scope surface lives in https://github.com/JoeHowarth/trade-sim
+**2022 update**: A fresh take on this architecture with a much smaller scope lives in https://github.com/JoeHowarth/trade-sim
 
 -----------
 
